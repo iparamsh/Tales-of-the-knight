@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private float idleTimer = 0f;
 
+    private Rigidbody2D rb;
     private bool isRolling = false;
     private Vector2 rollDirection;
     [SerializeField] private float rollCooldown = 10f;
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
         MoveAction.Enable();
         RollAction.Enable();
         // Subscribe to the roll input event
@@ -137,11 +139,10 @@ public class PlayerController : MonoBehaviour
         rollCooldownTimer = rollCooldown;
     }
 
-    // Moves the player based on input — framerate-independent via Time.deltaTime
+    // Moves the player using RigidBody
     private void HandleMovement(Vector2 move)
     {
-        Vector2 position = (Vector2)transform.position + move * moveSpeed * Time.deltaTime;
-        transform.position = position;
+        rb.linearVelocity = new Vector2(move.x * moveSpeed, rb.linearVelocity.y);
     }
 
     // Switches between Idle and Run with a grace period to avoid flashing on direction changes
