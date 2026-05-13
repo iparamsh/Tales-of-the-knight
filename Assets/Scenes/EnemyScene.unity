@@ -8116,42 +8116,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7954244750815327931, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6190236
-      objectReference: {fileID: 0}
-    - target: {fileID: -7954244750815327931, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_Size.y
-      value: 1.4792023
-      objectReference: {fileID: 0}
-    - target: {fileID: -7954244750815327931, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.1123632
-      objectReference: {fileID: 0}
-    - target: {fileID: -7954244750815327931, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0052261353
-      objectReference: {fileID: 0}
-    - target: {fileID: 942493609731282250, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 942493609731282250, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.9498699
-      objectReference: {fileID: 0}
-    - target: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.9498699
-      objectReference: {fileID: 0}
-    - target: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.4999
-      objectReference: {fileID: 0}
     - target: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -31.423
@@ -8192,37 +8156,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3427193348688249713, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: moveSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: rollSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: rollCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: rollDuration
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9523,6 +9459,9 @@ GameObject:
   - component: {fileID: 1416128740}
   - component: {fileID: 1416128739}
   - component: {fileID: 1416128738}
+  - component: {fileID: 1416128742}
+  - component: {fileID: 1416128741}
+  - component: {fileID: 1416128743}
   m_Layer: 3
   m_Name: ShadowWarrior
   m_TagString: Untagged
@@ -9620,12 +9559,116 @@ Transform:
   m_GameObject: {fileID: 1416128737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.35, y: -0.61, z: 0}
+  m_LocalPosition: {x: -18.3, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &1416128741
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416128737}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.102648735, y: -3.700567}
+  m_Size: {x: 1.4913464, y: 3.2397227}
+  m_Direction: 0
+--- !u!50 &1416128742
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416128737}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1416128743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416128737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86599d48221b494896d492ebe32c340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossController
+  maxHealth: 100
+  bossName: The Shadow Warrior
+  extremeRange: 15
+  farRange: 10
+  midRange: 6
+  closeRange: 3
+  walkSpeed: 2
+  sprintSpeed: 6
+  dashCooldown: 7
+  rollAttackCooldown: 3
+  attack1Cooldown: 2
+  attack2Cooldown: 4
+  jumpAttackCooldown: 5
+  teleportCooldown: 8
+  dashDistance: 8
+  dashDuration: 0.4
+  jumpAttackDistance: 4
+  jumpAttackDuration: 0.6
+  teleportMinDistance: 3
+  teleportMaxDistance: 6
+  teleportInvisibleDuration: 0.5
+  minEvaluationTime: 1
+  maxEvaluationTime: 2.5
+  maxPoise: 50
+  poiseRegenRate: 10
+  poiseRegenDelay: 2
+  staggerDuration: 0.5
+  contactDamage: 10
 --- !u!1 &1512050288
 GameObject:
   m_ObjectHideFlags: 0
