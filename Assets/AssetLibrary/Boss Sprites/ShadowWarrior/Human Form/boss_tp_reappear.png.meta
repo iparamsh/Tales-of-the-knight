@@ -1,0 +1,791 @@
+fileFormatVersion: 2
+guid: a84272ce8ba17a4479c34e363778fb61
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 252714833517559271
+    second: boss_tp_reappear_0
+  - first:
+      213: -9009703358979647038
+    second: boss_tp_reappear_1
+  - first:
+      213: -5505655527433863006
+    second: boss_tp_reappear_2
+  - first:
+      213: -4301667400243070328
+    second: boss_tp_reappear_3
+  - first:
+      213: -4250353709045344321
+    second: boss_tp_reappear_4
+  - first:
+      213: 6660782957836352157
+    second: boss_tp_reappear_5
+  - first:
+      213: 6822268314635749377
+    second: boss_tp_reappear_6
+  - first:
+      213: 3706243189009403946
+    second: boss_tp_reappear_7
+  - first:
+      213: 354905551548073183
+    second: boss_tp_reappear_8
+  - first:
+      213: 7281099304928969859
+    second: boss_tp_reappear_9
+  - first:
+      213: 4268460396544123140
+    second: boss_tp_reappear_10
+  - first:
+      213: -8168854265390802405
+    second: boss_tp_reappear_11
+  - first:
+      213: 7031753380570034686
+    second: boss_tp_reappear_12
+  - first:
+      213: -3516788090396157085
+    second: boss_tp_reappear_13
+  - first:
+      213: 3828797899788371142
+    second: boss_tp_reappear_14
+  - first:
+      213: 3634059833143507172
+    second: boss_tp_reappear_15
+  - first:
+      213: -6819127031425769373
+    second: boss_tp_reappear_16
+  - first:
+      213: -4386646631272787812
+    second: boss_tp_reappear_17
+  - first:
+      213: 2448783005303525971
+    second: boss_tp_reappear_18
+  - first:
+      213: 2029517901832782490
+    second: boss_tp_reappear_19
+  - first:
+      213: -5787076980415825248
+    second: boss_tp_reappear_20
+  - first:
+      213: -179911008964253612
+    second: boss_tp_reappear_21
+  - first:
+      213: -6844222780866503573
+    second: boss_tp_reappear_22
+  - first:
+      213: 7728424037972402354
+    second: boss_tp_reappear_23
+  - first:
+      213: 3689990076781260817
+    second: boss_tp_reappear_24
+  - first:
+      213: -7505862052713664124
+    second: boss_tp_reappear_25
+  - first:
+      213: -5677631075711081321
+    second: boss_tp_reappear_26
+  - first:
+      213: -4774579319845326751
+    second: boss_tp_reappear_27
+  - first:
+      213: 2928596491833002328
+    second: boss_tp_reappear_28
+  - first:
+      213: -6524002402521487439
+    second: boss_tp_reappear_29
+  - first:
+      213: -8465173530241649157
+    second: boss_tp_reappear_30
+  - first:
+      213: 2584991960357556231
+    second: boss_tp_reappear_31
+  - first:
+      213: 9073671537392388109
+    second: boss_tp_reappear_32
+  - first:
+      213: -9038594515056165360
+    second: boss_tp_reappear_33
+  - first:
+      213: -3783070250451574381
+    second: boss_tp_reappear_34
+  - first:
+      213: 5814244298849189579
+    second: boss_tp_reappear_35
+  - first:
+      213: 8881119765074811510
+    second: boss_tp_reappear_36
+  - first:
+      213: 2640146628285145908
+    second: boss_tp_reappear_37
+  - first:
+      213: -8739482314830197899
+    second: boss_tp_reappear_38
+  - first:
+      213: 8498539294905715184
+    second: boss_tp_reappear_39
+  - first:
+      213: 4450044275455902401
+    second: boss_tp_reappear_40
+  - first:
+      213: -1089946183403044622
+    second: boss_tp_reappear_41
+  - first:
+      213: 7473767952161439205
+    second: boss_tp_reappear_42
+  - first:
+      213: -7083188533758072983
+    second: boss_tp_reappear_43
+  - first:
+      213: -8278463089814224892
+    second: boss_tp_reappear_44
+  - first:
+      213: -4478979972495761670
+    second: boss_tp_reappear_45
+  - first:
+      213: 6829315431803688054
+    second: boss_tp_reappear_46
+  - first:
+      213: 3943205641368773670
+    second: boss_tp_reappear_47
+  - first:
+      213: -5684798267188027744
+    second: boss_tp_reappear_48
+  - first:
+      213: -2232876758487877007
+    second: boss_tp_reappear_49
+  - first:
+      213: 2262924338234042000
+    second: boss_tp_reappear_50
+  - first:
+      213: 8721338327598035265
+    second: boss_tp_reappear_51
+  - first:
+      213: 4005773788471531072
+    second: boss_tp_reappear_52
+  - first:
+      213: -1437166150210504911
+    second: boss_tp_reappear_53
+  - first:
+      213: 8940163383998101793
+    second: boss_tp_reappear_54
+  - first:
+      213: 10461942698982534
+    second: boss_tp_reappear_55
+  - first:
+      213: 6298885126364040375
+    second: boss_tp_reappear_56
+  - first:
+      213: -1360398287775873603
+    second: boss_tp_reappear_57
+  - first:
+      213: 6771821274550785129
+    second: boss_tp_reappear_58
+  - first:
+      213: 4394149976550836264
+    second: boss_tp_reappear_59
+  - first:
+      213: 2168962472062823803
+    second: boss_tp_reappear_60
+  - first:
+      213: -8564726256986043114
+    second: boss_tp_reappear_61
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 12
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss_tp_reappear_0
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ed39495dc2d18300800000000000000
+      internalID: 252714833517559271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_1
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9df5cc78a17f280800000000000000
+      internalID: -9009703358979647038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_2
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a083afc77bf793b0800000000000000
+      internalID: -5505655527433863006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_3
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a32aa6a486d44c0800000000000000
+      internalID: -4301667400243070328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_4
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb7969a22d5b305c0800000000000000
+      internalID: -4250353709045344321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_5
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9abfcf4fcadf6c50800000000000000
+      internalID: 6660782957836352157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_6
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1084440e2e09dae50800000000000000
+      internalID: 6822268314635749377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_7
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20dd1c3b883f6330800000000000000
+      internalID: 3706243189009403946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_8
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd446d008b0ece400800000000000000
+      internalID: 354905551548073183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_9
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38482acad39ab0560800000000000000
+      internalID: 7281099304928969859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_10
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 401e5d98d1e9c3b30800000000000000
+      internalID: 4268460396544123140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_11
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a5279735662ae80800000000000000
+      internalID: -8168854265390802405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_12
+      rect:
+        serializedVersion: 2
+        x: 3744
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1770d917ec59160800000000000000
+      internalID: 7031753380570034686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_13
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36bdc915ddbd13fc0800000000000000
+      internalID: -3516788090396157085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_14
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4c5ad676f922530800000000000000
+      internalID: 3828797899788371142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_15
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8b8070a26ce6230800000000000000
+      internalID: 3634059833143507172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_16
+      rect:
+        serializedVersion: 2
+        x: 4896
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3606a9d18189d51a0800000000000000
+      internalID: -6819127031425769373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_17
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9052db51208f13c0800000000000000
+      internalID: -4386646631272787812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_18
+      rect:
+        serializedVersion: 2
+        x: 5472
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352512b4b23dbf120800000000000000
+      internalID: 2448783005303525971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_tp_reappear_19
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a920a0467cb4a2c10800000000000000
+      internalID: 2029517901832782490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1d41514001f327c4eaa44678aa8e079e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":21.0,"y":1.0},"gridSpriteSize":{"x":288.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      boss_tp_reappear_0: 252714833517559271
+      boss_tp_reappear_1: -9009703358979647038
+      boss_tp_reappear_10: 4268460396544123140
+      boss_tp_reappear_11: -8168854265390802405
+      boss_tp_reappear_12: 7031753380570034686
+      boss_tp_reappear_13: -3516788090396157085
+      boss_tp_reappear_14: 3828797899788371142
+      boss_tp_reappear_15: 3634059833143507172
+      boss_tp_reappear_16: -6819127031425769373
+      boss_tp_reappear_17: -4386646631272787812
+      boss_tp_reappear_18: 2448783005303525971
+      boss_tp_reappear_19: 2029517901832782490
+      boss_tp_reappear_2: -5505655527433863006
+      boss_tp_reappear_3: -4301667400243070328
+      boss_tp_reappear_4: -4250353709045344321
+      boss_tp_reappear_5: 6660782957836352157
+      boss_tp_reappear_6: 6822268314635749377
+      boss_tp_reappear_7: 3706243189009403946
+      boss_tp_reappear_8: 354905551548073183
+      boss_tp_reappear_9: 7281099304928969859
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
