@@ -64,14 +64,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move
       m_Flags: 4
-    - m_Name: up
-      m_Id: 996dc510-cf78-41e8-84ab-3a40aad82f41
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
     - m_Name: down
       m_Id: 4fe8fa04-4f69-4d98-b71a-ff2ff0dc27da
       m_Path: <Keyboard>/s
@@ -107,14 +99,33 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: c5df9f4d-cf6a-43de-bba5-af599a1f9df5
-      m_Path: <Keyboard>/f
+      m_Path: <Keyboard>/c
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Roll
       m_Flags: 0
     m_Flags: 0
+  JumpAction:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e86be258-dcc8-4006-a94c-48f34bbeebb2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 47638677-4012-430b-8b21-30daf0057b52
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
   moveSpeed: 4.5
+  jumpForce: 15
+  jumpCooldown: 1
   rollSpeed: 8
   rollDuration: 0.6
   idleDelay: 0.2
