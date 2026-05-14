@@ -8118,7 +8118,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1127565268}
   - component: {fileID: 1127565267}
-  - component: {fileID: 1127565269}
   m_Layer: 5
   m_Name: GameView
   m_TagString: Untagged
@@ -8164,24 +8163,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1127565269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127565266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a33259ffbedced9489aaa277135824d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIStatBarBinder
-  uiDocument: {fileID: 0}
-  playerStats: {fileID: 0}
-  healthParentName: HealthBarFill
-  fpParentName: FpBarFill
-  staminaParentName: StaminaBarFill
-  animationDuration: 0.3
 --- !u!1001 &1191999315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8301,34 +8282,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1191999317}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
---- !u!1 &1191999316 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-  m_PrefabInstance: {fileID: 1191999315}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1191999317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191999316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b09e601bd73694eaf0e6fefbdf6199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  maxHealth: 100
-  currentHealth: 10
-  maxFP: 100
-  currentFP: 10
-  maxStamina: 100
-  currentStamina: 100
 --- !u!1 &1293533335
 GameObject:
   m_ObjectHideFlags: 0

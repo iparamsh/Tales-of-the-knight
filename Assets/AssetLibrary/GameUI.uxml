@@ -5,13 +5,13 @@
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="FpBarBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/AssetLibrary/Healthbar%20and%20Scroll/04.png?fileID=-4464798539360404646&amp;guid=58a5fbf28c739c44a85e47b6ace18b20&amp;type=3#04_14&quot;); width: 412px; height: 74px; -unity-background-scale-mode: scale-to-fit; position: absolute; top: 65px; left: -10px;">
-        <ui:VisualElement name="HealthBarFill" style="flex-grow: 1; position: absolute; height: 39px; width: 480px; top: 93px; left: 35px;">
-            <ui:VisualElement name="Health" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/AssetLibrary/Healthbar%20and%20Scroll/04.png?fileID=7651276893967259947&amp;guid=58a5fbf28c739c44a85e47b6ace18b20&amp;type=3#04_15&quot;); width: 309px;"/>
+        <ui:VisualElement name="FpBarFill" style="flex-grow: 1; position: absolute; height: 39px; width: 480px; top: 93px; left: 35px;">
+            <ui:VisualElement name="Fp" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/AssetLibrary/Healthbar%20and%20Scroll/04.png?fileID=7651276893967259947&amp;guid=58a5fbf28c739c44a85e47b6ace18b20&amp;type=3#04_15&quot;); width: 309px;"/>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="FpBarBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/AssetLibrary/Healthbar%20and%20Scroll/04.png?fileID=-5678598915559541633&amp;guid=58a5fbf28c739c44a85e47b6ace18b20&amp;type=3#04_27&quot;); width: 608px; height: 74px; -unity-background-scale-mode: scale-to-fit; position: absolute; top: 217px; left: -135px;">
-        <ui:VisualElement name="HealthBarFill" style="flex-grow: 1; position: absolute; height: 35px; width: 429px; top: 19px; left: 189px;">
-            <ui:VisualElement name="Health" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/AssetLibrary/Healthbar%20and%20Scroll/04.png?fileID=962849122605847348&amp;guid=58a5fbf28c739c44a85e47b6ace18b20&amp;type=3#04_48&quot;); width: 224px; position: relative;"/>
+    <ui:VisualElement name="StaminaBarBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/AssetLibrary/Healthbar%20and%20Scroll/04.png?fileID=-5678598915559541633&amp;guid=58a5fbf28c739c44a85e47b6ace18b20&amp;type=3#04_27&quot;); width: 608px; height: 74px; -unity-background-scale-mode: scale-to-fit; position: absolute; top: 217px; left: -135px;">
+        <ui:VisualElement name="StaminaBarFill" style="flex-grow: 1; position: absolute; height: 35px; width: 429px; top: 19px; left: 189px;">
+            <ui:VisualElement name="Stamina" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/AssetLibrary/Healthbar%20and%20Scroll/04.png?fileID=962849122605847348&amp;guid=58a5fbf28c739c44a85e47b6ace18b20&amp;type=3#04_48&quot;); width: 224px; position: relative;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
