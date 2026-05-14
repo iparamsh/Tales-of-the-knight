@@ -8197,7 +8197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: rollCooldown
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: SprintAction.m_Name
