@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 942493609731282250}
   - component: {fileID: 3016805684016138787}
   - component: {fileID: 8481157317335990040}
+  - component: {fileID: 2539036738423814225}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -124,14 +125,34 @@ MonoBehaviour:
       m_Action: Jump
       m_Flags: 0
     m_Flags: 0
-  moveSpeed: 9
+  SprintAction:
+    m_Name: Sprint
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f9f5a7ae-ad30-4c60-9589-913505fab689
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5427c441-971d-47eb-b15c-43bf3130abe2
+      m_Path: <Keyboard>/leftShift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Sprint
+      m_Flags: 0
+    m_Flags: 0
+  moveSpeed: 7
+  sprintSpeed: 11
   jumpForce: 18
   jumpCooldown: 1
   rollSpeed: 8
   rollDuration: 0.6
   idleDelay: 0.2
-  rollCooldown: 1
+  rollCooldown: 0
+  rollStaminaCost: 30
   maxHealth: 100
+  staminaRecoveryRate: 15
 --- !u!212 &3427193348688249713
 SpriteRenderer:
   serializedVersion: 2
@@ -323,3 +344,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8667092, y: 1.46875}
   m_EdgeRadius: 0
+--- !u!114 &2539036738423814225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005343293287472138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405e68c280262b443880e1cf3c40bf6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StaminaSystem
+  maxStamina: 100
+  regenRate: 20
+  regenDelay: 1
+  rollCost: 25
+  lightAttackCost: 15
+  heavyAttackCost: 25
+  blockCost: 0
+  sprintDrainRate: 10
+  sprintDrainsStamina: 1
+  exhaustionDuration: 1.5

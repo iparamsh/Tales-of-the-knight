@@ -8108,33 +8108,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
   m_PrefabInstance: {fileID: 1191999315}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &860844252 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-  m_PrefabInstance: {fileID: 1191999315}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &860844264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860844252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405e68c280262b443880e1cf3c40bf6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StaminaSystem
-  maxStamina: 100
-  regenRate: 20
-  regenDelay: 1
-  rollCost: 25
-  lightAttackCost: 15
-  heavyAttackCost: 25
-  blockCost: 0
-  sprintDrainRate: 10
-  sprintDrainsStamina: 1
-  exhaustionDuration: 1.5
 --- !u!1001 &1191999315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8187,45 +8160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: moveSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: sprintSpeed
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: rollCooldown
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: SprintAction.m_Name
-      value: Sprint
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: SprintAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: SprintAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 5427c441-971d-47eb-b15c-43bf3130abe2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: SprintAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Keyboard>/leftShift
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: SprintAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Sprint
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 860844264}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
 --- !u!1 &1381641385
 GameObject:
@@ -9732,6 +9670,8 @@ MonoBehaviour:
   poiseRegenDelay: 2
   staggerDuration: 0.5
   contactDamage: 10
+  backstepSpeed: 2
+  backstepDuration: 1
 --- !u!61 &1416128744
 BoxCollider2D:
   m_ObjectHideFlags: 0

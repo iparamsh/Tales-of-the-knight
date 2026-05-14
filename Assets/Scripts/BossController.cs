@@ -45,6 +45,8 @@ public class BossController : Enemy
 
     [Header("Combat")]
     public float contactDamage = 10f;
+    public float backstepSpeed = 1.5f;
+    public float backstepDuration = 0.8f;
 
     // =============================================
     // Public state readable by UI and other systems
@@ -60,6 +62,7 @@ public class BossController : Enemy
         Idle,
         Walking,
         Sprinting,
+        Backstepping,
         Attacking,
         Staggered,
         Dead
@@ -125,6 +128,10 @@ public class BossController : Enemy
         else if (currentState == BossState.Sprinting)
         {
             MoveTowardPlayer(sprintSpeed);
+        }
+        else if (currentState == BossState.Backstepping)
+        {
+            MoveAwayFromPlayer(backstepSpeed);
         }
     }
 
@@ -210,7 +217,10 @@ public class BossController : Enemy
         if (roll < 0.45f)
             StartWalk();
         else if (roll < 0.60f)
-            Evaluate();
+            if (Random.value < 0.2f)
+                StartCoroutine(Backstep());
+            else
+                Evaluate();
         else if (roll < 0.78f && dashTimer <= 0f)
             StartCoroutine(DashAttack());
         else if (teleportTimer <= 0f && Random.value < 0.4f)
@@ -234,7 +244,10 @@ public class BossController : Enemy
             else if (attack1Timer <= 0f)
                 StartCoroutine(Attack1());
             else
-                Evaluate();
+                if (Random.value < 0.35f)
+                    StartCoroutine(Backstep());
+                else
+                    Evaluate();
         }
         else if (roll < 0.72f && rollAttackTimer <= 0f)
         {
@@ -306,9 +319,30 @@ public class BossController : Enemy
         }
     }
 
+    IEnumerator Backstep()
+    {
+        currentState = BossState.Backstepping;
+        float elapsed = 0f;
+
+        while (elapsed < backstepDuration)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        currentState = BossState.Idle;
+        evaluationTimer = 0f;
+    }
+
     void MoveTowardPlayer(float speed)
     {
         float directionX = player.position.x > transform.position.x ? 1f : -1f;
+        transform.position += new Vector3(directionX * speed * Time.deltaTime, 0f, 0f);
+    }
+
+    void MoveAwayFromPlayer(float speed)
+    {
+        float directionX = player.position.x > transform.position.x ? -1f : 1f;
         transform.position += new Vector3(directionX * speed * Time.deltaTime, 0f, 0f);
     }
 
