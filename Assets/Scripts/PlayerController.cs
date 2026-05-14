@@ -128,10 +128,13 @@ public class PlayerController : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < rollDuration)
         {
-            transform.position += (Vector3)(rollDirection * rollSpeed * Time.deltaTime);
+            rb.linearVelocity = new Vector2(rollDirection.x * rollSpeed, rb.linearVelocity.y);
             elapsed += Time.deltaTime;
             yield return null;
         }
+
+        // Stop the roll momentum when finished
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
         isRolling = false;
         IsInvincible = false;

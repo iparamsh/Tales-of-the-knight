@@ -10,6 +10,9 @@ public class CameraFollow : MonoBehaviour
     public float minX, maxX, minY, maxY;
     public bool useBounds = true;
 
+    [Header("Axes")]
+    public bool followY = true;
+
     private Camera cam;
 
     void Awake()
@@ -34,7 +37,9 @@ public class CameraFollow : MonoBehaviour
         }
 
         float newX = Mathf.Lerp(transform.position.x, targetX, smoothSpeed * Time.fixedDeltaTime);
-        float newY = Mathf.Lerp(transform.position.y, targetY, smoothSpeed * Time.fixedDeltaTime);
+        float newY = followY 
+            ? Mathf.Lerp(transform.position.y, targetY, smoothSpeed * Time.fixedDeltaTime)
+            : transform.position.y;
 
         transform.position = new Vector3(newX, newY, transform.position.z);
     }

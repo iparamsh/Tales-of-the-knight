@@ -106,9 +106,6 @@ MonoBehaviour:
       m_Action: Roll
       m_Flags: 0
     m_Flags: 0
-  moveSpeed: 7
-  rollSpeed: 15
-  rollDuration: 0.3
   JumpAction:
     m_Name: Jump
     m_Type: 0
@@ -126,7 +123,7 @@ MonoBehaviour:
       m_Action: Jump
       m_Flags: 0
     m_Flags: 0
-  moveSpeed: 4.5
+  moveSpeed: 9
   jumpForce: 15
   jumpCooldown: 1
   rollSpeed: 8
