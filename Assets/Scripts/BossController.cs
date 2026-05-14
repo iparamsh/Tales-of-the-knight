@@ -104,16 +104,20 @@ public class BossController : Enemy
         TickCooldowns();
         TickPoise();
 
-        if (evaluationTimer > 0f)
+        // Only evaluate when idle
+        if (currentState == BossState.Idle)
         {
-            evaluationTimer -= Time.deltaTime;
-        }
-        else
-        {
-            EvaluateBehavior();
+            if (evaluationTimer > 0f)
+            {
+                evaluationTimer -= Time.deltaTime;
+            }
+            else
+            {
+                EvaluateBehavior();
+            }
         }
 
-        // Continuous movement — runs every frame regardless of evaluation
+        // Continuous movement
         if (currentState == BossState.Walking)
         {
             MoveTowardPlayer(walkSpeed);
@@ -188,12 +192,14 @@ public class BossController : Enemy
     void EvaluateFarRange()
     {
         float roll = Random.value;
-        if (roll < 0.75f)
+        if (roll < 0.60f)
             StartWalk();
-        else if (roll < 0.90f)
+        else if (roll < 0.75f)
             Evaluate();
-        else if (dashTimer <= 0f)
+        else if (roll < 0.88f && dashTimer <= 0f)
             StartCoroutine(DashAttack());
+        else if (teleportTimer <= 0f && Random.value < 0.4f)
+            StartCoroutine(TeleportAttack());
         else
             StartWalk();
     }
@@ -201,12 +207,14 @@ public class BossController : Enemy
     void EvaluateMidRange()
     {
         float roll = Random.value;
-        if (roll < 0.50f)
+        if (roll < 0.45f)
             StartWalk();
-        else if (roll < 0.75f)
+        else if (roll < 0.60f)
             Evaluate();
-        else if (dashTimer <= 0f)
+        else if (roll < 0.78f && dashTimer <= 0f)
             StartCoroutine(DashAttack());
+        else if (teleportTimer <= 0f && Random.value < 0.4f)
+            StartCoroutine(TeleportAttack());
         else
             StartWalk();
     }
@@ -215,28 +223,26 @@ public class BossController : Enemy
     {
         float roll = Random.value;
 
-        if (roll < 0.35f)
+        if (roll < 0.55f)
         {
-            // combo decision
+            // heavily favor attacks at close range
             float comboRoll = Random.value;
-            if (comboRoll < 0.4f && attack1Timer <= 0f)
+            if (comboRoll < 0.5f && attack1Timer <= 0f)
                 StartCoroutine(Attack1());
             else if (attack2Timer <= 0f)
                 StartCoroutine(Attack2());
+            else if (attack1Timer <= 0f)
+                StartCoroutine(Attack1());
             else
                 Evaluate();
         }
-        else if (roll < 0.60f && rollAttackTimer <= 0f)
+        else if (roll < 0.72f && rollAttackTimer <= 0f)
         {
             StartCoroutine(RollAttack());
         }
-        else if (roll < 0.70f && jumpAttackTimer <= 0f)
+        else if (roll < 0.84f && jumpAttackTimer <= 0f)
         {
             StartCoroutine(JumpAttack());
-        }
-        else if (roll < 0.80f && teleportTimer <= 0f)
-        {
-            StartCoroutine(TeleportAttack());
         }
         else
         {
@@ -249,8 +255,7 @@ public class BossController : Enemy
         currentState = BossState.Walking;
         animator.SetBool("isWalking", true);
         animator.SetBool("isRunning", false);
-        MoveTowardPlayer(walkSpeed);
-        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        StartCoroutine(WalkThenEvaluate(Random.Range(0.5f, 1.2f)));
     }
 
     void StartSprint()
@@ -258,8 +263,7 @@ public class BossController : Enemy
         currentState = BossState.Sprinting;
         animator.SetBool("isRunning", true);
         animator.SetBool("isWalking", false);
-        MoveTowardPlayer(sprintSpeed);
-        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        StartCoroutine(WalkThenEvaluate(Random.Range(0.4f, 0.8f)));
     }
 
     void Evaluate()
@@ -268,6 +272,38 @@ public class BossController : Enemy
         animator.SetBool("isWalking", false);
         animator.SetBool("isRunning", false);
         evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+    }
+
+    IEnumerator WalkThenEvaluate(float maxWalkTime)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < maxWalkTime)
+        {
+            elapsed += Time.deltaTime;
+
+            float distance = Vector2.Distance(transform.position, player.position);
+
+            // If he's walked into a closer range zone, stop and evaluate immediately
+            if (currentState == BossState.Sprinting && distance <= farRange)
+            {
+                break;
+            }
+            if (currentState == BossState.Walking && distance <= midRange)
+            {
+                break;
+            }
+
+            yield return null;
+        }
+
+        if (currentState == BossState.Walking || currentState == BossState.Sprinting)
+        {
+            currentState = BossState.Idle;
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
+            evaluationTimer = 0f;
+        }
     }
 
     void MoveTowardPlayer(float speed)
@@ -290,7 +326,7 @@ public class BossController : Enemy
         yield return new WaitForSeconds(GetAnimationLength("Boss_Attack1"));
 
         currentState = BossState.Idle;
-        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        evaluationTimer = 0f;
     }
 
     IEnumerator Attack2()
@@ -302,7 +338,7 @@ public class BossController : Enemy
         yield return new WaitForSeconds(GetAnimationLength("Boss_Attack2"));
 
         currentState = BossState.Idle;
-        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        evaluationTimer = 0f;
     }
 
     IEnumerator RollAttack()
@@ -318,7 +354,8 @@ public class BossController : Enemy
 
         while (elapsed < duration)
         {
-            transform.position += (Vector3)(direction * 8f * Time.deltaTime);
+            float dirX = player.position.x > transform.position.x ? 1f : -1f;
+            transform.position += new Vector3(dirX * 8f * Time.deltaTime, 0f, 0f);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -326,7 +363,7 @@ public class BossController : Enemy
         yield return new WaitForSeconds(0.2f);
 
         currentState = BossState.Idle;
-        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        evaluationTimer = 0f;
     }
 
     IEnumerator DashAttack()
@@ -342,7 +379,8 @@ public class BossController : Enemy
 
         while (elapsed < dashDuration)
         {
-            transform.position += (Vector3)(direction * (dashDistance / dashDuration) * Time.deltaTime);
+            float dirX = player.position.x > transform.position.x ? 1f : -1f;
+            transform.position += new Vector3(dirX * (dashDistance / dashDuration) * Time.deltaTime, 0f, 0f);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -353,7 +391,7 @@ public class BossController : Enemy
         yield return new WaitForSeconds(0.4f);
 
         currentState = BossState.Idle;
-        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        evaluationTimer = 0f;
     }
 
     IEnumerator JumpAttack()
@@ -367,7 +405,8 @@ public class BossController : Enemy
 
         while (elapsed < jumpAttackDuration)
         {
-            transform.position += (Vector3)(direction * (jumpAttackDistance / jumpAttackDuration) * Time.deltaTime);
+            float dirX = player.position.x > transform.position.x ? 1f : -1f;
+            transform.position += new Vector3(dirX * (jumpAttackDistance / jumpAttackDuration) * Time.deltaTime, 0f, 0f);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -375,7 +414,7 @@ public class BossController : Enemy
         yield return new WaitForSeconds(0.3f);
 
         currentState = BossState.Idle;
-        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        evaluationTimer = 0f;
     }
 
     IEnumerator TeleportAttack()
@@ -393,25 +432,26 @@ public class BossController : Enemy
         // Wait invisible
         yield return new WaitForSeconds(teleportInvisibleDuration);
 
-        // Pick new position near player
+        // Move to new position near player
         float offsetX = Random.Range(teleportMinDistance, teleportMaxDistance);
         offsetX *= Random.value > 0.5f ? 1f : -1f;
-        Vector3 newPos = new Vector3(
+        transform.position = new Vector3(
             player.position.x + offsetX,
             transform.position.y,
             transform.position.z
         );
-        transform.position = newPos;
 
-        // Reappear
-        spriteRenderer.enabled = true;
-        yield return null; // wait one frame before triggering
+        // Trigger reappear while still invisible
         animator.SetTrigger("TeleportReappear");
+
+        // Wait one frame then show
+        yield return null;
+        spriteRenderer.enabled = true;
 
         yield return new WaitForSeconds(GetAnimationLength("Boss_TeleportReappear"));
 
         currentState = BossState.Idle;
-        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        evaluationTimer = 0f;
     }
 
     // =============================================

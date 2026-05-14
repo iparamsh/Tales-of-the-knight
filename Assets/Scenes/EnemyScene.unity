@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 465094120}
   - component: {fileID: 465094122}
   - component: {fileID: 465094121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground/Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8160,6 +8160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: moveSpeed
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9462,7 +9466,7 @@ GameObject:
   - component: {fileID: 1416128742}
   - component: {fileID: 1416128741}
   - component: {fileID: 1416128743}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: ShadowWarrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9643,18 +9647,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossController
   maxHealth: 100
   bossName: The Shadow Warrior
-  extremeRange: 15
-  farRange: 10
-  midRange: 6
-  closeRange: 3
-  walkSpeed: 2
+  extremeRange: 12
+  farRange: 8
+  midRange: 4
+  closeRange: 2
+  walkSpeed: 4
   sprintSpeed: 6
-  dashCooldown: 7
-  rollAttackCooldown: 3
-  attack1Cooldown: 2
-  attack2Cooldown: 4
-  jumpAttackCooldown: 5
-  teleportCooldown: 8
+  dashCooldown: 3
+  rollAttackCooldown: 2
+  attack1Cooldown: 1
+  attack2Cooldown: 1
+  jumpAttackCooldown: 2
+  teleportCooldown: 3
   dashDistance: 8
   dashDuration: 0.4
   jumpAttackDistance: 4
@@ -9662,8 +9666,8 @@ MonoBehaviour:
   teleportMinDistance: 3
   teleportMaxDistance: 6
   teleportInvisibleDuration: 0.5
-  minEvaluationTime: 1
-  maxEvaluationTime: 2.5
+  minEvaluationTime: 0.1
+  maxEvaluationTime: 0.4
   maxPoise: 50
   poiseRegenRate: 10
   poiseRegenDelay: 2
