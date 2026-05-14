@@ -6,8 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     public InputAction MoveAction;
     public InputAction RollAction;
+    public InputAction JumpAction;
 
     [SerializeField] private float moveSpeed = 4.5f;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float jumpCooldown = 1f;
     [SerializeField] private float rollSpeed = 8f;
     // Should match the length of your roll animation clip
     [SerializeField] private float rollDuration = 0.6f;
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 rollDirection;
     [SerializeField] private float rollCooldown = 10f;
     private float rollCooldownTimer = 0f;
+    private float jumpCooldownTimer = 0f;
 
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
@@ -31,32 +35,22 @@ public class PlayerController : MonoBehaviour
     // =============================================
     public bool IsInvincible { get; private set; }
 
-    // Returns the total roll cooldown duration configured in the Inspector
     public float GetRollCooldown() { return rollCooldown; }
 
-    // Returns how many seconds remain before the player can roll again
-    public float GetRollCooldownRemaining()
-    {
-        return rollCooldownTimer;
-    }
+    public float GetRollCooldownRemaining() { return rollCooldownTimer; }
 
-    // Returns the current world position of the player
     public Vector2 GetPosition() { return transform.position; }
 
-    // Returns current health
     public float GetHealth() { return currentHealth; }
 
-    // Sets current health — damage (decrease) is ignored while invincible, heals always apply
     public void SetHealth(float value)
     {
         if (value < currentHealth && IsInvincible) return;
         currentHealth = Mathf.Clamp(value, 0f, maxHealth);
     }
 
-    // Returns the maximum health configured in the Inspector
     public float GetMaxHealth() { return maxHealth; }
 
-    // Sets the maximum health — also clamps current health if it now exceeds the new max
     public void SetMaxHealth(float value)
     {
         maxHealth = Mathf.Max(0f, value);
@@ -73,23 +67,27 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         MoveAction.Enable();
         RollAction.Enable();
-        // Subscribe to the roll input event
+        JumpAction.Enable();
         RollAction.performed += OnRoll;
+        JumpAction.performed += OnJump;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void OnDestroy()
     {
-        // Unsubscribe when the GameObject is destroyed to avoid null-reference errors
         RollAction.performed -= OnRoll;
+        JumpAction.performed -= OnJump;
     }
 
     void Update()
     {
-        // Tick the cooldown down every frame
         if (rollCooldownTimer > 0)
             rollCooldownTimer -= Time.deltaTime;
+
+        if (jumpCooldownTimer > 0)
+            jumpCooldownTimer -= Time.deltaTime;
+
 
         // Block normal movement and animation while rolling
         if (isRolling) return;
@@ -104,7 +102,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isRolling || rollCooldownTimer > 0) return;
 
-        // Roll in the movement direction, or forward if standing still
         Vector2 move = MoveAction.ReadValue<Vector2>();
         rollDirection = move.sqrMagnitude > 0.01f
             ? move.normalized
@@ -113,39 +110,39 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(RollCoroutine());
     }
 
-    // Coroutine: runs across multiple frames so we can move the player and track
-    // elapsed time without freezing the game. yield return null means "pause here,
-    // resume on the next frame."
+    private void OnJump(InputAction.CallbackContext ctx)
+    {
+        if (isRolling || jumpCooldownTimer > 0) return;
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        jumpCooldownTimer = jumpCooldown;
+        animator.SetTrigger("Jump");
+    }
+
     private IEnumerator RollCoroutine()
     {
         isRolling = true;
         IsInvincible = true;
-        // Flip the sprite to face the roll direction before playing the animation
         spriteRenderer.flipX = rollDirection.x < 0;
         animator.SetTrigger("Roll");
 
         float elapsed = 0f;
         while (elapsed < rollDuration)
         {
-            // Push the player in the roll direction each frame
             transform.position += (Vector3)(rollDirection * rollSpeed * Time.deltaTime);
             elapsed += Time.deltaTime;
-            yield return null; // Wait one frame, then continue the loop
+            yield return null;
         }
 
         isRolling = false;
         IsInvincible = false;
-        // Start the cooldown after the roll finishes
         rollCooldownTimer = rollCooldown;
     }
 
-    // Moves the player using RigidBody
     private void HandleMovement(Vector2 move)
     {
         rb.linearVelocity = new Vector2(move.x * moveSpeed, rb.linearVelocity.y);
     }
 
-    // Switches between Idle and Run with a grace period to avoid flashing on direction changes
     private void HandleAnimation(Vector2 move)
     {
         if (move.sqrMagnitude > 0.01f)
