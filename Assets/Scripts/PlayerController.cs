@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     private bool isRolling = false;
     private Vector2 rollDirection;
     [SerializeField] private float rollCooldown = 10f;
-    [SerializeField] private float rollStaminaCost = 30f;
     private float rollCooldownTimer = 0f;
     private float jumpCooldownTimer = 0f;
 
@@ -35,7 +34,8 @@ public class PlayerController : MonoBehaviour
     private float currentHealth;
     private PlayerStats playerStats;
 
-    [SerializeField] private float staminaRecoveryRate = 15f;
+    // Stamina is now managed entirely by StaminaSystem
+    // No staminaRecoveryRate needed - use StaminaSystem's regenRate instead
 
     // =============================================
     // Public variables to be used by other objects
@@ -110,9 +110,7 @@ public class PlayerController : MonoBehaviour
         if (jumpCooldownTimer > 0)
             jumpCooldownTimer -= Time.deltaTime;
 
-        // Stamina recovery
-        if (playerStats != null && playerStats.CurrentStamina < playerStats.MaxStamina)
-            playerStats.ChangeStamina(staminaRecoveryRate * Time.deltaTime);
+        // Stamina recovery is now handled by StaminaSystem
 
         // Block normal movement and animation while rolling
         if (isRolling) return;
@@ -127,15 +125,9 @@ public class PlayerController : MonoBehaviour
     {
         if (isRolling || rollCooldownTimer > 0) return;
 
-        StaminaSystem stamina = GetComponent<StaminaSystem>();
-        if (stamina != null && !stamina.TryRoll()) return;
-        // Check stamina
-        if (playerStats != null && playerStats.CurrentStamina < rollStaminaCost)
+        // Check stamina via StaminaSystem
+        if (staminaSystem == null || !staminaSystem.TryRoll())
             return;
-
-        // Drain stamina
-        if (playerStats != null)
-            playerStats.ChangeStamina(-rollStaminaCost);
 
         Vector2 move = MoveAction.ReadValue<Vector2>();
         rollDirection = move.sqrMagnitude > 0.01f

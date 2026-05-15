@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Interactable : MonoBehaviour
 {
@@ -17,6 +18,17 @@ public class Interactable : MonoBehaviour
     public UnityEvent onInteract;
 
     private bool playerInRange = false;
+    private VisualElement hintElement;
+
+    void Start()
+    {
+        // Try to find the hint element from the UI document
+        var uiDoc = FindAnyObjectByType<UIDocument>();
+        if (uiDoc != null)
+        {
+            hintElement = uiDoc.rootVisualElement.Q<VisualElement>("InteractionHint");
+        }
+    }
 
     void Update()
     {
@@ -45,25 +57,30 @@ public class Interactable : MonoBehaviour
     }
 
     // =============================================
-    // UI Methods - Adhitya starts work in here
+    // UI Methods
     // =============================================
 
     public void ShowPrompt()
     {
-        if (interactPromptUI != null)
+        if (hintElement != null)
+        {
+            hintElement.style.display = DisplayStyle.Flex;
+        }
+        else if (interactPromptUI != null)
+        {
             interactPromptUI.SetActive(true);
-
-        // Placeholder until UI partner implements proper prompt
-        Debug.Log(promptText);
+        }
     }
 
     public void HidePrompt()
     {
-        if (interactPromptUI != null)
+        if (hintElement != null)
+        {
+            hintElement.style.display = DisplayStyle.None;
+        }
+        else if (interactPromptUI != null)
+        {
             interactPromptUI.SetActive(false);
+        }
     }
-
-    // =============================================
-    // UI Methods - Adhitya starts work in here
-    // =============================================
 }

@@ -1,0 +1,19 @@
+.prompt-button {
+    padding: 8px 16px;
+    margin: 4px;
+    background-color: rgb(100, 100, 100);
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    border-radius: 6px;
+    border-width: 0;
+    min-width: 80px;
+    -unity-font-style: bold;
+}
+
+.prompt-button:hover {
+    background-color: rgb(150, 150, 150);
+}
+
+.prompt-button:active {
+    background-color: rgb(80, 80, 80);
+}
