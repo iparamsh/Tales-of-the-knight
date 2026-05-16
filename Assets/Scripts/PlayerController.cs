@@ -14,77 +14,50 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float jumpCooldown = 1f;
     [SerializeField] private float rollSpeed = 8f;
-    // Should match the length of your roll animation clip
     [SerializeField] private float rollDuration = 0.6f;
     [SerializeField] private float idleDelay = 0.2f;
+    [SerializeField] private float rollCooldown = 10f;
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private float idleTimer = 0f;
-
     private Rigidbody2D rb;
     private StaminaSystem staminaSystem;
+    private PlayerStats playerStats;
+
+    private float idleTimer = 0f;
     private bool isRolling = false;
     private Vector2 rollDirection;
-    [SerializeField] private float rollCooldown = 10f;
     private float rollCooldownTimer = 0f;
     private float jumpCooldownTimer = 0f;
 
-    [SerializeField] private float maxHealth = 100f;
-    private float currentHealth;
-    private PlayerStats playerStats;
-
-    // Stamina is now managed entirely by StaminaSystem
-    // No staminaRecoveryRate needed - use StaminaSystem's regenRate instead
-
     // =============================================
-    // Public variables to be used by other objects
+    // Public interface
     // =============================================
     public bool IsInvincible { get; private set; }
-
     public float GetRollCooldown() { return rollCooldown; }
-
     public float GetRollCooldownRemaining() { return rollCooldownTimer; }
-
     public Vector2 GetPosition() { return transform.position; }
 
-    public float GetHealth() { return playerStats != null ? playerStats.CurrentHealth : currentHealth; }
+    public float GetHealth() { return playerStats != null ? playerStats.CurrentHealth : 0f; }
+    public float GetMaxHealth() { return playerStats != null ? playerStats.MaxHealth : 0f; }
 
     public void SetHealth(float value)
     {
-        float prev = playerStats != null ? playerStats.CurrentHealth : currentHealth;
-        if (value < prev && IsInvincible) return;
-        if (playerStats != null)
-            playerStats.SetHealth(value);
-        else
-            currentHealth = Mathf.Clamp(value, 0f, maxHealth);
+        if (value < GetHealth() && IsInvincible) return;
+        playerStats?.SetHealth(value);
     }
-
-    public float GetMaxHealth() { return maxHealth; }
 
     public void SetMaxHealth(float value)
     {
-        if (playerStats != null)
-            playerStats.SetMaxHealth(value);
-        else
-        {
-            maxHealth = Mathf.Max(0f, value);
-            currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-        }
+        playerStats?.SetMaxHealth(value);
     }
-
-    // =============================================
-    // Public variables to be used by other objects
-    // =============================================
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         staminaSystem = GetComponent<StaminaSystem>();
         playerStats = GetComponent<PlayerStats>();
-        if (playerStats == null)
-            playerStats = gameObject.AddComponent<PlayerStats>();
-        currentHealth = playerStats.CurrentHealth;
+
         MoveAction.Enable();
         RollAction.Enable();
         JumpAction.Enable();
@@ -104,15 +77,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (rollCooldownTimer > 0)
-            rollCooldownTimer -= Time.deltaTime;
-
-        if (jumpCooldownTimer > 0)
-            jumpCooldownTimer -= Time.deltaTime;
-
-        // Stamina recovery is now handled by StaminaSystem
-
-        // Block normal movement and animation while rolling
+        if (rollCooldownTimer > 0) rollCooldownTimer -= Time.deltaTime;
+        if (jumpCooldownTimer > 0) jumpCooldownTimer -= Time.deltaTime;
         if (isRolling) return;
 
         Vector2 move = MoveAction.ReadValue<Vector2>();
@@ -124,10 +90,8 @@ public class PlayerController : MonoBehaviour
     private void OnRoll(InputAction.CallbackContext ctx)
     {
         if (isRolling || rollCooldownTimer > 0) return;
-
-        // Check stamina via StaminaSystem
-        if (staminaSystem == null || !staminaSystem.TryRoll())
-            return;
+        // StaminaSystem handles all stamina checks and deduction
+        if (staminaSystem != null && !staminaSystem.TryRoll()) return;
 
         Vector2 move = MoveAction.ReadValue<Vector2>();
         rollDirection = move.sqrMagnitude > 0.01f
@@ -160,9 +124,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        // Stop the roll momentum when finished
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-
         isRolling = false;
         IsInvincible = false;
         rollCooldownTimer = rollCooldown;
@@ -170,12 +132,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement(Vector2 move)
     {
-        StaminaSystem stamina = staminaSystem;
-        bool isExhausted = stamina != null && stamina.IsExhausted;
-        bool isSprinting = !isExhausted 
-            && SprintAction != null 
-            && SprintAction.enabled 
-            && SprintAction.IsPressed() 
+        bool isExhausted = staminaSystem != null && staminaSystem.IsExhausted;
+        bool isSprinting = !isExhausted
+            && SprintAction != null
+            && SprintAction.enabled
+            && SprintAction.IsPressed()
             && move.sqrMagnitude > 0.01f;
 
         float currentSpeed = isSprinting ? sprintSpeed : moveSpeed;
@@ -197,12 +158,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Flips the sprite so the character faces the direction of movement
+
     private void HandleFacing(Vector2 move)
     {
-        if (move.x < 0)
-            spriteRenderer.flipX = true;
-        else if (move.x > 0)
-            spriteRenderer.flipX = false;
+        if (move.x < 0) spriteRenderer.flipX = true;
+        else if (move.x > 0) spriteRenderer.flipX = false;
     }
 }

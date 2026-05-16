@@ -6,9 +6,9 @@ public class UIStatBarBinder : MonoBehaviour
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private PlayerStats playerStats;
 
-    [SerializeField] private string healthParentName = "HealthBarBackground";
-    [SerializeField] private string fpParentName = "FpBarBackground";
-    [SerializeField] private string staminaParentName = "StaminaBarBackground";
+    [SerializeField] private string healthParentName = "HealthBarFill";
+    [SerializeField] private string fpParentName = "FpBarFill";
+    [SerializeField] private string staminaParentName = "StaminaBarFill";
     [SerializeField] private float animationDuration = 0.3f;
 
     private VisualElement healthBar, fpBar, staminaBar;
@@ -40,10 +40,13 @@ public class UIStatBarBinder : MonoBehaviour
         var healthParent = root.Q<VisualElement>(healthParentName);
         var fpParent = root.Q<VisualElement>(fpParentName);
         var staminaParent = root.Q<VisualElement>(staminaParentName);
+        healthBar = root.Q<VisualElement>("HealthBarFill");
+        fpBar = root.Q<VisualElement>("FpBarFill");
+        staminaBar = root.Q<VisualElement>("StaminaBarFill");
 
-        healthBar = FindBarElement(healthParent, "Health");
-        fpBar = FindBarElement(fpParent, "Fp");
-        staminaBar = FindBarElement(staminaParent, "Stamina");
+        //healthBar = FindBarElement(healthParent, "Health");
+        //fpBar = FindBarElement(fpParent, "Fp");
+        //staminaBar = FindBarElement(staminaParent, "Stamina");
 
         TryBindPlayerStats();
         if (!isBound)
@@ -78,7 +81,7 @@ public class UIStatBarBinder : MonoBehaviour
         if (isBound) return;
 
         if (playerStats == null)
-            playerStats = FindAnyObjectByType<PlayerStats>();
+            playerStats = FindFirstObjectByType<PlayerStats>();
 
         if (playerStats == null)
             return;

@@ -8177,7 +8177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIStatBarBinder
   uiDocument: {fileID: 0}
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 1191999317}
   healthParentName: HealthBarFill
   fpParentName: FpBarFill
   staminaParentName: StaminaBarFill

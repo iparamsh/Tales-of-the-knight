@@ -11,7 +11,7 @@ public class StaminaSystem : MonoBehaviour
     public float rollCost = 25f;
     public float lightAttackCost = 15f;
     public float heavyAttackCost = 25f;
-    public float blockCost = 0f; // placeholder, unused for now
+    public float blockCost = 0f;
     public float sprintDrainRate = 10f;
     public bool sprintDrainsStamina = false;
 
@@ -19,7 +19,7 @@ public class StaminaSystem : MonoBehaviour
     public float exhaustionDuration = 1.5f;
 
     // =============================================
-    // Public state readable by UI and other systems
+    // Public state
     // =============================================
     public float CurrentStamina { get; private set; }
     public float MaxStamina => maxStamina;
@@ -31,12 +31,14 @@ public class StaminaSystem : MonoBehaviour
     private float regenDelayTimer = 0f;
     private float exhaustionTimer = 0f;
     private PlayerController playerController;
-    private bool wasSprintingLastFrame = false;
+    private PlayerStats playerStats;
 
     void Start()
     {
         CurrentStamina = maxStamina;
         playerController = GetComponent<PlayerController>();
+        playerStats = GetComponent<PlayerStats>();
+        playerStats?.InitStamina(maxStamina, maxStamina);
     }
 
     void Update()
@@ -46,19 +48,12 @@ public class StaminaSystem : MonoBehaviour
         HandleRegen();
     }
 
-    // =============================================
-    // Core systems
-    // =============================================
-
     void HandleExhaustion()
     {
         if (!IsExhausted) return;
-
         exhaustionTimer -= Time.deltaTime;
         if (exhaustionTimer <= 0f)
-        {
             IsExhausted = false;
-        }
     }
 
     void HandleSprintDrain()
@@ -71,25 +66,17 @@ public class StaminaSystem : MonoBehaviour
             && playerController.SprintAction.IsPressed()
             && playerController.MoveAction.ReadValue<Vector2>().sqrMagnitude > 0.01f;
 
-        if (isSprinting)
+        if (isSprinting && !IsExhausted)
         {
-            // sprinting delays regen
             regenDelayTimer = regenDelay;
-
-            if (!IsExhausted)
-            {
-                ConsumeStamina(sprintDrainRate * Time.deltaTime);
-            }
+            ConsumeStamina(sprintDrainRate * Time.deltaTime);
         }
-
-        wasSprintingLastFrame = isSprinting;
     }
 
     void HandleRegen()
     {
         if (IsExhausted) return;
         if (CurrentStamina >= maxStamina) return;
-
         if (regenDelayTimer > 0f)
         {
             regenDelayTimer -= Time.deltaTime;
@@ -97,19 +84,16 @@ public class StaminaSystem : MonoBehaviour
         }
 
         CurrentStamina = Mathf.Min(CurrentStamina + regenRate * Time.deltaTime, maxStamina);
+        NotifyStaminaChanged();
     }
 
-    // =============================================
-    // Public methods for other systems
-    // =============================================
-
-    // Returns true if stamina was successfully consumed, false if exhausted
     public bool ConsumeStamina(float amount)
     {
         if (IsExhausted) return false;
 
         CurrentStamina = Mathf.Max(CurrentStamina - amount, 0f);
         regenDelayTimer = regenDelay;
+        NotifyStaminaChanged();
 
         if (CurrentStamina <= 0f)
         {
@@ -120,7 +104,6 @@ public class StaminaSystem : MonoBehaviour
         return true;
     }
 
-    // Called externally when player takes a hit - interrupts regen
     public void InterruptRegen()
     {
         regenDelayTimer = regenDelay;
@@ -130,19 +113,19 @@ public class StaminaSystem : MonoBehaviour
     {
         IsExhausted = true;
         exhaustionTimer = exhaustionDuration;
-        // Animator hook — partner adds exhaustion animation trigger here
         Debug.Log("Player exhausted");
     }
 
-    // =============================================
-    // Roll integration — called by PlayerController
-    // =============================================
-
-    // Returns true if roll is allowed, false if exhausted or insufficient stamina
     public bool TryRoll()
     {
         if (IsExhausted) return false;
         if (CurrentStamina < rollCost) return false;
         return ConsumeStamina(rollCost);
+    }
+
+    void NotifyStaminaChanged()
+    {
+        Debug.Log($"[StaminaSystem] NotifyStaminaChanged called, stamina: {CurrentStamina:F1}");
+        playerStats?.SetStamina(CurrentStamina);
     }
 }
