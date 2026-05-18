@@ -8214,6 +8214,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2539036738423814225, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: sprintDrainsStamina
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9498699
@@ -8292,11 +8296,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: rollCooldown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: rollDuration
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: rollStaminaCost
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22990,6 +22998,7 @@ MonoBehaviour:
   minY: -9
   maxY: 8
   useBounds: 1
+  followY: 1
 --- !u!1 &1752112703
 GameObject:
   m_ObjectHideFlags: 0
