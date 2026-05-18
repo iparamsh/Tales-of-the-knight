@@ -5,67 +5,69 @@ public class UIStatBarBinder : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private PlayerStats playerStats;
-
-    [SerializeField] private string healthParentName = "HealthBarFill";
-    [SerializeField] private string fpParentName = "FpBarFill";
-    [SerializeField] private string staminaParentName = "StaminaBarFill";
     [SerializeField] private float animationDuration = 0.3f;
 
     private VisualElement healthBar, fpBar, staminaBar;
+    private VisualElement healthBg, fpBg, staminaBg;
 
-    private float healthFillTarget, healthTextTarget, healthTextCurrent;
-    private float fpFillTarget, fpTextTarget, fpTextCurrent;
-    private float staminaFillTarget, staminaTextTarget, staminaTextCurrent;
+    private float healthFillTarget, fpFillTarget, staminaFillTarget;
+    private float currentHealthFill, currentFpFill, currentStaminaFill;
     private float healthAnimTimer, fpAnimTimer, staminaAnimTimer;
 
-    private float currentHealthFill, currentFpFill, currentStaminaFill;
-
     private float prevHealth, prevFP, prevStamina;
-    private float healthFlashTimer, fpFlashTimer, staminaFlashTimer;
+    private float healthFlashTimer, fpFlashTimer;
+    private float flashDuration = 0.2f;
+
     private Color damageFlashColor = new Color(1f, 0.3f, 0.3f, 1f);
     private Color healFlashColor = new Color(0.3f, 1f, 0.3f, 1f);
-    private float flashDuration = 0.2f;
+    private Color darkTint = new Color(0.2f, 0.2f, 0.2f, 1f);
+
     private bool isBound;
+
+    // Base stat values — bar is at max width when stat equals these
+    private const float HEALTH_BASE = 100f;
+    private const float FP_BASE = 100f;
+    private const float STAMINA_BASE = 100f;
+
+    // Max width at base stat value
+    private const float HEALTH_MAX_WIDTH = 360f;
+    private const float FP_MAX_WIDTH = 350f;
+    private const float STAMINA_MAX_WIDTH = 350f;
 
     void Start()
     {
         if (uiDocument == null) uiDocument = GetComponent<UIDocument>();
-        if (uiDocument == null)
-        {
-            Debug.LogWarning("UIStatBarBinder: No UIDocument found on GameObject or assigned in inspector.");
-            return;
-        }
+        if (uiDocument == null) return;
 
         var root = uiDocument.rootVisualElement;
-        var healthParent = root.Q<VisualElement>(healthParentName);
-        var fpParent = root.Q<VisualElement>(fpParentName);
-        var staminaParent = root.Q<VisualElement>(staminaParentName);
-        healthBar = root.Q<VisualElement>("HealthBarFill");
-        fpBar = root.Q<VisualElement>("FpBarFill");
-        staminaBar = root.Q<VisualElement>("StaminaBarFill");
 
-        //healthBar = FindBarElement(healthParent, "Health");
-        //fpBar = FindBarElement(fpParent, "Fp");
-        //staminaBar = FindBarElement(staminaParent, "Stamina");
+        healthBar = root.Q<VisualElement>("Health");
+        fpBar = root.Q<VisualElement>("Fp");
+        staminaBar = root.Q<VisualElement>("Stamina");
 
-        TryBindPlayerStats();
-        if (!isBound)
-        {
-            return;
-        }
+        healthBg = root.Q<VisualElement>("HealthBackground");
+        fpBg = root.Q<VisualElement>("FpBackground");
+        staminaBg = root.Q<VisualElement>("StaminaBackground");
+
+        Debug.Log("healthBar: " + (healthBar != null ? "found" : "NULL"));
+        Debug.Log("fpBar: " + (fpBar != null ? "found" : "NULL"));
+        Debug.Log("staminaBar: " + (staminaBar != null ? "found" : "NULL"));
+
+        // Set backgrounds to full width with dark tint — never changes
+        SetupBackground(healthBg, HEALTH_MAX_WIDTH);
+        SetupBackground(fpBg, FP_MAX_WIDTH);
+        SetupBackground(staminaBg, STAMINA_MAX_WIDTH);
+
+        root.schedule.Execute(() => {
+            TryBindPlayerStats();
+        }).StartingIn(200);
     }
 
-    private VisualElement FindBarElement(VisualElement parent, string barName)
+    void SetupBackground(VisualElement bg, float maxWidth)
     {
-        if (parent == null) return null;
-        foreach (var child in parent.Children())
-        {
-            if (child.name == barName)
-                return child;
-            var deeper = FindBarElement(child, barName);
-            if (deeper != null) return deeper;
-        }
-        return null;
+        if (bg == null) return;
+        bg.style.width = maxWidth;
+        bg.style.unityBackgroundImageTintColor = darkTint;
     }
 
     void OnDestroy()
@@ -83,169 +85,136 @@ public class UIStatBarBinder : MonoBehaviour
         if (playerStats == null)
             playerStats = FindFirstObjectByType<PlayerStats>();
 
-        if (playerStats == null)
-            return;
+        if (playerStats == null) return;
 
         playerStats.OnHealthChanged += UpdateHealth;
         playerStats.OnFPChanged += UpdateFP;
         playerStats.OnStaminaChanged += UpdateStamina;
 
-        currentHealthFill = playerStats.MaxHealth > 0f ? playerStats.CurrentHealth / playerStats.MaxHealth * 100f : 0f;
-        currentFpFill = playerStats.MaxFP > 0f ? playerStats.CurrentFP / playerStats.MaxFP * 100f : 0f;
-        currentStaminaFill = playerStats.MaxStamina > 0f ? playerStats.CurrentStamina / playerStats.MaxStamina * 100f : 0f;
+        currentHealthFill = playerStats.MaxHealth > 0f
+            ? playerStats.CurrentHealth / playerStats.MaxHealth : 1f;
+        currentFpFill = playerStats.MaxFP > 0f
+            ? playerStats.CurrentFP / playerStats.MaxFP : 1f;
+        currentStaminaFill = playerStats.MaxStamina > 0f
+            ? playerStats.CurrentStamina / playerStats.MaxStamina : 1f;
 
         healthFillTarget = currentHealthFill;
         fpFillTarget = currentFpFill;
         staminaFillTarget = currentStaminaFill;
 
-        healthTextTarget = playerStats.CurrentHealth;
-        fpTextTarget = playerStats.CurrentFP;
-        staminaTextTarget = playerStats.CurrentStamina;
-
-        healthTextCurrent = healthTextTarget;
-        fpTextCurrent = fpTextTarget;
-        staminaTextCurrent = staminaTextTarget;
-
         prevHealth = playerStats.CurrentHealth;
         prevFP = playerStats.CurrentFP;
         prevStamina = playerStats.CurrentStamina;
 
-        if (healthBar != null)
-            healthBar.style.width = Length.Percent(currentHealthFill);
-        if (fpBar != null)
-            fpBar.style.width = Length.Percent(currentFpFill);
-        if (staminaBar != null)
-            staminaBar.style.width = Length.Percent(currentStaminaFill);
+        SetHealthFill(currentHealthFill);
+        SetFpFill(currentFpFill);
+        SetStaminaFill(currentStaminaFill);
 
         isBound = true;
     }
 
+    void SetHealthFill(float fill)
+    {
+        if (healthBar == null || playerStats == null) return;
+        float scaledMax = HEALTH_MAX_WIDTH * (playerStats.MaxHealth / HEALTH_BASE);
+        healthBar.style.width = scaledMax * fill;
+        if (healthBg != null) healthBg.style.width = scaledMax;
+    }
+
+    void SetFpFill(float fill)
+    {
+        if (fpBar == null || playerStats == null) return;
+        float scaledMax = FP_MAX_WIDTH * (playerStats.MaxFP / FP_BASE);
+        fpBar.style.width = scaledMax * fill;
+        if (fpBg != null) fpBg.style.width = scaledMax;
+    }
+
+    void SetStaminaFill(float fill)
+    {
+        if (staminaBar == null || playerStats == null) return;
+        float scaledMax = STAMINA_MAX_WIDTH * (playerStats.MaxStamina / STAMINA_BASE);
+        staminaBar.style.width = scaledMax * fill;
+        if (staminaBg != null) staminaBg.style.width = scaledMax;
+    }
     private void UpdateHealth(float current, float max)
     {
-        healthFillTarget = max > 0f ? current / max * 100f : 0f;
-        healthTextTarget = current;
+        healthFillTarget = max > 0f ? current / max : 0f;
         healthAnimTimer = 0f;
-
-        if (current < prevHealth)
-            healthFlashTimer = flashDuration;
-        else if (current > prevHealth)
-            healthFlashTimer = flashDuration;
+        healthFlashTimer = flashDuration;
         prevHealth = current;
     }
 
     private void UpdateFP(float current, float max)
     {
-        fpFillTarget = max > 0f ? current / max * 100f : 0f;
-        fpTextTarget = current;
+        fpFillTarget = max > 0f ? current / max : 0f;
         fpAnimTimer = 0f;
-
-        if (current < prevFP)
-            fpFlashTimer = flashDuration;
-        else if (current > prevFP)
-            fpFlashTimer = flashDuration;
+        fpFlashTimer = flashDuration;
         prevFP = current;
     }
 
     private void UpdateStamina(float current, float max)
     {
-        staminaFillTarget = max > 0f ? current / max * 100f : 0f;
-        staminaTextTarget = current;
+        staminaFillTarget = max > 0f ? current / max : 0f;
         staminaAnimTimer = 0f;
-
-        if (current < prevStamina)
-            staminaFlashTimer = flashDuration;
-        else if (current > prevStamina)
-            staminaFlashTimer = flashDuration;
         prevStamina = current;
     }
 
     void Update()
     {
-        if (!isBound)
-            TryBindPlayerStats();
+        if (!isBound) TryBindPlayerStats();
 
-        // Animate health
-        if (playerStats != null && healthAnimTimer < animationDuration)
+        // Health
+        if (healthAnimTimer < animationDuration)
         {
             healthAnimTimer += Time.deltaTime;
             float t = Mathf.Clamp01(healthAnimTimer / animationDuration);
             currentHealthFill = Mathf.Lerp(currentHealthFill, healthFillTarget, t);
-            float currentText = Mathf.Lerp(healthTextCurrent, healthTextTarget, t);
-            healthTextCurrent = currentText;
-
-            if (healthBar != null)
-                healthBar.style.width = Length.Percent(currentHealthFill);
+            SetHealthFill(currentHealthFill);
         }
 
-        // Health flash
         if (healthFlashTimer > 0f)
         {
             healthFlashTimer -= Time.deltaTime;
-            float flashAlpha = healthFlashTimer / flashDuration;
-            Color flashColor = prevHealth > healthTextTarget ? damageFlashColor : healFlashColor;
-            flashColor.a = flashAlpha * 0.5f;
             if (healthBar != null)
-                healthBar.style.backgroundColor = flashColor;
+                healthBar.style.unityBackgroundImageTintColor = GetFlashColor(
+                    healthFlashTimer, prevHealth, healthFillTarget);
         }
         else if (healthBar != null)
-        {
-            healthBar.style.backgroundColor = Color.clear;
-        }
+            healthBar.style.unityBackgroundImageTintColor = Color.white;
 
-        // Animate FP
-        if (playerStats != null && fpAnimTimer < animationDuration)
+        // FP
+        if (fpAnimTimer < animationDuration)
         {
             fpAnimTimer += Time.deltaTime;
             float t = Mathf.Clamp01(fpAnimTimer / animationDuration);
             currentFpFill = Mathf.Lerp(currentFpFill, fpFillTarget, t);
-            float currentText = Mathf.Lerp(fpTextCurrent, fpTextTarget, t);
-            fpTextCurrent = currentText;
-
-            if (fpBar != null)
-                fpBar.style.width = Length.Percent(currentFpFill);
+            SetFpFill(currentFpFill);
         }
 
-        // FP flash
         if (fpFlashTimer > 0f)
         {
             fpFlashTimer -= Time.deltaTime;
-            float flashAlpha = fpFlashTimer / flashDuration;
-            Color flashColor = prevFP > fpTextTarget ? damageFlashColor : healFlashColor;
-            flashColor.a = flashAlpha * 0.5f;
             if (fpBar != null)
-                fpBar.style.backgroundColor = flashColor;
+                fpBar.style.unityBackgroundImageTintColor = GetFlashColor(
+                    fpFlashTimer, prevFP, fpFillTarget);
         }
         else if (fpBar != null)
-        {
-            fpBar.style.backgroundColor = Color.clear;
-        }
+            fpBar.style.unityBackgroundImageTintColor = Color.white;
 
-        // Animate Stamina
-        if (playerStats != null && staminaAnimTimer < animationDuration)
+        // Stamina
+        if (staminaAnimTimer < animationDuration)
         {
             staminaAnimTimer += Time.deltaTime;
             float t = Mathf.Clamp01(staminaAnimTimer / animationDuration);
             currentStaminaFill = Mathf.Lerp(currentStaminaFill, staminaFillTarget, t);
-            float currentText = Mathf.Lerp(staminaTextCurrent, staminaTextTarget, t);
-            staminaTextCurrent = currentText;
+            SetStaminaFill(currentStaminaFill);
+        }
+    }
 
-            if (staminaBar != null)
-                staminaBar.style.width = Length.Percent(currentStaminaFill);
-        }
-
-        // Stamina flash
-        if (staminaFlashTimer > 0f)
-        {
-            staminaFlashTimer -= Time.deltaTime;
-            float flashAlpha = staminaFlashTimer / flashDuration;
-            Color flashColor = prevStamina > staminaTextTarget ? damageFlashColor : healFlashColor;
-            flashColor.a = flashAlpha * 0.5f;
-            if (staminaBar != null)
-                staminaBar.style.backgroundColor = flashColor;
-        }
-        else if (staminaBar != null)
-        {
-            staminaBar.style.backgroundColor = Color.clear;
-        }
+    Color GetFlashColor(float timer, float prev, float current)
+    {
+        float alpha = timer / flashDuration;
+        Color flash = prev > current ? damageFlashColor : healFlashColor;
+        return Color.Lerp(Color.white, flash, alpha);
     }
 }
