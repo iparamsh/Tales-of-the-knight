@@ -8,14 +8,33 @@ public class DoorController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private bool isOpen = false;
+    private InteractionPromptUI promptUI;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        promptUI = FindAnyObjectByType<InteractionPromptUI>();
     }
 
     // Hook this into the Interactable onInteract event via inspector
-    public void OpenDoor()
+    public void ShowDoorPrompt()
+    {
+        if (promptUI == null)
+            promptUI = FindAnyObjectByType<InteractionPromptUI>();
+
+        if (isOpen)
+        {
+            Debug.Log("Door already open");
+            return;
+        }
+
+        promptUI.ShowPrompt("Door",
+            ("Open", OpenDoor),
+            ("Cancel", OnCancel)
+        );
+    }
+
+    private void OpenDoor()
     {
         if (isOpen) return;
 
@@ -26,6 +45,14 @@ public class DoorController : MonoBehaviour
         BoxCollider2D blockingCollider = GetComponent<BoxCollider2D>();
         if (blockingCollider != null)
             blockingCollider.enabled = false;
+
+        OnDoorOpened();
+    }
+
+    private void OnCancel()
+    {
+        Debug.Log("Player chose not to open door");
+        // Prompt closes, player continues
     }
 
     // Will be called after door opens - room transition goes here

@@ -151,7 +151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6555225296661144438}
         m_TargetAssemblyTypeName: BonfireController, Assembly-CSharp
-        m_MethodName: Rest
+        m_MethodName: ShowBonfirePrompt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
