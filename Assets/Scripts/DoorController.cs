@@ -9,6 +9,7 @@ public class DoorController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isOpen = false;
     private InteractionPromptUI promptUI;
+    private bool isLocked = false;
 
     void Start()
     {
@@ -34,19 +35,16 @@ public class DoorController : MonoBehaviour
         );
     }
 
-    private void OpenDoor()
+    public void OpenDoor()
     {
-        if (isOpen) return;
+        if (isOpen || isLocked) return;
 
         isOpen = true;
         spriteRenderer.sprite = openSprite;
 
-        // Disable the blocking collider so player can walk through
         BoxCollider2D blockingCollider = GetComponent<BoxCollider2D>();
         if (blockingCollider != null)
             blockingCollider.enabled = false;
-
-        OnDoorOpened();
     }
 
     private void OnCancel()
@@ -60,5 +58,30 @@ public class DoorController : MonoBehaviour
     public void OnDoorOpened()
     {
         Debug.Log("Door opened - room transition placeholder");
+    }
+
+    public void LockDoor()
+    {
+        // Swap to closed sprite
+        spriteRenderer.sprite = closedSprite;
+
+        // Re-enable the blocking collider
+        BoxCollider2D blockingCollider = GetComponent<BoxCollider2D>();
+        if (blockingCollider != null)
+            blockingCollider.enabled = true;
+
+        // Disable interaction so player cant open from inside
+        Interactable interactable = GetComponent<Interactable>();
+        if (interactable != null)
+        {
+            interactable.HidePrompt();
+            interactable.enabled = false;
+        }
+
+        if (interactable != null && interactable.interactPromptUI != null)
+        interactable.interactPromptUI.SetActive(false);
+
+        isOpen = false;
+        isLocked = true;
     }
 }

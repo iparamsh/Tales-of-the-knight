@@ -44,6 +44,7 @@ public class BossController : Enemy
     public float staggerDuration = 0.5f;
 
     [Header("Combat")]
+    public float aggroRange = 12f;
     public float contactDamage = 10f;
     public float backstepSpeed = 1.5f;
     public float backstepDuration = 0.8f;
@@ -53,12 +54,14 @@ public class BossController : Enemy
     // =============================================
     public string GetBossName() { return bossName; }
     public bool IsPhaseTwo { get; private set; }
+    public event System.Action<float, float> OnHealthChanged;
 
     // =============================================
     // Private state
     // =============================================
     private enum BossState
     {
+        Dormant,
         Idle,
         Walking,
         Sprinting,
@@ -68,7 +71,7 @@ public class BossController : Enemy
         Dead
     }
 
-    private BossState currentState = BossState.Idle;
+    private BossState currentState = BossState.Dormant;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Transform player;
@@ -94,10 +97,23 @@ public class BossController : Enemy
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         currentPoise = maxPoise;
         evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
+        spriteRenderer.enabled = false; // hide until entrance
     }
 
     void Update()
     {
+        if (currentState == BossState.Dormant)
+        {
+            if (player != null)
+            {
+                float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+                if (distanceToPlayer <= aggroRange)
+                {
+                    BossEntrance();
+                }
+            }
+            return;
+        }
         if (currentState == BossState.Dead) return;
         if (currentState == BossState.Staggered) return;
         if (currentState == BossState.Attacking) return;
@@ -245,9 +261,9 @@ public class BossController : Enemy
                 StartCoroutine(Attack1());
             else
                 if (Random.value < 0.35f)
-                    StartCoroutine(Backstep());
-                else
-                    Evaluate();
+                StartCoroutine(Backstep());
+            else
+                Evaluate();
         }
         else if (roll < 0.72f && rollAttackTimer <= 0f)
         {
@@ -497,6 +513,7 @@ public class BossController : Enemy
         if (currentState == BossState.Dead) return;
 
         SetHealth(GetHealth() - damage);
+        OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());
 
         // Poise check — cant stagger during dash
         if (!isDashing)
@@ -551,5 +568,44 @@ public class BossController : Enemy
         }
         Debug.LogWarning("Animation clip not found: " + clipName);
         return 1f;
+    }
+
+
+    // =============================================
+    // Miscellaneous
+    // =============================================
+    public void BossEntrance()
+    {
+        if (currentState != BossState.Dormant) return;
+        Debug.Log("BossEntrance called");
+        StartCoroutine(EntranceSequence());
+    }
+    IEnumerator EntranceSequence()
+    {
+        // Start invisible
+        spriteRenderer.enabled = false;
+
+        // Wait a dramatic beat
+        yield return new WaitForSeconds(0.5f);
+
+        // Trigger animation while still invisible
+        animator.SetTrigger("TeleportReappear");
+
+        // Wait one frame for animator to start
+        yield return null;
+
+        // Now show sprite
+        spriteRenderer.enabled = true;
+
+        yield return new WaitForSeconds(GetAnimationLength("Boss_TeleportReappear"));
+
+        // Show health bar
+        BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
+        healthBar?.ShowHealthBar();
+        OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());
+
+        // AI kicks in
+        currentState = BossState.Idle;
+        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
     }
 }
