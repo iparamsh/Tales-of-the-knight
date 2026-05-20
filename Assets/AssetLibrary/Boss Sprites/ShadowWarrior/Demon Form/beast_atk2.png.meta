@@ -1,0 +1,954 @@
+fileFormatVersion: 2
+guid: be6b11ea39f79e44f968479c56e4b615
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8540327043100480859
+    second: beast_atk2_0
+  - first:
+      213: -5013209147630660408
+    second: beast_atk2_1
+  - first:
+      213: 6437996922422522273
+    second: beast_atk2_2
+  - first:
+      213: -6788477956771301808
+    second: beast_atk2_3
+  - first:
+      213: 3625567427792625564
+    second: beast_atk2_4
+  - first:
+      213: -7519302084854634649
+    second: beast_atk2_5
+  - first:
+      213: 3660374483365144437
+    second: beast_atk2_6
+  - first:
+      213: 3924021158785326758
+    second: beast_atk2_7
+  - first:
+      213: -4213801752756317380
+    second: beast_atk2_8
+  - first:
+      213: 6415635065467870031
+    second: beast_atk2_9
+  - first:
+      213: -3348094466717415225
+    second: beast_atk2_10
+  - first:
+      213: -3483903138751972017
+    second: beast_atk2_11
+  - first:
+      213: 5813589753399587954
+    second: beast_atk2_12
+  - first:
+      213: 5882800361267346795
+    second: beast_atk2_13
+  - first:
+      213: 4394272375703909015
+    second: beast_atk2_14
+  - first:
+      213: -9094437421114176758
+    second: beast_atk2_15
+  - first:
+      213: -7780393614709896414
+    second: beast_atk2_16
+  - first:
+      213: 6136373344910648748
+    second: beast_atk2_17
+  - first:
+      213: 3408594941853781855
+    second: beast_atk2_18
+  - first:
+      213: 2355638524336243292
+    second: beast_atk2_19
+  - first:
+      213: 337636720563926754
+    second: beast_atk2_20
+  - first:
+      213: -7381810414806335452
+    second: beast_atk2_21
+  - first:
+      213: -3333041174018481183
+    second: beast_atk2_22
+  - first:
+      213: 6271207214837102598
+    second: beast_atk2_23
+  - first:
+      213: -2570788407655550027
+    second: beast_atk2_24
+  - first:
+      213: 6783230298987369013
+    second: beast_atk2_25
+  - first:
+      213: -1205439401562655424
+    second: beast_atk2_26
+  - first:
+      213: -2327164575472438799
+    second: beast_atk2_27
+  - first:
+      213: -4949619667468536289
+    second: beast_atk2_28
+  - first:
+      213: -3498765323036554850
+    second: beast_atk2_29
+  - first:
+      213: -5357834524846246240
+    second: beast_atk2_30
+  - first:
+      213: 840814031849229700
+    second: beast_atk2_31
+  - first:
+      213: -3873992461549131594
+    second: beast_atk2_32
+  - first:
+      213: 3151276784519427737
+    second: beast_atk2_33
+  - first:
+      213: -1640020724144754767
+    second: beast_atk2_34
+  - first:
+      213: -7400359992787914705
+    second: beast_atk2_35
+  - first:
+      213: -5583423009971820788
+    second: beast_atk2_36
+  - first:
+      213: 6913406057745264422
+    second: beast_atk2_37
+  - first:
+      213: 7988307709766501942
+    second: beast_atk2_38
+  - first:
+      213: -7675723761516330173
+    second: beast_atk2_39
+  - first:
+      213: 3389293183051682977
+    second: beast_atk2_40
+  - first:
+      213: -9065066881236335153
+    second: beast_atk2_41
+  - first:
+      213: 631000805534107204
+    second: beast_atk2_42
+  - first:
+      213: -7222760423824266081
+    second: beast_atk2_43
+  - first:
+      213: 2353844189953064442
+    second: beast_atk2_44
+  - first:
+      213: 1577202937437966328
+    second: beast_atk2_45
+  - first:
+      213: 3112243476337032733
+    second: beast_atk2_46
+  - first:
+      213: 8234428542870810817
+    second: beast_atk2_47
+  - first:
+      213: -1600383741870381787
+    second: beast_atk2_48
+  - first:
+      213: 7366443795501288882
+    second: beast_atk2_49
+  - first:
+      213: 8102808089386919589
+    second: beast_atk2_50
+  - first:
+      213: 992276168422176886
+    second: beast_atk2_51
+  - first:
+      213: 7318110531968027324
+    second: beast_atk2_52
+  - first:
+      213: -6477728518090021590
+    second: beast_atk2_53
+  - first:
+      213: -166941632738444706
+    second: beast_atk2_54
+  - first:
+      213: -4216172754303999754
+    second: beast_atk2_55
+  - first:
+      213: 8186836289959643138
+    second: beast_atk2_56
+  - first:
+      213: 3575349727004043718
+    second: beast_atk2_57
+  - first:
+      213: 1377676625764443785
+    second: beast_atk2_58
+  - first:
+      213: -4227171892669346172
+    second: beast_atk2_59
+  - first:
+      213: -2045048774584604851
+    second: beast_atk2_60
+  - first:
+      213: 744394058834481814
+    second: beast_atk2_61
+  - first:
+      213: -2132902598919695005
+    second: beast_atk2_62
+  - first:
+      213: -4671459404650599228
+    second: beast_atk2_63
+  - first:
+      213: -9108418691982069326
+    second: beast_atk2_64
+  - first:
+      213: -2562310836033675955
+    second: beast_atk2_65
+  - first:
+      213: 6179309700582424547
+    second: beast_atk2_66
+  - first:
+      213: 3912948356338783324
+    second: beast_atk2_67
+  - first:
+      213: -930101319909606890
+    second: beast_atk2_68
+  - first:
+      213: 7045343109913856147
+    second: beast_atk2_69
+  - first:
+      213: 1073342512880690230
+    second: beast_atk2_70
+  - first:
+      213: -2072671767499152578
+    second: beast_atk2_71
+  - first:
+      213: 6978721331377187504
+    second: beast_atk2_72
+  - first:
+      213: -2637928343578078571
+    second: beast_atk2_73
+  - first:
+      213: 6754552515887065625
+    second: beast_atk2_74
+  - first:
+      213: 2377027025792308241
+    second: beast_atk2_75
+  - first:
+      213: -6715836034043200594
+    second: beast_atk2_76
+  - first:
+      213: -5160249728716912410
+    second: beast_atk2_77
+  - first:
+      213: -3205723601720573461
+    second: beast_atk2_78
+  - first:
+      213: -810724281311530761
+    second: beast_atk2_79
+  - first:
+      213: 6771200563786444034
+    second: beast_atk2_80
+  - first:
+      213: 2860164515666966045
+    second: beast_atk2_81
+  - first:
+      213: -7062994553229158753
+    second: beast_atk2_82
+  - first:
+      213: 4790219698416705043
+    second: beast_atk2_83
+  - first:
+      213: -717163919125185970
+    second: beast_atk2_84
+  - first:
+      213: 2069429509717747645
+    second: beast_atk2_85
+  - first:
+      213: -3525093453821830023
+    second: beast_atk2_86
+  - first:
+      213: 2996200034106857700
+    second: beast_atk2_87
+  - first:
+      213: 8783847960904481662
+    second: beast_atk2_88
+  - first:
+      213: -5103759643467840434
+    second: beast_atk2_89
+  - first:
+      213: -2425702526078062436
+    second: beast_atk2_90
+  - first:
+      213: 6607400345772190137
+    second: beast_atk2_91
+  - first:
+      213: -294170160246855391
+    second: beast_atk2_92
+  - first:
+      213: 3816839776772645333
+    second: beast_atk2_93
+  - first:
+      213: -1682765711549653087
+    second: beast_atk2_94
+  - first:
+      213: 7686855350088725332
+    second: beast_atk2_95
+  - first:
+      213: -129961587749950330
+    second: beast_atk2_96
+  - first:
+      213: -8790210133987791022
+    second: beast_atk2_97
+  - first:
+      213: -9141897682367162286
+    second: beast_atk2_98
+  - first:
+      213: -3935405366366463978
+    second: beast_atk2_99
+  - first:
+      213: 4438515006499519577
+    second: beast_atk2_100
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 12
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: beast_atk2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b559aa57236558670800000000000000
+      internalID: 8540327043100480859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c45cb267d08d6ab0800000000000000
+      internalID: -5013209147630660408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a17d0a471c585950800000000000000
+      internalID: 6437996922422522273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 056b315e34b7ac1a0800000000000000
+      internalID: -6788477956771301808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_4
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f5ec2dd5a905230800000000000000
+      internalID: 3625567427792625564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_5
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767a261c79216a790800000000000000
+      internalID: -7519302084854634649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_6
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57722e9f2334cc230800000000000000
+      internalID: 3660374483365144437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae148c147ce47630800000000000000
+      internalID: 3924021158785326758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_8
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c339a0da1a19585c0800000000000000
+      internalID: -4213801752756317380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_9
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4b90cdb91ae80950800000000000000
+      internalID: 6415635065467870031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_10
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c88bdc42dd2981d0800000000000000
+      internalID: -3348094466717415225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_11
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4df1d6cd80b6afc0800000000000000
+      internalID: -3483903138751972017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_12
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 274bb3934150ea050800000000000000
+      internalID: 5813589753399587954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_13
+      rect:
+        serializedVersion: 2
+        x: 3744
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6d31e992c7e3a150800000000000000
+      internalID: 5882800361267346795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_14
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792b420a1779bfc30800000000000000
+      internalID: 4394272375703909015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_15
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b487299511ac180800000000000000
+      internalID: -9094437421114176758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_16
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22bcf7eca3d760490800000000000000
+      internalID: -7780393614709896414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_17
+      rect:
+        serializedVersion: 2
+        x: 4896
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca523989b07c82550800000000000000
+      internalID: 6136373344910648748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_18
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f43644a03cd4f20800000000000000
+      internalID: 3408594941853781855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_19
+      rect:
+        serializedVersion: 2
+        x: 5472
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c528946d1c8e0b020800000000000000
+      internalID: 2355638524336243292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_20
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e63758fec68fa400800000000000000
+      internalID: 337636720563926754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk2_21
+      rect:
+        serializedVersion: 2
+        x: 6048
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 420803ac98a8e8990800000000000000
+      internalID: -7381810414806335452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5b3943d6dcbcc60478cb21aa9c5a1f34
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":22.0,"y":1.0},"gridSpriteSize":{"x":288.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      beast_atk2_0: 8540327043100480859
+      beast_atk2_1: -5013209147630660408
+      beast_atk2_10: -3348094466717415225
+      beast_atk2_11: -3483903138751972017
+      beast_atk2_12: 5813589753399587954
+      beast_atk2_13: 5882800361267346795
+      beast_atk2_14: 4394272375703909015
+      beast_atk2_15: -9094437421114176758
+      beast_atk2_16: -7780393614709896414
+      beast_atk2_17: 6136373344910648748
+      beast_atk2_18: 3408594941853781855
+      beast_atk2_19: 2355638524336243292
+      beast_atk2_2: 6437996922422522273
+      beast_atk2_20: 337636720563926754
+      beast_atk2_21: -7381810414806335452
+      beast_atk2_3: -6788477956771301808
+      beast_atk2_4: 3625567427792625564
+      beast_atk2_5: -7519302084854634649
+      beast_atk2_6: 3660374483365144437
+      beast_atk2_7: 3924021158785326758
+      beast_atk2_8: -4213801752756317380
+      beast_atk2_9: 6415635065467870031
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

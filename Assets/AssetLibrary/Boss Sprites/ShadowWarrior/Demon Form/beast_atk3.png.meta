@@ -1,0 +1,1292 @@
+fileFormatVersion: 2
+guid: d366ff5420fb0064bbbe299970695494
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2298947299076918555
+    second: beast_atk3_0
+  - first:
+      213: -2485818747132318433
+    second: beast_atk3_1
+  - first:
+      213: -2737494051203715148
+    second: beast_atk3_2
+  - first:
+      213: -6759627883594833394
+    second: beast_atk3_3
+  - first:
+      213: -1674827672921655004
+    second: beast_atk3_4
+  - first:
+      213: 1152663098539878540
+    second: beast_atk3_5
+  - first:
+      213: 6607032214571283571
+    second: beast_atk3_6
+  - first:
+      213: -2752434369231928672
+    second: beast_atk3_7
+  - first:
+      213: 1588391449168364291
+    second: beast_atk3_8
+  - first:
+      213: -2341399759974964935
+    second: beast_atk3_9
+  - first:
+      213: -1124245898641310244
+    second: beast_atk3_10
+  - first:
+      213: -5014593880413526632
+    second: beast_atk3_11
+  - first:
+      213: 1427597668833394050
+    second: beast_atk3_12
+  - first:
+      213: 6519982763783645923
+    second: beast_atk3_13
+  - first:
+      213: 1081906721155198793
+    second: beast_atk3_14
+  - first:
+      213: -8482869876295874812
+    second: beast_atk3_15
+  - first:
+      213: -5526570867704880909
+    second: beast_atk3_16
+  - first:
+      213: -8903610696538173996
+    second: beast_atk3_17
+  - first:
+      213: -7539007377444625982
+    second: beast_atk3_18
+  - first:
+      213: 4850219235315288039
+    second: beast_atk3_19
+  - first:
+      213: 393207032867621833
+    second: beast_atk3_20
+  - first:
+      213: -5270866514483760768
+    second: beast_atk3_21
+  - first:
+      213: 5087148430677065654
+    second: beast_atk3_22
+  - first:
+      213: 1753601948938013587
+    second: beast_atk3_23
+  - first:
+      213: 6412644990280286819
+    second: beast_atk3_24
+  - first:
+      213: -254080408121604295
+    second: beast_atk3_25
+  - first:
+      213: -3743039683938516545
+    second: beast_atk3_26
+  - first:
+      213: -623187361868420929
+    second: beast_atk3_27
+  - first:
+      213: 3987128123513661
+    second: beast_atk3_28
+  - first:
+      213: 812584315652498587
+    second: beast_atk3_29
+  - first:
+      213: -5875420225357085163
+    second: beast_atk3_30
+  - first:
+      213: 6315173385476775426
+    second: beast_atk3_31
+  - first:
+      213: 8560544620762601578
+    second: beast_atk3_32
+  - first:
+      213: 3631040661129334864
+    second: beast_atk3_33
+  - first:
+      213: 5858567166036138779
+    second: beast_atk3_34
+  - first:
+      213: -3959347750849590478
+    second: beast_atk3_35
+  - first:
+      213: -6274701614699244216
+    second: beast_atk3_36
+  - first:
+      213: -5420247355764796351
+    second: beast_atk3_37
+  - first:
+      213: -8693492675223176947
+    second: beast_atk3_38
+  - first:
+      213: -1618928415776393323
+    second: beast_atk3_39
+  - first:
+      213: 3556747345267218162
+    second: beast_atk3_40
+  - first:
+      213: 6892599412854454361
+    second: beast_atk3_41
+  - first:
+      213: 1367536977725992219
+    second: beast_atk3_42
+  - first:
+      213: 5656739463071891053
+    second: beast_atk3_43
+  - first:
+      213: 2454147804611206570
+    second: beast_atk3_44
+  - first:
+      213: -1143180921599800135
+    second: beast_atk3_45
+  - first:
+      213: -4082176607243371329
+    second: beast_atk3_46
+  - first:
+      213: 7067726804698729891
+    second: beast_atk3_47
+  - first:
+      213: 1549588332993925428
+    second: beast_atk3_48
+  - first:
+      213: 1520966349838850281
+    second: beast_atk3_49
+  - first:
+      213: -6088715411024924953
+    second: beast_atk3_50
+  - first:
+      213: -1306687292868096131
+    second: beast_atk3_51
+  - first:
+      213: -6517045089950988427
+    second: beast_atk3_52
+  - first:
+      213: -4208312398272801882
+    second: beast_atk3_53
+  - first:
+      213: -4297928583941322296
+    second: beast_atk3_54
+  - first:
+      213: -3619463117394904850
+    second: beast_atk3_55
+  - first:
+      213: -5846176966387654799
+    second: beast_atk3_56
+  - first:
+      213: -6207702575844885729
+    second: beast_atk3_57
+  - first:
+      213: -5214144839301486477
+    second: beast_atk3_58
+  - first:
+      213: 9123424959798142668
+    second: beast_atk3_59
+  - first:
+      213: -891525600801047272
+    second: beast_atk3_60
+  - first:
+      213: 2499699224960671574
+    second: beast_atk3_61
+  - first:
+      213: -8970383718879428317
+    second: beast_atk3_62
+  - first:
+      213: -8587383161554073387
+    second: beast_atk3_63
+  - first:
+      213: 5699897802762049855
+    second: beast_atk3_64
+  - first:
+      213: 1891912426712288420
+    second: beast_atk3_65
+  - first:
+      213: -5072738549705634146
+    second: beast_atk3_66
+  - first:
+      213: -5705608915595421510
+    second: beast_atk3_67
+  - first:
+      213: 7369084173563801957
+    second: beast_atk3_68
+  - first:
+      213: 5196408130705008906
+    second: beast_atk3_69
+  - first:
+      213: -5059176354555268554
+    second: beast_atk3_70
+  - first:
+      213: -619428802787790834
+    second: beast_atk3_71
+  - first:
+      213: -7910025883447648011
+    second: beast_atk3_72
+  - first:
+      213: 8391801779902385940
+    second: beast_atk3_73
+  - first:
+      213: -3795287319395135287
+    second: beast_atk3_74
+  - first:
+      213: -1705007830111797748
+    second: beast_atk3_75
+  - first:
+      213: 6964225387759302736
+    second: beast_atk3_76
+  - first:
+      213: -4317009285109908814
+    second: beast_atk3_77
+  - first:
+      213: -7238364183877049104
+    second: beast_atk3_78
+  - first:
+      213: -5604218330403374781
+    second: beast_atk3_79
+  - first:
+      213: -7337541521879376823
+    second: beast_atk3_80
+  - first:
+      213: 718981347134171822
+    second: beast_atk3_81
+  - first:
+      213: 2940544938795669845
+    second: beast_atk3_82
+  - first:
+      213: 5070033941195580278
+    second: beast_atk3_83
+  - first:
+      213: -2024702820148035389
+    second: beast_atk3_84
+  - first:
+      213: 8027275772519112436
+    second: beast_atk3_85
+  - first:
+      213: 6507513795915543059
+    second: beast_atk3_86
+  - first:
+      213: 5447502926514742708
+    second: beast_atk3_87
+  - first:
+      213: 1355709853771687275
+    second: beast_atk3_88
+  - first:
+      213: -5151339438826476003
+    second: beast_atk3_89
+  - first:
+      213: -2306310567597847314
+    second: beast_atk3_90
+  - first:
+      213: 4748841822642373513
+    second: beast_atk3_91
+  - first:
+      213: -6376660698481223804
+    second: beast_atk3_92
+  - first:
+      213: -6291912870784295640
+    second: beast_atk3_93
+  - first:
+      213: -8975260655141546241
+    second: beast_atk3_94
+  - first:
+      213: 8020271550134511435
+    second: beast_atk3_95
+  - first:
+      213: -3677896397904536126
+    second: beast_atk3_96
+  - first:
+      213: -2529513348166741889
+    second: beast_atk3_97
+  - first:
+      213: -6387479629343717790
+    second: beast_atk3_98
+  - first:
+      213: -1344445462765711691
+    second: beast_atk3_99
+  - first:
+      213: -1683458978119839704
+    second: beast_atk3_100
+  - first:
+      213: -8507449081538985943
+    second: beast_atk3_101
+  - first:
+      213: 7905207043085048246
+    second: beast_atk3_102
+  - first:
+      213: 4094666936284165304
+    second: beast_atk3_103
+  - first:
+      213: -7238693387931799722
+    second: beast_atk3_104
+  - first:
+      213: 4208939324249176470
+    second: beast_atk3_105
+  - first:
+      213: -4029744329762264419
+    second: beast_atk3_106
+  - first:
+      213: 3056521884436485516
+    second: beast_atk3_107
+  - first:
+      213: -3126653478948866469
+    second: beast_atk3_108
+  - first:
+      213: -4744251282619878610
+    second: beast_atk3_109
+  - first:
+      213: -6958994995586221213
+    second: beast_atk3_110
+  - first:
+      213: 5017107993819864997
+    second: beast_atk3_111
+  - first:
+      213: -3836358918101709311
+    second: beast_atk3_112
+  - first:
+      213: 1783280982293961719
+    second: beast_atk3_113
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 12
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: beast_atk3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e23d21ac9f7810e0800000000000000
+      internalID: -2298947299076918555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1deb291509908dd0800000000000000
+      internalID: -2485818747132318433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bfe14f0aa7720ad0800000000000000
+      internalID: -2737494051203715148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e022180014af032a0800000000000000
+      internalID: -6759627883594833394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_4
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 429b287ea11d1c8e0800000000000000
+      internalID: -1674827672921655004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_5
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c88ab262bf41fff00800000000000000
+      internalID: 1152663098539878540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_6
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37475192bc4e0bb50800000000000000
+      internalID: 6607032214571283571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a2ca5236836dc9d0800000000000000
+      internalID: -2752434369231928672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_8
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 303c2fb7b991b0610800000000000000
+      internalID: 1588391449168364291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_9
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931e185d25da18fd0800000000000000
+      internalID: -2341399759974964935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_10
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd7b4bcf40e560f0800000000000000
+      internalID: -1124245898641310244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_11
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895aa192f65986ab0800000000000000
+      internalID: -5014593880413526632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_12
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d7dfc1488dfc310800000000000000
+      internalID: 1427597668833394050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_13
+      rect:
+        serializedVersion: 2
+        x: 3744
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea6ef087c1ab7a50800000000000000
+      internalID: 6519982763783645923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_14
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f20924e64b30f00800000000000000
+      internalID: 1081906721155198793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_15
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 407c58baacac64a80800000000000000
+      internalID: -8482869876295874812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_16
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f0ad6ca31dad43b0800000000000000
+      internalID: -5526570867704880909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_17
+      rect:
+        serializedVersion: 2
+        x: 4896
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd497eae35007480800000000000000
+      internalID: -8903610696538173996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_18
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c12d5ccbb0106790800000000000000
+      internalID: -7539007377444625982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_19
+      rect:
+        serializedVersion: 2
+        x: 5472
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e70cbb62b07f4340800000000000000
+      internalID: 4850219235315288039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_20
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cb824d86b3f47500800000000000000
+      internalID: 393207032867621833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_21
+      rect:
+        serializedVersion: 2
+        x: 6048
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081b1b1d4de1ad6b0800000000000000
+      internalID: -5270866514483760768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_22
+      rect:
+        serializedVersion: 2
+        x: 6336
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bf313a7b8e299640800000000000000
+      internalID: 5087148430677065654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_23
+      rect:
+        serializedVersion: 2
+        x: 6624
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b02eb7eab065810800000000000000
+      internalID: 1753601948938013587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_24
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362485c94aa4ef850800000000000000
+      internalID: 6412644990280286819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_25
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93786890733597cf0800000000000000
+      internalID: -254080408121604295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_26
+      rect:
+        serializedVersion: 2
+        x: 7488
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb187aa2d3d0e0cc0800000000000000
+      internalID: -3743039683938516545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_27
+      rect:
+        serializedVersion: 2
+        x: 7776
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb8e15b656ef957f0800000000000000
+      internalID: -623187361868420929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_28
+      rect:
+        serializedVersion: 2
+        x: 8064
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3bd97b954a2e0000800000000000000
+      internalID: 3987128123513661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_29
+      rect:
+        serializedVersion: 2
+        x: 8352
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b94658c3121e64b00800000000000000
+      internalID: 812584315652498587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_30
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51602713f60567ea0800000000000000
+      internalID: -5875420225357085163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_31
+      rect:
+        serializedVersion: 2
+        x: 8928
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e18502cb004a750800000000000000
+      internalID: 6315173385476775426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_32
+      rect:
+        serializedVersion: 2
+        x: 9216
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a689f641af92dc670800000000000000
+      internalID: 8560544620762601578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_33
+      rect:
+        serializedVersion: 2
+        x: 9504
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0501d934e3c046230800000000000000
+      internalID: 3631040661129334864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_atk3_34
+      rect:
+        serializedVersion: 2
+        x: 9792
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1bd9582ccfcd4150800000000000000
+      internalID: 5858567166036138779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 87e35aecc165c82499e74a2eadd0399b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":35.0,"y":1.0},"gridSpriteSize":{"x":288.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      beast_atk3_0: -2298947299076918555
+      beast_atk3_1: -2485818747132318433
+      beast_atk3_10: -1124245898641310244
+      beast_atk3_11: -5014593880413526632
+      beast_atk3_12: 1427597668833394050
+      beast_atk3_13: 6519982763783645923
+      beast_atk3_14: 1081906721155198793
+      beast_atk3_15: -8482869876295874812
+      beast_atk3_16: -5526570867704880909
+      beast_atk3_17: -8903610696538173996
+      beast_atk3_18: -7539007377444625982
+      beast_atk3_19: 4850219235315288039
+      beast_atk3_2: -2737494051203715148
+      beast_atk3_20: 393207032867621833
+      beast_atk3_21: -5270866514483760768
+      beast_atk3_22: 5087148430677065654
+      beast_atk3_23: 1753601948938013587
+      beast_atk3_24: 6412644990280286819
+      beast_atk3_25: -254080408121604295
+      beast_atk3_26: -3743039683938516545
+      beast_atk3_27: -623187361868420929
+      beast_atk3_28: 3987128123513661
+      beast_atk3_29: 812584315652498587
+      beast_atk3_3: -6759627883594833394
+      beast_atk3_30: -5875420225357085163
+      beast_atk3_31: 6315173385476775426
+      beast_atk3_32: 8560544620762601578
+      beast_atk3_33: 3631040661129334864
+      beast_atk3_34: 5858567166036138779
+      beast_atk3_4: -1674827672921655004
+      beast_atk3_5: 1152663098539878540
+      beast_atk3_6: 6607032214571283571
+      beast_atk3_7: -2752434369231928672
+      beast_atk3_8: 1588391449168364291
+      beast_atk3_9: -2341399759974964935
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

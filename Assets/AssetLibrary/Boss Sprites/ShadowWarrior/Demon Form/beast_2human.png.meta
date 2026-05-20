@@ -1,0 +1,704 @@
+fileFormatVersion: 2
+guid: f982de9dc27da184c984bf4c9cf6cc38
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8965586976286368405
+    second: beast_2human_0
+  - first:
+      213: 1791608856638454232
+    second: beast_2human_1
+  - first:
+      213: 981855826116510620
+    second: beast_2human_2
+  - first:
+      213: -2505880459037925481
+    second: beast_2human_3
+  - first:
+      213: -8126599330293144224
+    second: beast_2human_4
+  - first:
+      213: -6093779988854381561
+    second: beast_2human_5
+  - first:
+      213: 3103918153815755811
+    second: beast_2human_6
+  - first:
+      213: 6312711433825221926
+    second: beast_2human_7
+  - first:
+      213: -8189495839517757930
+    second: beast_2human_8
+  - first:
+      213: -4759240218086177502
+    second: beast_2human_9
+  - first:
+      213: 2856246037583477901
+    second: beast_2human_10
+  - first:
+      213: 2687046399835139164
+    second: beast_2human_11
+  - first:
+      213: 900203579268198220
+    second: beast_2human_12
+  - first:
+      213: -8205379216301792639
+    second: beast_2human_13
+  - first:
+      213: 6269163354603835911
+    second: beast_2human_14
+  - first:
+      213: 8478277564070182427
+    second: beast_2human_15
+  - first:
+      213: 314183511452899623
+    second: beast_2human_16
+  - first:
+      213: -5580923081973637626
+    second: beast_2human_17
+  - first:
+      213: 5873364453543470835
+    second: beast_2human_18
+  - first:
+      213: -3512939275284894317
+    second: beast_2human_19
+  - first:
+      213: -2397147484709605507
+    second: beast_2human_20
+  - first:
+      213: -5383269169635988815
+    second: beast_2human_21
+  - first:
+      213: 4675091410477034832
+    second: beast_2human_22
+  - first:
+      213: 8221735621764524323
+    second: beast_2human_23
+  - first:
+      213: 5133760509560081631
+    second: beast_2human_24
+  - first:
+      213: 4408084540234176036
+    second: beast_2human_25
+  - first:
+      213: 1040526091640749414
+    second: beast_2human_26
+  - first:
+      213: -5465540768377853440
+    second: beast_2human_27
+  - first:
+      213: -7317809746092030881
+    second: beast_2human_28
+  - first:
+      213: 8513290394412301352
+    second: beast_2human_29
+  - first:
+      213: 6857187485171509640
+    second: beast_2human_30
+  - first:
+      213: -5435720159942857574
+    second: beast_2human_31
+  - first:
+      213: -470375765462987077
+    second: beast_2human_32
+  - first:
+      213: 5092187679982255632
+    second: beast_2human_33
+  - first:
+      213: 7991981975499625383
+    second: beast_2human_34
+  - first:
+      213: 6108377770661277520
+    second: beast_2human_35
+  - first:
+      213: 7162686858314136565
+    second: beast_2human_36
+  - first:
+      213: -1621027518021791962
+    second: beast_2human_37
+  - first:
+      213: -754981527048128610
+    second: beast_2human_38
+  - first:
+      213: 9054003334543421994
+    second: beast_2human_39
+  - first:
+      213: -5567729016761188846
+    second: beast_2human_40
+  - first:
+      213: 8657273741225829955
+    second: beast_2human_41
+  - first:
+      213: -8230162758164299219
+    second: beast_2human_42
+  - first:
+      213: 704717285103399048
+    second: beast_2human_43
+  - first:
+      213: 5817740483291386366
+    second: beast_2human_44
+  - first:
+      213: 1855805741314023518
+    second: beast_2human_45
+  - first:
+      213: 5448987254149350975
+    second: beast_2human_46
+  - first:
+      213: 715503941057334729
+    second: beast_2human_47
+  - first:
+      213: -2876454396628823633
+    second: beast_2human_48
+  - first:
+      213: 5182194376684100511
+    second: beast_2human_49
+  - first:
+      213: 8569019149603479233
+    second: beast_2human_50
+  - first:
+      213: 6505764031236316035
+    second: beast_2human_51
+  - first:
+      213: 1504648581778331615
+    second: beast_2human_52
+  - first:
+      213: -4653571929864268152
+    second: beast_2human_53
+  - first:
+      213: -8328542627095175369
+    second: beast_2human_54
+  - first:
+      213: 8813847214888167317
+    second: beast_2human_55
+  - first:
+      213: -7981456471292474734
+    second: beast_2human_56
+  - first:
+      213: 6279923264790320992
+    second: beast_2human_57
+  - first:
+      213: -6201807671582931869
+    second: beast_2human_58
+  - first:
+      213: 4888664646872115340
+    second: beast_2human_59
+  - first:
+      213: 9218534486740752580
+    second: beast_2human_60
+  - first:
+      213: 1429550336909127330
+    second: beast_2human_61
+  - first:
+      213: 4203652099915293628
+    second: beast_2human_62
+  - first:
+      213: 8194930694718613749
+    second: beast_2human_63
+  - first:
+      213: 5297176659535780440
+    second: beast_2human_64
+  - first:
+      213: -6220999164587558585
+    second: beast_2human_65
+  - first:
+      213: -4986353264232893233
+    second: beast_2human_66
+  - first:
+      213: 7790386666518431832
+    second: beast_2human_67
+  - first:
+      213: -503524189295388304
+    second: beast_2human_68
+  - first:
+      213: -4607381584346690356
+    second: beast_2human_69
+  - first:
+      213: -2018716412001136604
+    second: beast_2human_70
+  - first:
+      213: -1510758817479520124
+    second: beast_2human_71
+  - first:
+      213: -3085717400876985101
+    second: beast_2human_72
+  - first:
+      213: 7463613772962278916
+    second: beast_2human_73
+  - first:
+      213: -7718610299489013702
+    second: beast_2human_74
+  - first:
+      213: 6690545866909013825
+    second: beast_2human_75
+  - first:
+      213: 6235190682081210890
+    second: beast_2human_76
+  - first:
+      213: 9195194737217000736
+    second: beast_2human_77
+  - first:
+      213: 7001310150472004828
+    second: beast_2human_78
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 12
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: beast_2human_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6d15939526d39380800000000000000
+      internalID: -8965586976286368405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d9f06443c21dd810800000000000000
+      internalID: 1791608856638454232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c938258fba040ad00800000000000000
+      internalID: 981855826116510620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f937dcff2593dd0800000000000000
+      internalID: -2505880459037925481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_4
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06523f537f4883f80800000000000000
+      internalID: -8126599330293144224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_5
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70463f8e26b8e6ba0800000000000000
+      internalID: -6093779988854381561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_6
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c031a9d15531b20800000000000000
+      internalID: 3103918153815755811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62df2b65a914b9750800000000000000
+      internalID: 6312711433825221926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_8
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61e210c7ce0195e80800000000000000
+      internalID: -8189495839517757930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_9
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2258838bc38c3fdb0800000000000000
+      internalID: -4759240218086177502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_10
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8cb74d53ac63a720800000000000000
+      internalID: 2856246037583477901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_11
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c6a2dc67e4a4520800000000000000
+      internalID: 2687046399835139164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_12
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4fe0d7c26a2e7c00800000000000000
+      internalID: 900203579268198220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beast_2human_13
+      rect:
+        serializedVersion: 2
+        x: 3744
+        y: 0
+        width: 288
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18265f4a313a02e80800000000000000
+      internalID: -8205379216301792639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 39d540a2f3f9f9b42897c98797d8301b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":14.0,"y":1.0},"gridSpriteSize":{"x":288.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      beast_2human_0: -8965586976286368405
+      beast_2human_1: 1791608856638454232
+      beast_2human_10: 2856246037583477901
+      beast_2human_11: 2687046399835139164
+      beast_2human_12: 900203579268198220
+      beast_2human_13: -8205379216301792639
+      beast_2human_2: 981855826116510620
+      beast_2human_3: -2505880459037925481
+      beast_2human_4: -8126599330293144224
+      beast_2human_5: -6093779988854381561
+      beast_2human_6: 3103918153815755811
+      beast_2human_7: 6312711433825221926
+      beast_2human_8: -8189495839517757930
+      beast_2human_9: -4759240218086177502
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
