@@ -11,9 +11,13 @@ public class StaminaSystem : MonoBehaviour
     public float rollCost = 25f;
     public float lightAttackCost = 15f;
     public float heavyAttackCost = 25f;
+    public float plungeAttackCost = 30f;
     public float blockCost = 0f;
     public float sprintDrainRate = 10f;
     public bool sprintDrainsStamina = false;
+
+    [Header("FP Costs")]
+    public float plungeAttackFPCost = 20f;
 
     [Header("Exhaustion")]
     public float exhaustionDuration = 1.5f;
@@ -121,6 +125,27 @@ public class StaminaSystem : MonoBehaviour
         if (IsExhausted) return false;
         if (CurrentStamina < rollCost) return false;
         return ConsumeStamina(rollCost);
+    }
+
+    public bool TryLightAttack()
+    {
+        if (IsExhausted) return false;
+        if (CurrentStamina < lightAttackCost) return false;
+        return ConsumeStamina(lightAttackCost);
+    }
+
+    public bool TryHeavyAttack()
+    {
+        if (IsExhausted) return false;
+        if (CurrentStamina < heavyAttackCost) return false;
+        return ConsumeStamina(heavyAttackCost);
+    }
+
+    public bool TryPlunge()
+    {
+        if (IsExhausted) return false;
+        if (CurrentStamina < plungeAttackCost) return false;
+        return ConsumeStamina(plungeAttackCost);
     }
 
     void NotifyStaminaChanged()

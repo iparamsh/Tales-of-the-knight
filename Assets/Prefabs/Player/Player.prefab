@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3016805684016138787}
   - component: {fileID: 8481157317335990040}
   - component: {fileID: 2539036738423814225}
+  - component: {fileID: -6077155185772300257}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -66,14 +67,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move
       m_Flags: 4
-    - m_Name: down
-      m_Id: 4fe8fa04-4f69-4d98-b71a-ff2ff0dc27da
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
     - m_Name: left
       m_Id: 09f43208-2695-4d31-96a9-63b1a4025a75
       m_Path: <Keyboard>/a
@@ -150,9 +143,6 @@ MonoBehaviour:
   rollDuration: 0.6
   idleDelay: 0.2
   rollCooldown: 0
-  rollStaminaCost: 30
-  maxHealth: 100
-  staminaRecoveryRate: 15
 --- !u!212 &3427193348688249713
 SpriteRenderer:
   serializedVersion: 2
@@ -362,7 +352,77 @@ MonoBehaviour:
   rollCost: 25
   lightAttackCost: 15
   heavyAttackCost: 25
+  plungeAttackCost: 30
   blockCost: 0
   sprintDrainRate: 10
   sprintDrainsStamina: 1
+  plungeAttackFPCost: 20
   exhaustionDuration: 1.5
+--- !u!114 &-6077155185772300257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005343293287472138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee0b80c7bb2843d9bb749d92638806d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  LightAttackAction:
+    m_Name: Light Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: af4b4cfd-18df-4552-ae71-4a78929a2f88
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 607cddaa-9b87-4351-aa08-04d91a07106c
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Light Attack
+      m_Flags: 0
+    m_Flags: 0
+  HeavyAttackAction:
+    m_Name: Heavy Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2a719cec-9bb5-4e2b-9555-8e22ec21ae85
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3cec142a-c0a3-4885-9e16-e29c6a79d6ad
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Heavy Attack
+      m_Flags: 0
+    m_Flags: 0
+  PlungeAction:
+    m_Name: Plunge
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 47912871-e56b-4a69-adf1-dbb5f86221d9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 140ddcdb-4a23-4765-8c0d-b7d82cc7dfd8
+      m_Path: <Keyboard>/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Plunge
+      m_Flags: 0
+    m_Flags: 0
+  lightShortCooldown: 0
+  lightFullComboCooldown: 0.3
+  heavyShortCooldown: 0.7
+  heavyFullComboCooldown: 1.8
+  plungeCooldown: 2.5
