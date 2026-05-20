@@ -4,8 +4,8 @@ using System.Collections;
 public class BossController : Enemy
 {
     [Header("Boss Identity")]
-    public string bossName = "The Shadow Warrior";
-    public string bossNamePhaseTwo = "The Shadow Demon";
+    public string bossName = "Shadow Warrior Malec";
+    public string bossNamePhaseTwo = "The Beast Within";
 
     [Header("Range Thresholds")]
     public float extremeRange = 15f;
@@ -52,6 +52,7 @@ public class BossController : Enemy
     public float transitionAOERadius = 4f;
     public float transitionAOEDamage = 20f;
     public float transitionAOEDuration = 2f;
+    public float transformationSpeed = 0.6f;
 
     [Header("Evaluation")]
     public float minEvaluationTime = 0.1f;
@@ -71,6 +72,10 @@ public class BossController : Enemy
     public float backstepDuration = 0.8f;
     public float arenaMinX = -2f;
     public float arenaMaxX = 40f;
+
+    [Header("Death")]
+    public GameObject bonfirePrefab;
+    public Transform bonfireSpawnPoint;
 
     // =============================================
     // Public state
@@ -95,6 +100,7 @@ public class BossController : Enemy
     }
 
     private BossState currentState = BossState.Dormant;
+    private Coroutine walkCoroutine;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Transform player;
@@ -131,6 +137,8 @@ public class BossController : Enemy
     private float poiseRegenDelayTimer = 0f;
     private bool isDashing = false;
 
+    private bool isDead = false;
+
     protected override void OnStart()
     {
         animator = GetComponent<Animator>();
@@ -164,7 +172,8 @@ public class BossController : Enemy
         if (isTransitioning) return;
         if (player == null) return;
 
-        HandleFacing();
+        if (currentState == BossState.Idle || currentState == BossState.Walking || currentState == BossState.Sprinting || currentState == BossState.Backstepping)
+            HandleFacing();
         TickCooldowns();
         TickPoise();
         CheckPhaseTransitions();
@@ -176,6 +185,9 @@ public class BossController : Enemy
             else
                 EvaluateBehavior();
         }
+
+        if (currentState == BossState.Idle && isBeastForm)
+            Debug.Log("Beast idle — isBeastRunning: " + animator.GetBool("isBeastRunning"));
 
         if (currentState == BossState.Walking)
             MoveTowardPlayer(walkSpeed);
@@ -470,6 +482,7 @@ public class BossController : Enemy
 
     void StartWalk()
     {
+        if (walkCoroutine != null) StopCoroutine(walkCoroutine);
         currentState = BossState.Walking;
         if (isBeastForm)
         {
@@ -482,11 +495,12 @@ public class BossController : Enemy
             animator.SetBool("isWalking", true);
             animator.SetBool("isRunning", false);
         }
-        StartCoroutine(WalkThenEvaluate(Random.Range(0.5f, 1.2f)));
+        walkCoroutine = StartCoroutine(WalkThenEvaluate(Random.Range(0.5f, 1.2f)));
     }
 
     void StartSprint()
     {
+        if (walkCoroutine != null) StopCoroutine(walkCoroutine);
         currentState = BossState.Sprinting;
         if (isBeastForm)
         {
@@ -499,7 +513,7 @@ public class BossController : Enemy
             animator.SetBool("isRunning", true);
             animator.SetBool("isWalking", false);
         }
-        StartCoroutine(WalkThenEvaluate(Random.Range(0.4f, 0.8f)));
+        walkCoroutine = StartCoroutine(WalkThenEvaluate(Random.Range(0.4f, 0.8f)));
     }
 
     void Evaluate()
@@ -534,6 +548,7 @@ public class BossController : Enemy
             animator.SetBool("isBeastRunning", false);
             evaluationTimer = 0f;
         }
+        walkCoroutine = null;
     }
 
     IEnumerator Backstep()
@@ -885,11 +900,21 @@ public class BossController : Enemy
     IEnumerator PhaseTransition()
     {
         isTransitioning = true;
+
+        if (walkCoroutine != null)
+            StopCoroutine(walkCoroutine);
+        
         currentState = BossState.Attacking;
         Debug.Log("PhaseTransition started — Transform clip length: " + GetAnimationLength("Boss_Transform"));
 
         // Fire transformation trigger
+        animator.speed = transformationSpeed;
         animator.SetTrigger("TransformToDemon");
+
+        // Start health bar fade immediately
+        BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
+        float transformLength = GetAnimationLength("Boss_Transform") / transformationSpeed;
+        healthBar?.FadeOutAndChangeName(bossNamePhaseTwo, transformLength * 0.6f);
 
         // AOE damage zone during black hole portion
         float aoeElapsed = 0f;
@@ -913,12 +938,12 @@ public class BossController : Enemy
         // Wait for full transform animation
         yield return new WaitForSeconds(GetAnimationLength("Boss_Transform") - transitionAOEDuration);
 
+        animator.speed = 1f; // restore normal speed
+        isBeastForm = true;
+
         // Switch to beast form
         isBeastForm = true;
         animator.SetBool("isBeast", true);
-
-        // Update health bar name
-        OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());
 
         isTransitioning = false;
         currentState = BossState.Idle;
@@ -928,6 +953,10 @@ public class BossController : Enemy
     IEnumerator SwitchToBeast()
     {
         isTransitioning = true;
+
+        if (walkCoroutine != null)
+            StopCoroutine(walkCoroutine);
+        
         currentState = BossState.Attacking;
         animator.SetTrigger("TransformToDemon");
 
@@ -995,29 +1024,60 @@ public class BossController : Enemy
 
     protected override void Die()
     {
+        if (isDead) return;
+        isDead = true;
         currentState = BossState.Dead;
+        StopAllCoroutines();
         StartCoroutine(DeathSequence());
     }
 
     IEnumerator DeathSequence()
     {
+        // Handle beast form — transform back to human first
         if (isBeastForm)
         {
-            // Transform back to human before death animation
             animator.SetBool("isDying", true);
             animator.SetTrigger("DeathTransform");
-
             yield return new WaitForSeconds(GetAnimationLength("Boss_Beast2Human"));
-
             isBeastForm = false;
-            animator.SetBool("isBeast", false);
             animator.SetBool("isDying", false);
         }
 
+        // Play death animation
         animator.SetTrigger("Death");
         yield return new WaitForSeconds(GetAnimationLength("Boss_Death"));
 
-        Debug.Log(bossName + " defeated");
+        // Fade out boss sprite and health bar simultaneously
+        BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
+        healthBar?.FadeOut();
+
+        float fadeDuration = 2.5f;
+        float elapsed = 0f;
+        Color spriteColor = spriteRenderer.color;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
+            spriteColor.a = alpha;
+            spriteRenderer.color = spriteColor;
+            yield return null;
+        }
+
+        spriteRenderer.enabled = false;
+
+        // Spawn bonfire
+        if (bonfirePrefab != null)
+        {
+            GameObject bonfire = Instantiate(bonfirePrefab, bonfireSpawnPoint.position, Quaternion.identity);
+            bonfire.SetActive(true);
+        }
+
+        // Show victory screen
+        VictoryScreen victory = FindFirstObjectByType<VictoryScreen>();
+        victory?.Show();
+
+        // Cleanup
         gameObject.SetActive(false);
     }
 

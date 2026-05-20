@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Beast_Attack2
+  m_Name: Boss_BeastAtk2
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0

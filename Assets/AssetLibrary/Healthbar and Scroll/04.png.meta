@@ -375,7 +375,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -2672,6 +2672,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: boss healthbar fill
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 102
+        width: 30
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29fe3fd8a286b04d82b671f549fa2a5
+      internalID: 732574491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2790,6 +2812,7 @@ TextureImporter:
       04_97: 4180486932610364611
       04_98: -6291263786170210103
       04_99: 7232788762529073701
+      boss healthbar fill: 732574491
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
