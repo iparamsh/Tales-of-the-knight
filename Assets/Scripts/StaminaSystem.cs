@@ -94,6 +94,7 @@ public class StaminaSystem : MonoBehaviour
     public bool ConsumeStamina(float amount)
     {
         if (IsExhausted) return false;
+        Debug.Log("ConsumeStamina called: " + amount + " from: " + System.Environment.StackTrace);
 
         CurrentStamina = Mathf.Max(CurrentStamina - amount, 0f);
         regenDelayTimer = regenDelay;

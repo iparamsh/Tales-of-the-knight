@@ -16,6 +16,7 @@ public class Interactable : MonoBehaviour
     [Header("On Interact Event")]
     // Your UI partner or whoever can hook functions into this via inspector
     public UnityEvent onInteract;
+    public bool isLocked = false;
 
     private bool playerInRange = false;
     private VisualElement hintElement;
@@ -32,6 +33,11 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
+        if (isLocked) 
+        {
+            HidePrompt();
+            return;
+        }
         if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
         {
             onInteract?.Invoke();
@@ -43,7 +49,8 @@ public class Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            ShowPrompt();
+            if (!isLocked)
+                ShowPrompt();
         }
     }
 

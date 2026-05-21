@@ -62,26 +62,52 @@ public class DoorController : MonoBehaviour
 
     public void LockDoor()
     {
-        // Swap to closed sprite
         spriteRenderer.sprite = closedSprite;
 
-        // Re-enable the blocking collider
         BoxCollider2D blockingCollider = GetComponent<BoxCollider2D>();
         if (blockingCollider != null)
             blockingCollider.enabled = true;
 
-        // Disable interaction so player cant open from inside
         Interactable interactable = GetComponent<Interactable>();
         if (interactable != null)
         {
-            interactable.HidePrompt();
-            interactable.enabled = false;
+            interactable.isLocked = true;
         }
 
-        if (interactable != null && interactable.interactPromptUI != null)
-        interactable.interactPromptUI.SetActive(false);
+        RoomDoor roomDoor = GetComponent<RoomDoor>();
+        if (roomDoor != null)
+            roomDoor.Lock();
 
         isOpen = false;
         isLocked = true;
+    }
+
+    public void UnlockDoor()
+    {
+        isLocked = false;
+        isOpen = true;
+
+        BoxCollider2D blockingCollider = GetComponent<BoxCollider2D>();
+        if (blockingCollider != null)
+            blockingCollider.enabled = false;
+
+        Interactable interactable = GetComponent<Interactable>();
+        if (interactable != null)
+        {
+            interactable.isLocked = false;
+            interactable.enabled = false;
+            interactable.HidePrompt();
+        }
+
+        spriteRenderer.sprite = openSprite;
+
+        RoomDoor roomDoor = GetComponent<RoomDoor>();
+        if (roomDoor != null)
+            roomDoor.Unlock();
+    }
+
+    public bool IsOpen()
+    {
+        return isOpen;
     }
 }

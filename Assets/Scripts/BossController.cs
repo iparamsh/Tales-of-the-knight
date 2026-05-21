@@ -164,7 +164,7 @@ public class BossController : Enemy
 
         // TEMP TESTING — remove before final build
         // TEMP TESTING — remove before final build
-        TakeDamage(2f * Time.deltaTime, 0f);
+        TakeDamage(20f * Time.deltaTime, 0f);
 
         if (currentState == BossState.Dead) return;
         if (currentState == BossState.Staggered) return;
@@ -818,9 +818,9 @@ public class BossController : Enemy
         animator.SetTrigger("BeastAtk1");
         beastAtk1Timer = beastAtk1Cooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastAtk1"));
+        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastAtk1") + 0.1f);
         currentState = BossState.Idle;
-        evaluationTimer = 0f;
+        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
     }
 
     IEnumerator BeastAtk2()
@@ -832,9 +832,9 @@ public class BossController : Enemy
         animator.SetTrigger("BeastAtk2");
         beastAtk2Timer = beastAtk2Cooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastAtk2"));
+        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastAtk2") + 0.1f);
         currentState = BossState.Idle;
-        evaluationTimer = 0f;
+        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
     }
 
     IEnumerator BeastAtk3()
@@ -846,9 +846,9 @@ public class BossController : Enemy
         animator.SetTrigger("BeastAtk3");
         beastAtk3Timer = beastAtk3Cooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastAtk3"));
+        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastAtk3") + 0.1f);
         currentState = BossState.Idle;
-        evaluationTimer = 0f;
+        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
     }
 
     IEnumerator BeastOverhead()
@@ -860,9 +860,9 @@ public class BossController : Enemy
         animator.SetTrigger("BeastOverhead");
         beastOverheadTimer = beastOverheadCooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastOverhead"));
+        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastOverhead") + 0.1f);
         currentState = BossState.Idle;
-        evaluationTimer = 0f;
+        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
     }
 
     IEnumerator BeastSpecial()
@@ -874,9 +874,9 @@ public class BossController : Enemy
         animator.SetTrigger("BeastSpecial");
         beastSpecialTimer = beastSpecialCooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastSpecial"));
+        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastSpecial") + 0.1f);
         currentState = BossState.Idle;
-        evaluationTimer = 0f;
+        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
     }
 
     IEnumerator BeastSpecialChomp()
@@ -888,9 +888,9 @@ public class BossController : Enemy
         animator.SetTrigger("BeastSpecialChomp");
         beastSpecialChompTimer = beastSpecialChompCooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastSpecialChomp"));
+        yield return new WaitForSeconds(GetAnimationLength("Boss_BeastSpecialChomp") + 0.1f);
         currentState = BossState.Idle;
-        evaluationTimer = 0f;
+        evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
     }
 
     // =============================================
@@ -1065,6 +1065,13 @@ public class BossController : Enemy
         }
 
         spriteRenderer.enabled = false;
+
+        // Unlock door after boss death
+        DoorController door = FindFirstObjectByType<DoorController>();
+        if (door != null)
+        {
+            door.UnlockDoor();
+        }
 
         // Spawn bonfire
         if (bonfirePrefab != null)

@@ -21,6 +21,9 @@ public class PlayerCombat : MonoBehaviour
     [Header("Plunge Cooldown")]
     public float plungeCooldown = 2.5f;
 
+    [Header("Combo Window")]
+    public float comboWindowDuration = 0.8f;
+
     // =============================================
     // Private state
     // =============================================
@@ -30,6 +33,7 @@ public class PlayerCombat : MonoBehaviour
         LightAttack1,
         LightAttack2,
         LightAttack3,
+        LightAttack4,
         HeavyAttack1,
         HeavyAttack2,
         Plunge
@@ -81,8 +85,7 @@ public class PlayerCombat : MonoBehaviour
 
     void OnLightAttack(InputAction.CallbackContext ctx)
     {
-        // Queue combo while attack 1 or 2 is active
-        if (state == CombatState.LightAttack1 || state == CombatState.LightAttack2)
+        if (state == CombatState.LightAttack1 || state == CombatState.LightAttack2 || state == CombatState.LightAttack3)
         {
             comboQueued = true;
             return;
@@ -128,12 +131,13 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("LightAttack1");
 
-        float duration = GetAnimationLength("LightAttack1");
         float elapsed = 0f;
+        float duration = GetAnimationLength("LightAttack1");
+
         while (elapsed < duration)
         {
-            if (comboQueued) break;
             elapsed += Time.deltaTime;
+            if (comboQueued) break;
             yield return null;
         }
 
@@ -141,13 +145,14 @@ public class PlayerCombat : MonoBehaviour
         {
             comboQueued = false;
             activeAttack = StartCoroutine(LightAttack2());
+            yield break;
         }
-        else
-        {
-            if (elapsed < duration)
-                yield return new WaitForSeconds(duration - elapsed);
-            EnterCooldown(lightShortCooldown);
-        }
+
+        // No combo queued — wait out remaining animation then cooldown
+        if (elapsed < duration)
+            yield return new WaitForSeconds(duration - elapsed);
+
+        EnterCooldown(lightShortCooldown);
     }
 
     IEnumerator LightAttack2()
@@ -156,12 +161,13 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("LightAttack2");
 
-        float duration = GetAnimationLength("LightAttack2");
         float elapsed = 0f;
+        float duration = GetAnimationLength("LightAttack2");
+
         while (elapsed < duration)
         {
-            if (comboQueued) break;
             elapsed += Time.deltaTime;
+            if (comboQueued) break;
             yield return null;
         }
 
@@ -169,13 +175,13 @@ public class PlayerCombat : MonoBehaviour
         {
             comboQueued = false;
             activeAttack = StartCoroutine(LightAttack3());
+            yield break;
         }
-        else
-        {
-            if (elapsed < duration)
-                yield return new WaitForSeconds(duration - elapsed);
-            EnterCooldown(lightShortCooldown);
-        }
+
+        if (elapsed < duration)
+            yield return new WaitForSeconds(duration - elapsed);
+
+        EnterCooldown(lightShortCooldown);
     }
 
     IEnumerator LightAttack3()
@@ -184,7 +190,36 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("LightAttack3");
 
-        yield return new WaitForSeconds(GetAnimationLength("LightAttack3"));
+        float elapsed = 0f;
+        float duration = GetAnimationLength("LightAttack3");
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            if (comboQueued) break;
+            yield return null;
+        }
+
+        if (comboQueued && staminaSystem.TryLightAttack())
+        {
+            comboQueued = false;
+            activeAttack = StartCoroutine(LightAttack4());
+            yield break;
+        }
+
+        if (elapsed < duration)
+            yield return new WaitForSeconds(duration - elapsed);
+
+        EnterCooldown(lightShortCooldown);
+    }
+
+    IEnumerator LightAttack4()
+    {
+        state = CombatState.LightAttack4;
+        comboQueued = false;
+        animator.SetTrigger("LightAttack4");
+
+        yield return new WaitForSeconds(GetAnimationLength("LightAttack4"));
 
         EnterCooldown(lightFullComboCooldown);
     }
@@ -246,6 +281,7 @@ public class PlayerCombat : MonoBehaviour
         bool interruptible = state == CombatState.LightAttack1
             || state == CombatState.LightAttack2
             || state == CombatState.LightAttack3
+            || state == CombatState.LightAttack4
             || state == CombatState.HeavyAttack2;
 
         if (!interruptible) return;
