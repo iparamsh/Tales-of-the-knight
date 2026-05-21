@@ -164,7 +164,7 @@ public class BossController : Enemy
 
         // TEMP TESTING — remove before final build
         // TEMP TESTING — remove before final build
-        TakeDamage(20f * Time.deltaTime, 0f);
+        TakeDamage(2f * Time.deltaTime, 0f);
 
         if (currentState == BossState.Dead) return;
         if (currentState == BossState.Staggered) return;
@@ -1127,6 +1127,8 @@ public class BossController : Enemy
         BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
         healthBar?.ShowHealthBar();
         OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());
+
+        GameEventManager.Instance?.HideHUD();
 
         currentState = BossState.Idle;
         evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);

@@ -94,7 +94,6 @@ public class StaminaSystem : MonoBehaviour
     public bool ConsumeStamina(float amount)
     {
         if (IsExhausted) return false;
-        Debug.Log("ConsumeStamina called: " + amount + " from: " + System.Environment.StackTrace);
 
         CurrentStamina = Mathf.Max(CurrentStamina - amount, 0f);
         regenDelayTimer = regenDelay;
@@ -118,7 +117,6 @@ public class StaminaSystem : MonoBehaviour
     {
         IsExhausted = true;
         exhaustionTimer = exhaustionDuration;
-        Debug.Log("Player exhausted");
     }
 
     public bool TryRoll()
@@ -151,7 +149,6 @@ public class StaminaSystem : MonoBehaviour
 
     void NotifyStaminaChanged()
     {
-        Debug.Log($"[StaminaSystem] NotifyStaminaChanged called, stamina: {CurrentStamina:F1}");
         playerStats?.SetStamina(CurrentStamina);
     }
 }

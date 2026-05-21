@@ -1762,6 +1762,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &564756058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564756060}
+  - component: {fileID: 564756059}
+  m_Layer: 0
+  m_Name: GameEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &564756059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564756058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796c88692fa229a478a52653d0b219ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventManager
+  uiDocument: {fileID: 1384583853}
+  hudFadeDuration: 0.3
+--- !u!4 &564756060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564756058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -29.44705, y: -4.38691, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &602502565
 GameObject:
   m_ObjectHideFlags: 0
@@ -10172,6 +10218,10 @@ PrefabInstance:
     - target: {fileID: 2539036738423814225, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: maxStamina
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016805684016138787, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24315,3 +24365,4 @@ SceneRoots:
   - {fileID: 869607683}
   - {fileID: 675284347}
   - {fileID: 2000990385}
+  - {fileID: 564756060}
