@@ -13,6 +13,7 @@ public class GameEventManager : MonoBehaviour
     private VisualElement playerHUD;
     private VisualElement bossHUD;
     private VisualElement starContainer;
+    private VisualElement vignetteOverlay;
 
     void Awake()
     {
@@ -33,6 +34,9 @@ public class GameEventManager : MonoBehaviour
         playerHUD = root.Q<VisualElement>("PlayerHUD");
         bossHUD = root.Q<VisualElement>("BossHUD");
         starContainer = root.Q<VisualElement>("StarContainer");
+        vignetteOverlay = root.Q<VisualElement>("VignetteOverlay");
+        if (vignetteOverlay != null)
+            vignetteOverlay.style.display = DisplayStyle.None;
     }
 
     // =============================================
@@ -81,5 +85,42 @@ public class GameEventManager : MonoBehaviour
         // Use display none/flex for star since opacity won't override inline style
         if (starContainer != null)
             starContainer.style.display = hiding ? DisplayStyle.None : DisplayStyle.Flex;
+    }
+
+    public void PulseVignette(int pulseCount = 2, float pulseDuration = 0.3f)
+    {
+        StartCoroutine(VignettePulse(pulseCount, pulseDuration));
+    }
+
+    IEnumerator VignettePulse(int pulseCount, float pulseDuration)
+    {
+        if (vignetteOverlay == null) yield break;
+
+        vignetteOverlay.style.display = DisplayStyle.Flex;
+        vignetteOverlay.style.opacity = 0f;
+
+        for (int i = 0; i < pulseCount; i++)
+        {
+            float elapsed = 0f;
+            float halfDuration = pulseDuration * 0.5f;
+
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                vignetteOverlay.style.opacity = Mathf.Lerp(0f, 0.4f, elapsed / halfDuration);
+                yield return null;
+            }
+
+            elapsed = 0f;
+            while (elapsed < halfDuration)
+            {
+                elapsed += Time.deltaTime;
+                vignetteOverlay.style.opacity = Mathf.Lerp(0.4f, 0f, elapsed / halfDuration);
+                yield return null;
+            }
+        }
+
+        vignetteOverlay.style.display = DisplayStyle.None;
+        vignetteOverlay.style.opacity = 0f;
     }
 }

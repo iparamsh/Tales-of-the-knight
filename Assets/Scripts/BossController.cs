@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class BossController : Enemy
 {
@@ -53,6 +54,7 @@ public class BossController : Enemy
     public float transitionAOEDamage = 20f;
     public float transitionAOEDuration = 2f;
     public float transformationSpeed = 0.6f;
+    public float transitionCameraLockDuration = 6f;
 
     [Header("Evaluation")]
     public float minEvaluationTime = 0.1f;
@@ -163,8 +165,13 @@ public class BossController : Enemy
         }
 
         // TEMP TESTING — remove before final build
-        // TEMP TESTING — remove before final build
-        TakeDamage(2f * Time.deltaTime, 0f);
+        //TakeDamage(10f * Time.deltaTime, 0f);
+        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            StartCoroutine(Attack1());
+        if (Keyboard.current.digit2Key.wasPressedThisFrame)
+            StartCoroutine(Attack2());
+        if (Keyboard.current.digit3Key.wasPressedThisFrame)
+            StartCoroutine(Attack3());
 
         if (currentState == BossState.Dead) return;
         if (currentState == BossState.Staggered) return;
@@ -591,7 +598,20 @@ public class BossController : Enemy
         animator.SetTrigger("Attack1");
         attack1Timer = attack1Cooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_Attack1"));
+
+        GameObject hitbox = transform.Find("Hitbox_Attack1")?.gameObject;
+
+        // Startup
+        yield return new WaitForSeconds(0.357f);
+
+        // Active — one frame
+        hitbox?.SetActive(true);
+        yield return new WaitForSeconds(0.071f);
+        hitbox?.SetActive(false);
+
+        // Recovery
+        yield return new WaitForSeconds(0.428f);
+
         currentState = BossState.Idle;
         evaluationTimer = 0f;
     }
@@ -605,7 +625,29 @@ public class BossController : Enemy
         animator.SetTrigger("Attack2");
         attack2Timer = attack2Cooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_Attack2"));
+
+        GameObject hitbox2a = transform.Find("Hitbox_Attack2a")?.gameObject;
+        GameObject hitbox2b = transform.Find("Hitbox_Attack2b")?.gameObject;
+
+        // First hit startup
+        yield return new WaitForSeconds(0.428f);
+
+        // First hit active
+        hitbox2a?.SetActive(true);
+        yield return new WaitForSeconds(0.071f);
+        hitbox2a?.SetActive(false);
+
+        // Gap between hits
+        yield return new WaitForSeconds(0.428f);
+
+        // Second hit active
+        hitbox2b?.SetActive(true);
+        yield return new WaitForSeconds(0.214f);
+        hitbox2b?.SetActive(false);
+
+        // Recovery
+        yield return new WaitForSeconds(0.285f);
+
         currentState = BossState.Idle;
         evaluationTimer = 0f;
     }
@@ -619,7 +661,39 @@ public class BossController : Enemy
         animator.SetTrigger("Attack3");
         attack3Timer = attack3Cooldown;
         moveCounter++;
-        yield return new WaitForSeconds(GetAnimationLength("Boss_Attack3"));
+
+        GameObject hitbox3a = transform.Find("Hitbox_Attack3a")?.gameObject;
+        GameObject hitbox3b = transform.Find("Hitbox_Attack3b")?.gameObject;
+        GameObject hitbox3c = transform.Find("Hitbox_Attack3c")?.gameObject;
+        GameObject hitbox3d = transform.Find("Hitbox_Attack3d")?.gameObject;
+
+        // First hit
+        yield return new WaitForSeconds(0.417f);
+        hitbox3a?.SetActive(true);
+        yield return new WaitForSeconds(0.083f);
+        hitbox3a?.SetActive(false);
+
+        // Second hit
+        yield return new WaitForSeconds(0.417f);
+        hitbox3b?.SetActive(true);
+        yield return new WaitForSeconds(0.167f);
+        hitbox3b?.SetActive(false);
+
+        // Third hit
+        yield return new WaitForSeconds(0.417f);
+        hitbox3c?.SetActive(true);
+        yield return new WaitForSeconds(0.250f);
+        hitbox3c?.SetActive(false);
+
+        // Fourth hit
+        yield return new WaitForSeconds(0.083f);
+        hitbox3d?.SetActive(true);
+        yield return new WaitForSeconds(0.083f);
+        hitbox3d?.SetActive(false);
+
+        // Recovery
+        yield return new WaitForSeconds(0.167f);
+
         currentState = BossState.Idle;
         evaluationTimer = 0f;
     }
@@ -900,28 +974,81 @@ public class BossController : Enemy
     IEnumerator PhaseTransition()
     {
         isTransitioning = true;
-
-        if (walkCoroutine != null)
-            StopCoroutine(walkCoroutine);
-        
         currentState = BossState.Attacking;
-        Debug.Log("PhaseTransition started — Transform clip length: " + GetAnimationLength("Boss_Transform"));
 
-        // Fire transformation trigger
+        // Force idle animation before transformation
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isRunning", false);
+        animator.SetBool("isBeastRunning", false);
+
+        // Dramatic pause in idle
+        yield return new WaitForSeconds(1.5f);
+
+        // Hide HUD
+        GameEventManager.Instance?.HideHUD(0.3f);
+
+        // Brief time slow
+        Time.timeScale = 0.3f;
+        yield return new WaitForSeconds(0.3f * Time.timeScale);
+        Time.timeScale = 1f;
+
+        // Screen shake and vignette pulse
+        CameraShake.Instance?.Shake(0.5f, 0.15f);
+        GameEventManager.Instance?.PulseVignette(4, 0.9f);
+
+        // Camera setup
+        CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
+        float originalSize = Camera.main.orthographicSize;
+        float zoomSize = originalSize * 0.7f;
+        float zoomDuration = 0.4f;
+        float zoomElapsed = 0f;
+
+        // Take full manual control of camera
+        if (cameraFollow != null) cameraFollow.overridden = true;
+
+        Vector3 camStart = Camera.main.transform.position;
+        Vector3 camTarget = new Vector3(
+            transform.position.x,
+            transform.position.y,
+            Camera.main.transform.position.z
+        );
+
+        // Zoom in toward boss
+        while (zoomElapsed < zoomDuration)
+        {
+            zoomElapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(zoomElapsed / zoomDuration);
+            Camera.main.orthographicSize = Mathf.Lerp(originalSize, zoomSize, t);
+            Camera.main.transform.position = Vector3.Lerp(camStart, camTarget, t);
+            yield return null;
+        }
+
+        // Fire transformation
         animator.speed = transformationSpeed;
         animator.SetTrigger("TransformToDemon");
 
-        // Start health bar fade immediately
+        // Start health bar fade
         BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
         float transformLength = GetAnimationLength("Boss_Transform") / transformationSpeed;
         healthBar?.FadeOutAndChangeName(bossNamePhaseTwo, transformLength * 0.6f);
 
-        // AOE damage zone during black hole portion
+        // Lock boss position for camera and run AOE — single unified loop
+        Vector3 bossLockPos = new Vector3(
+            transform.position.x,
+            transform.position.y,
+            Camera.main.transform.position.z
+        );
+
         float aoeElapsed = 0f;
-        while (aoeElapsed < transitionAOEDuration)
+        float totalLockElapsed = 0f;
+
+        while (totalLockElapsed < transitionCameraLockDuration)
         {
-            // Check if player is within AOE radius
-            if (player != null)
+            // Keep camera manually pinned to boss every frame
+            Camera.main.transform.position = bossLockPos;
+
+            // AOE damage during first portion only
+            if (aoeElapsed < transitionAOEDuration && player != null)
             {
                 float dist = Vector2.Distance(transform.position, player.position);
                 if (dist <= transitionAOERadius)
@@ -930,20 +1057,36 @@ public class BossController : Enemy
                     if (pc != null && !pc.IsInvincible)
                         pc.SetHealth(pc.GetHealth() - transitionAOEDamage * Time.deltaTime);
                 }
+                aoeElapsed += Time.deltaTime;
             }
-            aoeElapsed += Time.deltaTime;
+
+            totalLockElapsed += Time.deltaTime;
             yield return null;
         }
 
-        // Wait for full transform animation
-        yield return new WaitForSeconds(GetAnimationLength("Boss_Transform") - transitionAOEDuration);
+        // Zoom back out
+        zoomElapsed = 0f;
+        while (zoomElapsed < zoomDuration)
+        {
+            zoomElapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(zoomElapsed / zoomDuration);
+            Camera.main.orthographicSize = Mathf.Lerp(zoomSize, originalSize, t);
+            yield return null;
+        }
 
-        animator.speed = 1f; // restore normal speed
-        isBeastForm = true;
+        animator.speed = 1f;
+
+        // Re-enable camera follow
+        if (cameraFollow != null) cameraFollow.overridden = false;
 
         // Switch to beast form
         isBeastForm = true;
-        animator.SetBool("isBeast", true);
+
+        // Show HUD back
+        GameEventManager.Instance?.ShowHUD(0.3f);
+
+        // Update health bar
+        OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());
 
         isTransitioning = false;
         currentState = BossState.Idle;
@@ -1127,8 +1270,6 @@ public class BossController : Enemy
         BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
         healthBar?.ShowHealthBar();
         OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());
-
-        GameEventManager.Instance?.HideHUD();
 
         currentState = BossState.Idle;
         evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);

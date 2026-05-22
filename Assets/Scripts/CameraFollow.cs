@@ -3,6 +3,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
+    public bool overridden = false;
     public float smoothSpeed = 8f;
     public Vector2 offset = new Vector2(0f, 2f);
 
@@ -23,6 +24,7 @@ public class CameraFollow : MonoBehaviour
     void FixedUpdate()
     {
         if (target == null) return;
+        if (overridden) return;
 
         float targetX = target.position.x + offset.x;
         float targetY = target.position.y + offset.y;
