@@ -4,11 +4,13 @@ public class BonfireController : MonoBehaviour
 {
     private InteractionPromptUI promptUI;
     private PlayerStats playerStats;
+    private PauseMenuUI pauseMenuUI;
 
     void Start()
     {
         promptUI = FindAnyObjectByType<InteractionPromptUI>();
         playerStats = FindAnyObjectByType<PlayerStats>();
+        pauseMenuUI = FindAnyObjectByType<PauseMenuUI>();
     }
 
     // Called via Interactable onInteract event
@@ -17,10 +19,10 @@ public class BonfireController : MonoBehaviour
         if (promptUI == null)
             promptUI = FindAnyObjectByType<InteractionPromptUI>();
 
-        promptUI.ShowPrompt("Bonfire",
-            ("Rest", OnRest),
-            ("Exit", OnExit)
-        );
+        if (pauseMenuUI == null)
+            pauseMenuUI = FindAnyObjectByType<PauseMenuUI>();
+
+        promptUI.ShowBonfireMenu(OnRest, OpenMoreMenu, OnExit);
     }
 
     private void OnRest()
@@ -40,5 +42,14 @@ public class BonfireController : MonoBehaviour
     {
         Debug.Log("Player exited bonfire prompt");
         // Dialog closes, player continues
+    }
+
+    private void OpenMoreMenu()
+    {
+        if (pauseMenuUI == null)
+            pauseMenuUI = FindAnyObjectByType<PauseMenuUI>();
+
+        if (pauseMenuUI != null)
+            pauseMenuUI.ShowMenu();
     }
 }

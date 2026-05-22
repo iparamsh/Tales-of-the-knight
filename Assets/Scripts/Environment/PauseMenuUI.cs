@@ -16,6 +16,7 @@ public class PauseMenuUI : MonoBehaviour
     private Button controlsButton;
     private Button quitButton;
     private Button backButton;
+    private InteractionPromptUI interactionPromptUI;
 
     private bool isOpen;
     private bool controlsVisible;
@@ -35,6 +36,7 @@ public class PauseMenuUI : MonoBehaviour
         pauseContainer = root.Q<VisualElement>("PauseMenuContainer");
         mainMenuPage = root.Q<VisualElement>("PauseMainPage");
         controlsPage = root.Q<VisualElement>("PauseControlsPage");
+        interactionPromptUI = FindAnyObjectByType<InteractionPromptUI>();
 
         continueButton = root.Q<Button>("ContinueButton");
         newGameButton = root.Q<Button>("NewGameButton");
@@ -66,6 +68,12 @@ public class PauseMenuUI : MonoBehaviour
     void Update()
     {
         if (Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
+            return;
+
+        if (interactionPromptUI == null)
+            interactionPromptUI = FindAnyObjectByType<InteractionPromptUI>();
+
+        if (interactionPromptUI != null && (interactionPromptUI.IsBonfireMenuOpen || interactionPromptUI.ConsumeEscapeThisFrame))
             return;
 
         if (!isOpen)
