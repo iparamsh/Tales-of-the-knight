@@ -8424,6 +8424,7 @@ GameObject:
   - component: {fileID: 1224899272}
   - component: {fileID: 1224899271}
   - component: {fileID: 1224899273}
+  - component: {fileID: 1224899274}
   m_Layer: 5
   m_Name: InteractionPromptContainer
   m_TagString: Untagged
@@ -8481,6 +8482,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b2896d7e566a64bba1650be2a6eb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionPromptUI
+  uiDocument: {fileID: 0}
+--- !u!114 &1224899274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224899270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7a1c9e2d3f4a5b8c7d6e1f2a3b4c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenuUI
   uiDocument: {fileID: 0}
 --- !u!1 &1293533335
 GameObject:

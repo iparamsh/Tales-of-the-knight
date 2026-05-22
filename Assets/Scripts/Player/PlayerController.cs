@@ -77,6 +77,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (PauseStateManager.IsPaused)
+            return;
+
         if (rollCooldownTimer > 0) rollCooldownTimer -= Time.deltaTime;
         if (jumpCooldownTimer > 0) jumpCooldownTimer -= Time.deltaTime;
         if (isRolling) return;
@@ -89,6 +92,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnRoll(InputAction.CallbackContext ctx)
     {
+        if (PauseStateManager.IsPaused)
+            return;
+
         if (isRolling || rollCooldownTimer > 0) return;
         // StaminaSystem handles all stamina checks and deduction
         if (staminaSystem != null && !staminaSystem.TryRoll()) return;
@@ -103,6 +109,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext ctx)
     {
+        if (PauseStateManager.IsPaused)
+            return;
+
         if (isRolling || jumpCooldownTimer > 0) return;
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         jumpCooldownTimer = jumpCooldown;

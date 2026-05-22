@@ -65,7 +65,7 @@ public class InteractionPromptUI : MonoBehaviour
 
         // Show the prompt
         promptContainer.style.display = DisplayStyle.Flex;
-        Time.timeScale = 0f; // Pause game while prompt is open
+        PauseStateManager.RequestPause(this);
     }
 
     public void HidePrompt()
@@ -73,6 +73,6 @@ public class InteractionPromptUI : MonoBehaviour
         if (promptContainer != null)
             promptContainer.style.display = DisplayStyle.None;
         
-        Time.timeScale = 1f; // Resume game
+        PauseStateManager.ReleasePause(this);
     }
 }
