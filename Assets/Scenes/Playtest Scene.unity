@@ -1592,6 +1592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
   damage: 15
   poiseDamage: 10
+  isMultiHit: 0
+  multiHitCooldown: 0.1
 --- !u!61 &160070236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1637,6 +1639,101 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 6.387995, y: 4.818265}
+  m_EdgeRadius: 0
+--- !u!1 &211082824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211082825}
+  - component: {fileID: 211082827}
+  - component: {fileID: 211082826}
+  m_Layer: 9
+  m_Name: Hitbox_TeleportReappearA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &211082825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211082824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1878588040}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211082826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211082824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554593c0fa7236b429414d43d9f48945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
+  damage: 15
+  poiseDamage: 10
+  isMultiHit: 1
+  multiHitCooldown: 0.1
+--- !u!61 &211082827
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211082824}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.6759243, y: -0.65198374}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6.707199, y: 5.231304}
   m_EdgeRadius: 0
 --- !u!1 &231348688
 GameObject:
@@ -1801,6 +1898,101 @@ PrefabInstance:
       addedObject: {fileID: 231348689}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff6e823b98d771489d90c061208deab, type: 3}
+--- !u!1 &300618243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300618244}
+  - component: {fileID: 300618246}
+  - component: {fileID: 300618245}
+  m_Layer: 9
+  m_Name: Hitbox_TeleportReappearB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &300618244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300618243}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1878588040}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &300618245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300618243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554593c0fa7236b429414d43d9f48945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
+  damage: 15
+  poiseDamage: 10
+  isMultiHit: 1
+  multiHitCooldown: 0.1
+--- !u!61 &300618246
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300618243}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.5895109, y: -0.78160286}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 10.163717, y: 8.039728}
+  m_EdgeRadius: 0
 --- !u!1 &313059249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,6 +2040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
   damage: 15
   poiseDamage: 10
+  isMultiHit: 0
+  multiHitCooldown: 0.1
 --- !u!61 &313059252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1995,6 +2189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
   damage: 15
   poiseDamage: 10
+  isMultiHit: 0
+  multiHitCooldown: 0.1
 --- !u!61 &549747220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10339,6 +10535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
   damage: 15
   poiseDamage: 10
+  isMultiHit: 0
+  multiHitCooldown: 0.1
 --- !u!61 &803490506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10512,6 +10710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
   damage: 15
   poiseDamage: 10
+  isMultiHit: 0
+  multiHitCooldown: 0.1
 --- !u!61 &909460148
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10638,6 +10838,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f256df1aa565d42b9bacd9b6c851c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
+--- !u!1 &1104918287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1104918288}
+  - component: {fileID: 1104918290}
+  - component: {fileID: 1104918289}
+  m_Layer: 9
+  m_Name: Hitbox_JumpAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1104918288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104918287}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1878588040}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1104918289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104918287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554593c0fa7236b429414d43d9f48945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
+  damage: 15
+  poiseDamage: 10
+  isMultiHit: 1
+  multiHitCooldown: 0.1
+--- !u!61 &1104918290
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104918287}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.3734784, y: -2.6070776}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 10.595782, y: 4.3887787}
+  m_EdgeRadius: 0
 --- !u!114 &1146861558 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
@@ -11063,6 +11358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
   damage: 15
   poiseDamage: 10
+  isMultiHit: 0
+  multiHitCooldown: 0.1
 --- !u!61 &1527045048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11259,6 +11556,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7419198408953377254, guid: d312b5702c98de04b9457892db10c9e5, type: 3}
     - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: jumpAttackDuration
+      value: 0.714
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
       propertyPath: transitionCameraLockDuration
       value: 3
       objectReference: {fileID: 0}
@@ -11294,8 +11595,118 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 479959650508111930, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 909460146}
+    - targetCorrespondingSourceObject: {fileID: 479959650508111930, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 211082825}
+    - targetCorrespondingSourceObject: {fileID: 479959650508111930, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300618244}
+    - targetCorrespondingSourceObject: {fileID: 479959650508111930, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1104918288}
+    - targetCorrespondingSourceObject: {fileID: 479959650508111930, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1624685103}
+    - targetCorrespondingSourceObject: {fileID: 479959650508111930, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2038618715}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+--- !u!1 &1624685102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1624685103}
+  - component: {fileID: 1624685105}
+  - component: {fileID: 1624685104}
+  m_Layer: 9
+  m_Name: Hitbox_DashBody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1624685103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624685102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1878588040}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1624685104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624685102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554593c0fa7236b429414d43d9f48945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
+  damage: 15
+  poiseDamage: 10
+  isMultiHit: 1
+  multiHitCooldown: 0.1
+--- !u!61 &1624685105
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624685102}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.12504005, y: -3.7304468}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.5377693, y: 2.4876928}
+  m_EdgeRadius: 0
 --- !u!1 &1641286263
 GameObject:
   m_ObjectHideFlags: 0
@@ -11444,6 +11855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
   damage: 15
   poiseDamage: 10
+  isMultiHit: 0
+  multiHitCooldown: 0.1
 --- !u!61 &1675330614
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11556,8 +11969,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.07296243, y: -0.1152757}
-  m_Size: {x: 0.5216767, y: 1.238204}
+  m_Offset: {x: 0.07958509, y: 0.006143173}
+  m_Size: {x: 0.5349222, y: 1.4810448}
   m_Direction: 0
 --- !u!1 &1810732287
 GameObject:
@@ -11785,6 +12198,101 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2038618714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2038618715}
+  - component: {fileID: 2038618717}
+  - component: {fileID: 2038618716}
+  m_Layer: 9
+  m_Name: Hitbox_DashSpin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2038618715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038618714}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1878588040}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2038618716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038618714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554593c0fa7236b429414d43d9f48945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHitbox
+  damage: 15
+  poiseDamage: 10
+  isMultiHit: 1
+  multiHitCooldown: 0.1
+--- !u!61 &2038618717
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038618714}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -1.6572275, y: -2.596276}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.2381763, y: 4.885654}
+  m_EdgeRadius: 0
 --- !u!1 &2057837368
 GameObject:
   m_ObjectHideFlags: 0

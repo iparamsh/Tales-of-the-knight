@@ -35,6 +35,44 @@ public class BossController : Enemy
     public float beastSpecialCooldown = 6f;
     public float beastSpecialChompCooldown = 4f;
 
+    [Header("Attack Damage Values")]
+    public float attack1Damage = 15f;
+    public float attack1PoiseDamage = 10f;
+    public float attack2aDamage = 15f;
+    public float attack2aPoiseDamage = 10f;
+    public float attack2bDamage = 15f;
+    public float attack2bPoiseDamage = 10f;
+    public float attack3aDamage = 10f;
+    public float attack3aPoiseDamage = 8f;
+    public float attack3bDamage = 10f;
+    public float attack3bPoiseDamage = 8f;
+    public float attack3cDamage = 10f;
+    public float attack3cPoiseDamage = 8f;
+    public float attack3dDamage = 15f;
+    public float attack3dPoiseDamage = 12f;
+    public float rollAttackDamage = 20f;
+    public float rollAttackPoiseDamage = 15f;
+    public float dashAttackDamage = 25f;
+    public float dashAttackPoiseDamage = 20f;
+    public float jumpAttackDamage = 20f;
+    public float jumpAttackPoiseDamage = 15f;
+    public float teleportReappearADamage = 12f;
+    public float teleportReappearAPoiseDamage = 8f;
+    public float teleportReappearBDamage = 8f;
+    public float teleportReappearBPoiseDamage = 5f;
+    public float beastAtk1Damage = 15f;
+    public float beastAtk1PoiseDamage = 10f;
+    public float beastAtk2Damage = 15f;
+    public float beastAtk2PoiseDamage = 10f;
+    public float beastAtk3Damage = 10f;
+    public float beastAtk3PoiseDamage = 8f;
+    public float beastOverheadDamage = 20f;
+    public float beastOverheadPoiseDamage = 15f;
+    public float beastSpecialDamage = 8f;
+    public float beastSpecialPoiseDamage = 5f;
+    public float beastSpecialChompDamage = 25f;
+    public float beastSpecialChompPoiseDamage = 20f;
+
     [Header("Attack Durations")]
     public float dashDistance = 12f;
     public float dashDuration = 0.15f;
@@ -604,13 +642,19 @@ public class BossController : Enemy
         // Startup
         yield return new WaitForSeconds(0.357f);
 
-        // Active — one frame
-        hitbox?.SetActive(true);
-        yield return new WaitForSeconds(0.071f);
-        hitbox?.SetActive(false);
+        // Active — check every frame
+        float activeElapsed = 0f;
+        bool hasHit = false;
+        while (activeElapsed < 0.15f)
+        {
+            if (!hasHit)
+                hasHit = CheckHitPlayer(hitbox, attack1Damage, attack1PoiseDamage);
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         // Recovery
-        yield return new WaitForSeconds(0.428f);
+        yield return new WaitForSeconds(0.285f);
 
         currentState = BossState.Idle;
         evaluationTimer = 0f;
@@ -632,18 +676,30 @@ public class BossController : Enemy
         // First hit startup
         yield return new WaitForSeconds(0.428f);
 
-        // First hit active
-        hitbox2a?.SetActive(true);
-        yield return new WaitForSeconds(0.071f);
-        hitbox2a?.SetActive(false);
+        // First hit active — check every frame
+        float activeElapsed = 0f;
+        bool hasHit2a = false;
+        while (activeElapsed < 0.071f)
+        {
+            if (!hasHit2a)
+                hasHit2a = CheckHitPlayer(hitbox2a, attack2aDamage, attack2aPoiseDamage);
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         // Gap between hits
         yield return new WaitForSeconds(0.428f);
 
-        // Second hit active
-        hitbox2b?.SetActive(true);
-        yield return new WaitForSeconds(0.214f);
-        hitbox2b?.SetActive(false);
+        // Second hit active — check every frame
+        activeElapsed = 0f;
+        bool hasHit2b = false;
+        while (activeElapsed < 0.214f)
+        {
+            if (!hasHit2b)
+                hasHit2b = CheckHitPlayer(hitbox2b, attack2bDamage, attack2bPoiseDamage);
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         // Recovery
         yield return new WaitForSeconds(0.285f);
@@ -669,30 +725,54 @@ public class BossController : Enemy
 
         // First hit
         yield return new WaitForSeconds(0.417f);
-        hitbox3a?.SetActive(true);
-        yield return new WaitForSeconds(0.083f);
-        hitbox3a?.SetActive(false);
+        float activeElapsed = 0f;
+        bool hasHit3a = false;
+        while (activeElapsed < 0.083f)
+        {
+            if (!hasHit3a)
+                hasHit3a = CheckHitPlayer(hitbox3a, attack3aDamage, attack3aPoiseDamage);
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         // Second hit
         yield return new WaitForSeconds(0.417f);
-        hitbox3b?.SetActive(true);
-        yield return new WaitForSeconds(0.167f);
-        hitbox3b?.SetActive(false);
+        activeElapsed = 0f;
+        bool hasHit3b = false;
+        while (activeElapsed < 0.167f)
+        {
+            if (!hasHit3b)
+                hasHit3b = CheckHitPlayer(hitbox3b, attack3bDamage, attack3bPoiseDamage);
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         // Third hit
         yield return new WaitForSeconds(0.417f);
-        hitbox3c?.SetActive(true);
-        yield return new WaitForSeconds(0.250f);
-        hitbox3c?.SetActive(false);
+        activeElapsed = 0f;
+        bool hasHit3c = false;
+        while (activeElapsed < 0.250f)
+        {
+            if (!hasHit3c)
+                hasHit3c = CheckHitPlayer(hitbox3c, attack3cDamage, attack3cPoiseDamage);
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         // Fourth hit
         yield return new WaitForSeconds(0.083f);
-        hitbox3d?.SetActive(true);
-        yield return new WaitForSeconds(0.083f);
-        hitbox3d?.SetActive(false);
+        activeElapsed = 0f;
+        bool hasHit3d = false;
+        while (activeElapsed < 0.167f)
+        {
+            if (!hasHit3d)
+                hasHit3d = CheckHitPlayer(hitbox3d, attack3dDamage, attack3dPoiseDamage);
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         // Recovery
-        yield return new WaitForSeconds(0.167f);
+        yield return new WaitForSeconds(0.083f);
 
         currentState = BossState.Idle;
         evaluationTimer = 0f;
@@ -735,23 +815,47 @@ public class BossController : Enemy
         dashTimer = dashCooldown;
         moveCounter++;
 
+        GameObject hitboxBody = transform.Find("Hitbox_DashBody")?.gameObject;
+        GameObject hitboxSpin = transform.Find("Hitbox_DashSpin")?.gameObject;
+
+        // Startup
         yield return new WaitForSeconds(0.607f);
 
         float dirX = player.position.x > transform.position.x ? 1f : -1f;
         float dashSpeed = dashDistance / dashDuration;
         float elapsed = 0f;
+        bool hasHitBody = false;
 
+        // Dash movement with body hitbox active entire time
         while (elapsed < dashDuration)
         {
             Vector3 newPos = transform.position + new Vector3(dirX * dashSpeed * Time.deltaTime, 0f, 0f);
             newPos.x = Mathf.Clamp(newPos.x, arenaMinX, arenaMaxX);
             transform.position = newPos;
+
+            if (!hasHitBody)
+                hasHitBody = CheckHitPlayer(hitboxBody, dashAttackDamage, dashAttackPoiseDamage);
+
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         isDashing = false;
-        yield return new WaitForSeconds(0.442f);
+
+        // Scythe spin hitbox after landing
+        float spinElapsed = 0f;
+        bool hasHitSpin = false;
+        while (spinElapsed < 0.214f)
+        {
+            if (!hasHitSpin)
+                hasHitSpin = CheckHitPlayer(hitboxSpin, dashAttackDamage, dashAttackPoiseDamage);
+            spinElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Recovery
+        yield return new WaitForSeconds(0.228f);
+
         currentState = BossState.Idle;
         evaluationTimer = 0f;
     }
@@ -829,10 +933,16 @@ public class BossController : Enemy
     IEnumerator JumpAttack()
     {
         currentState = BossState.Attacking;
+        animator.SetBool("isBeastRunning", false);
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isRunning", false);
         animator.SetTrigger("JumpAttack");
         jumpAttackTimer = jumpAttackCooldown;
         moveCounter++;
 
+        GameObject hitbox = transform.Find("Hitbox_JumpAttack")?.gameObject;
+
+        // Movement during jump — runs for full jump duration
         float elapsed = 0f;
         while (elapsed < jumpAttackDuration)
         {
@@ -842,7 +952,26 @@ public class BossController : Enemy
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.3f);
+        // Startup wait after movement
+        // Brief landing settle before hitbox
+        yield return new WaitForSeconds(0.05f);
+
+        Debug.Log("JumpAttack hitbox activating — player distance: " + Vector2.Distance(transform.position, player.position) + " hitbox: " + (hitbox != null ? "found" : "NULL"));
+
+        // Active frames
+        float activeElapsed = 0f;
+        bool hasHit = false;
+        while (activeElapsed < 0.143f)
+        {
+            if (!hasHit)
+                hasHit = CheckHitPlayer(hitbox, jumpAttackDamage, jumpAttackPoiseDamage);
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Recovery
+        yield return new WaitForSeconds(0.571f);
+
         currentState = BossState.Idle;
         evaluationTimer = 0f;
     }
@@ -873,10 +1002,69 @@ public class BossController : Enemy
         animator.SetTrigger("TeleportReappear");
         yield return null;
         spriteRenderer.enabled = true;
+        yield return null; // extra frame for position to settle after teleport
+        yield return null;
 
-        yield return new WaitForSeconds(GetAnimationLength("Boss_TeleportReappear"));
+        yield return StartCoroutine(TeleportReappearAttack());
+
         currentState = BossState.Idle;
         evaluationTimer = 0f;
+    }
+
+    IEnumerator TeleportReappearAttack()
+    {
+        GameObject hitboxA = transform.Find("Hitbox_TeleportReappearA")?.gameObject;
+        GameObject hitboxB = transform.Find("Hitbox_TeleportReappearB")?.gameObject;
+
+        // First flurry — max 2 hits
+        yield return new WaitForSeconds(0.4375f);
+        float activeElapsed = 0f;
+        int hitsA = 0;
+        float multiHitTimerA = 0f;
+        while (activeElapsed < 0.156f)
+        {
+            multiHitTimerA -= Time.deltaTime;
+            if (multiHitTimerA <= 0f && hitsA < 2)
+            {
+                if (CheckHitPlayer(hitboxA, teleportReappearADamage, teleportReappearAPoiseDamage))
+                {
+                    hitsA++;
+                    multiHitTimerA = 0.08f;
+                }
+                else
+                {
+                    multiHitTimerA = 0.02f;
+                }
+            }
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Second flurry — max 3 hits
+        yield return new WaitForSeconds(0.0625f);
+        activeElapsed = 0f;
+        int hitsB = 0;
+        float multiHitTimerB = 0f;
+        while (activeElapsed < 0.3125f)
+        {
+            multiHitTimerB -= Time.deltaTime;
+            if (multiHitTimerB <= 0f && hitsB < 3)
+            {
+                if (CheckHitPlayer(hitboxB, teleportReappearBDamage, teleportReappearBPoiseDamage))
+                {
+                    hitsB++;
+                    multiHitTimerB = 0.1f;
+                }
+                else
+                {
+                    multiHitTimerB = 0.02f;
+                }
+            }
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.469f);
     }
 
     // =============================================
@@ -1246,6 +1434,32 @@ public class BossController : Enemy
         return 1f;
     }
 
+    bool CheckHitPlayer(GameObject hitboxObj, float damage, float poiseDamage)
+    {
+        if (hitboxObj == null) return false;
+
+        BoxCollider2D col = hitboxObj.GetComponent<BoxCollider2D>();
+        if (col == null) return false;
+
+        Vector2 center = (Vector2)hitboxObj.transform.TransformPoint(col.offset);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(center, col.size, 0f, LayerMask.GetMask("Hurtbox"));
+
+        foreach (Collider2D hit in hits)
+        {
+            if (!hit.CompareTag("PlayerHurtbox")) continue;
+
+            PlayerController pc = hit.GetComponentInParent<PlayerController>();
+            if (pc == null) continue;
+            if (pc.IsInvincible) continue;
+
+            pc.SetHealth(pc.GetHealth() - damage);
+            pc.GetComponent<StaminaSystem>()?.InterruptRegen();
+            return true;
+        }
+
+        return false;
+    }
+
     // =============================================
     // Entrance
     // =============================================
@@ -1265,11 +1479,11 @@ public class BossController : Enemy
         yield return null;
         spriteRenderer.enabled = true;
 
-        yield return new WaitForSeconds(GetAnimationLength("Boss_TeleportReappear"));
-
         BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
         healthBar?.ShowHealthBar();
         OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());
+
+        yield return new WaitForSeconds(GetAnimationLength("Boss_TeleportReappear"));
 
         currentState = BossState.Idle;
         evaluationTimer = Random.Range(minEvaluationTime, maxEvaluationTime);
