@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public InputAction RollAction;
     public InputAction JumpAction;
     public InputAction SprintAction;
+    public InputAction HealAction;
 
     [SerializeField] private float moveSpeed = 4.5f;
     [SerializeField] private float sprintSpeed = 7f;
@@ -20,6 +21,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float deathAnimationDuration = 1.5f;
     [SerializeField] private float respawnDelay = 0.5f;
 
+    [Header("Healing")]
+    [SerializeField] private int maxHeals = 2;
+    [SerializeField] private float healAmount = 50f;
+    [SerializeField] private float healApplyDelay = 0.4f;
+
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
@@ -28,14 +34,18 @@ public class PlayerController : MonoBehaviour
 
     private float idleTimer = 0f;
     private bool isRolling = false;
+    private bool isHealing = false;
     private Vector2 rollDirection;
     private float rollCooldownTimer = 0f;
     private float jumpCooldownTimer = 0f;
+    private int currentHeals;
 
     // =============================================
     // Public interface
     // =============================================
     public bool IsInvincible { get; private set; }
+    public int CurrentHeals => currentHeals;
+    public int MaxHeals => maxHeals;
     public float GetRollCooldown() { return rollCooldown; }
     public float GetRollCooldownRemaining() { return rollCooldownTimer; }
     public Vector2 GetPosition() { return transform.position; }
@@ -60,12 +70,16 @@ public class PlayerController : MonoBehaviour
         staminaSystem = GetComponent<StaminaSystem>();
         playerStats = GetComponent<PlayerStats>();
 
+        currentHeals = maxHeals;
+
         MoveAction.Enable();
         RollAction.Enable();
         JumpAction.Enable();
         SprintAction.Enable();
+        HealAction.Enable();
         RollAction.performed += OnRoll;
         JumpAction.performed += OnJump;
+        HealAction.performed += OnHeal;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -77,7 +91,9 @@ public class PlayerController : MonoBehaviour
     {
         RollAction.performed -= OnRoll;
         JumpAction.performed -= OnJump;
+        HealAction.performed -= OnHeal;
         SprintAction.Disable();
+        HealAction.Disable();
 
         if (playerStats != null)
             playerStats.OnDeath -= OnPlayerDied;
@@ -106,13 +122,58 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(DieCoroutine());
     }
 
+    private void OnHeal(InputAction.CallbackContext ctx)
+    {
+        if (PauseStateManager.IsPaused) return;
+        if (playerStats != null && playerStats.IsDead) return;
+        if (isHealing || isRolling) return;
+        if (currentHeals <= 0) return;
+        if (playerStats != null && playerStats.CurrentHealth >= playerStats.MaxHealth) return;
+
+        StartCoroutine(HealCoroutine());
+    }
+
+    private IEnumerator HealCoroutine()
+    {
+        isHealing = true;
+        currentHeals--;
+
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        animator.SetBool("isMoving", false);
+        animator.SetTrigger("Heal");
+
+        yield return new WaitForSeconds(healApplyDelay);
+        playerStats?.ChangeHealth(healAmount);
+
+        float remaining = GetAnimationLength("Heal") - healApplyDelay;
+        if (remaining > 0f)
+            yield return new WaitForSeconds(remaining);
+
+        isHealing = false;
+    }
+
+    public void RefillHeals()
+    {
+        currentHeals = maxHeals;
+    }
+
+    private float GetAnimationLength(string clipName)
+    {
+        if (animator == null) return 1f;
+        foreach (var clip in animator.runtimeAnimatorController.animationClips)
+            if (clip.name == clipName) return clip.length;
+        return 1f;
+    }
+
     private IEnumerator DieCoroutine()
     {
+        isHealing = false;
         rb.linearVelocity = Vector2.zero;
         MoveAction.Disable();
         RollAction.Disable();
         JumpAction.Disable();
         SprintAction.Disable();
+        HealAction.Disable();
 
         animator.SetBool("isMoving", false);
         animator.SetTrigger("Death");
@@ -128,10 +189,12 @@ public class PlayerController : MonoBehaviour
         RollAction.Enable();
         JumpAction.Enable();
         SprintAction.Enable();
+        HealAction.Enable();
 
         GetComponent<PlayerCombat>()?.ReviveActions();
 
         playerStats.Revive();
+        currentHeals = maxHeals;
 
         animator.SetBool("isMoving", false);
     }
@@ -141,7 +204,7 @@ public class PlayerController : MonoBehaviour
         if (PauseStateManager.IsPaused)
             return;
 
-        if (isRolling || rollCooldownTimer > 0) return;
+        if (isHealing || isRolling || rollCooldownTimer > 0) return;
         // StaminaSystem handles all stamina checks and deduction
         if (staminaSystem != null && !staminaSystem.TryRoll()) return;
 
@@ -187,6 +250,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement(Vector2 move)
     {
+        if (isHealing)
+        {
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+            return;
+        }
+
         bool isExhausted = staminaSystem != null && staminaSystem.IsExhausted;
         bool isSprinting = !isExhausted
             && SprintAction != null

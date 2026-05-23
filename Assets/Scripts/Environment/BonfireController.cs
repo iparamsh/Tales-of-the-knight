@@ -4,12 +4,14 @@ public class BonfireController : MonoBehaviour
 {
     private InteractionPromptUI promptUI;
     private PlayerStats playerStats;
+    private PlayerController playerController;
     private PauseMenuUI pauseMenuUI;
 
     void Start()
     {
         promptUI = FindAnyObjectByType<InteractionPromptUI>();
         playerStats = FindAnyObjectByType<PlayerStats>();
+        playerController = FindAnyObjectByType<PlayerController>();
         pauseMenuUI = FindAnyObjectByType<PauseMenuUI>();
     }
 
@@ -34,6 +36,8 @@ public class BonfireController : MonoBehaviour
             playerStats.SetHealth(playerStats.MaxHealth);
             playerStats.SetFP(playerStats.MaxFP);
         }
+
+        playerController?.RefillHeals();
 
         Debug.Log("Player rested at bonfire");
     }

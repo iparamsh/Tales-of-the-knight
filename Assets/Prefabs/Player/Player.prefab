@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2783601285425409190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463402338928912800}
+  - component: {fileID: 6047443089360202933}
+  m_Layer: 9
+  m_Name: PlayerHurtbox
+  m_TagString: PlayerHurtbox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1463402338928912800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783601285425409190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3064415909608767545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &6047443089360202933
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783601285425409190}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.07958509, y: 0.006143173}
+  m_Size: {x: 0.5349222, y: 1.4810448}
+  m_Direction: 0
 --- !u!1 &5005343293287472138
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,10 +82,10 @@ GameObject:
   - component: {fileID: 3427193348688249713}
   - component: {fileID: 3447993507827534883}
   - component: {fileID: 942493609731282250}
-  - component: {fileID: 3016805684016138787}
   - component: {fileID: 8481157317335990040}
   - component: {fileID: 2539036738423814225}
   - component: {fileID: -6077155185772300257}
+  - component: {fileID: 3060488145888976387}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -33,10 +102,11 @@ Transform:
   m_GameObject: {fileID: 5005343293287472138}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.50699, y: 0.46385, z: 0}
+  m_LocalPosition: {x: -31.423, y: -4.497, z: 0}
   m_LocalScale: {x: 1.9498699, y: 1.9498699, z: 1.4999}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1463402338928912800}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6460245619278874843
@@ -94,7 +164,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: c5df9f4d-cf6a-43de-bba5-af599a1f9df5
-      m_Path: <Keyboard>/c
+      m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -135,14 +205,36 @@ MonoBehaviour:
       m_Action: Sprint
       m_Flags: 0
     m_Flags: 0
+  HealAction:
+    m_Name: Heal
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c92dbf7e-4a4b-41b8-8e76-19c831a8df96
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 33b16902-a0fa-4ee5-935d-a7df563fe8d6
+      m_Path: <Keyboard>/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Heal
+      m_Flags: 0
+    m_Flags: 0
   moveSpeed: 7
   sprintSpeed: 11
   jumpForce: 18
-  jumpCooldown: 1
+  jumpCooldown: 0.2
   rollSpeed: 8
   rollDuration: 0.6
   idleDelay: 0.2
   rollCooldown: 0
+  deathAnimationDuration: 1.5
+  respawnDelay: 0.5
+  maxHeals: 2
+  healAmount: 50
+  healApplyDelay: 0.4
 --- !u!212 &3427193348688249713
 SpriteRenderer:
   serializedVersion: 2
@@ -251,43 +343,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &3016805684016138787
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5005343293287472138}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.072962426, y: -0.11527574}
-  m_Size: {x: 0.52167666, y: 1.238204}
-  m_Direction: 0
 --- !u!61 &8481157317335990040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -346,8 +401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405e68c280262b443880e1cf3c40bf6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaminaSystem
-  maxStamina: 100
-  regenRate: 20
+  maxStamina: 150
+  regenRate: 30
   regenDelay: 1
   rollCost: 25
   lightAttackCost: 15
@@ -380,7 +435,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 607cddaa-9b87-4351-aa08-04d91a07106c
-      m_Path: <Keyboard>/f
+      m_Path: <Mouse>/leftButton
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -395,14 +450,30 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 3cec142a-c0a3-4885-9e16-e29c6a79d6ad
-      m_Path: <Keyboard>/e
+    - m_Name: One Modifier
+      m_Id: 9b0a8156-6f14-49cd-8edf-2df081daaeec
+      m_Path: OneModifier
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Heavy Attack
-      m_Flags: 0
+      m_Flags: 4
+    - m_Name: modifier
+      m_Id: d800163f-873f-4112-9575-0d92523b4cb1
+      m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Heavy Attack
+      m_Flags: 8
+    - m_Name: binding
+      m_Id: 725d1652-001c-4ddd-82d7-ce95c26638c1
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Heavy Attack
+      m_Flags: 8
     m_Flags: 0
   PlungeAction:
     m_Name: Plunge
@@ -414,7 +485,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 140ddcdb-4a23-4765-8c0d-b7d82cc7dfd8
-      m_Path: <Keyboard>/r
+      m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -423,6 +494,26 @@ MonoBehaviour:
     m_Flags: 0
   lightShortCooldown: 0
   lightFullComboCooldown: 0.3
+  lightComboLinkDelay: 0.1
   heavyShortCooldown: 0.7
   heavyFullComboCooldown: 1.8
   plungeCooldown: 2.5
+  comboWindowDuration: 0.8
+--- !u!114 &3060488145888976387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005343293287472138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b09e601bd73694eaf0e6fefbdf6199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  maxHealth: 200
+  currentHealth: 200
+  maxFP: 90
+  currentFP: 90
+  maxStamina: 100
+  currentStamina: 100
