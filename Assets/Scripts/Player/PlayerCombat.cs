@@ -18,8 +18,11 @@ public class PlayerCombat : MonoBehaviour
     public float heavyShortCooldown = 0.7f;
     public float heavyFullComboCooldown = 1.8f;
 
-    [Header("Plunge Cooldown")]
+    [Header("Plunge Attack")]
     public float plungeCooldown = 2.5f;
+    public float plungeLaunchForce = 18f;
+    public float plungeSlamForce = 28f;
+    public float plungeRiseTime = 0.5f;
 
     [Header("Combo Window")]
     public float comboWindowDuration = 0.8f;
@@ -45,12 +48,16 @@ public class PlayerCombat : MonoBehaviour
     private Coroutine activeAttack;
 
     private Animator animator;
+    private Rigidbody2D rb;
+    private PlayerController playerController;
     private StaminaSystem staminaSystem;
     private PlayerStats playerStats;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        playerController = GetComponent<PlayerController>();
         staminaSystem = GetComponent<StaminaSystem>();
         playerStats = GetComponent<PlayerStats>();
 
@@ -87,6 +94,9 @@ public class PlayerCombat : MonoBehaviour
         state = CombatState.None;
         comboQueued = false;
         cooldownTimer = 0f;
+
+        if (playerController != null)
+            playerController.IsPlunging = false;
 
         LightAttackAction.Disable();
         HeavyAttackAction.Disable();
@@ -265,7 +275,7 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("HeavyAttack1");
 
-        yield return new WaitForSeconds(GetAnimationLength("Player_HeavyAttack1"));
+        yield return new WaitForSeconds(GetAnimationLength("HeavyAttack1"));
 
         if (comboQueued && staminaSystem.TryHeavyAttack())
         {
@@ -296,10 +306,22 @@ public class PlayerCombat : MonoBehaviour
     IEnumerator PlungeAttack()
     {
         state = CombatState.Plunge;
+        playerController.IsPlunging = true;
+
+        // Phase 1: launch upward
+        animator.SetBool("isMoving", false);
+        rb.linearVelocity = new Vector2(0f, plungeLaunchForce);
+        animator.SetTrigger("Jump");
+
+        yield return new WaitForSeconds(plungeRiseTime);
+
+        // Phase 2: slam downward
+        rb.linearVelocity = new Vector2(0f, -plungeSlamForce);
         animator.SetTrigger("Plunge");
 
-        yield return new WaitForSeconds(GetAnimationLength("Player_Plunge"));
+        yield return new WaitForSeconds(GetAnimationLength("PlungeAttack1"));
 
+        playerController.IsPlunging = false;
         EnterCooldown(plungeCooldown);
     }
 

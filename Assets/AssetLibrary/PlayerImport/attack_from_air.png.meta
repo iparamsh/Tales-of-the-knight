@@ -168,10 +168,10 @@ TextureImporter:
       name: attack_from_air_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 128
-        height: 64
+        x: 51
+        y: 197
+        width: 25
+        height: 59
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: attack_from_air_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 128
-        height: 64
+        x: 179
+        y: 200
+        width: 25
+        height: 53
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: attack_from_air_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 64
+        x: 51
+        y: 134
+        width: 25
+        height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: attack_from_air_3
       rect:
         serializedVersion: 2
-        x: 128
+        x: 161
         y: 128
-        width: 128
-        height: 64
+        width: 63
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: attack_from_air_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 128
-        height: 64
+        x: 27
+        y: 63
+        width: 74
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,57 +275,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_from_air_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 315193931aef0dcd0800000000000000
-      internalID: -2535246621806357229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack_from_air_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c1275b87de44b580800000000000000
-      internalID: -8812331883194539583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: attack_from_air_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 64
+        x: 147
+        y: 63
+        width: 88
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,6 +292,28 @@ TextureImporter:
       bones: []
       spriteID: 237430f2d0a9c5160800000000000000
       internalID: 7015651700950386482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_from_air_12
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 94
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407415893110f435682f82ad3eef665a
+      internalID: -812179270
       vertices: []
       indices: 
       edges: []
@@ -354,16 +332,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":4.0},"gridSpriteSize":{"x":128.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       attack_from_air_0: 8495433559932430955
       attack_from_air_1: -8312658908363281556
+      attack_from_air_10: -2105450397
+      attack_from_air_11: -590215918
+      attack_from_air_12: -812179270
+      attack_from_air_13: -1251730956
       attack_from_air_2: -749093122098888433
       attack_from_air_3: -9160875145514323279
       attack_from_air_4: -1278953423212444310
       attack_from_air_5: -2535246621806357229
       attack_from_air_6: -8812331883194539583
       attack_from_air_7: 7015651700950386482
+      attack_from_air_8: -244134284
+      attack_from_air_9: -905955125
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

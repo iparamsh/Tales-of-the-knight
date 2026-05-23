@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     // Public interface
     // =============================================
     public bool IsInvincible { get; private set; }
+    public bool IsPlunging { get; set; }
     public int CurrentHeals => currentHeals;
     public int MaxHeals => maxHeals;
     public float GetRollCooldown() { return rollCooldown; }
@@ -109,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
         if (rollCooldownTimer > 0) rollCooldownTimer -= Time.deltaTime;
         if (jumpCooldownTimer > 0) jumpCooldownTimer -= Time.deltaTime;
-        if (isRolling) return;
+        if (isRolling || IsPlunging) return;
 
         Vector2 move = MoveAction.ReadValue<Vector2>();
         HandleMovement(move);
@@ -168,6 +169,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DieCoroutine()
     {
         isHealing = false;
+        IsPlunging = false;
         rb.linearVelocity = Vector2.zero;
         MoveAction.Disable();
         RollAction.Disable();
