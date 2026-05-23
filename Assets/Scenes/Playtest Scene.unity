@@ -2088,29 +2088,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.9395237, y: 2.5060935}
   m_EdgeRadius: 0
---- !u!1 &337145299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-  m_PrefabInstance: {fileID: 1280182104}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &337145307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337145299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b09e601bd73694eaf0e6fefbdf6199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  maxHealth: 200
-  currentHealth: 200
-  maxFP: 90
-  currentFP: 90
-  maxStamina: 100
-  currentStamina: 100
 --- !u!1 &480432473
 GameObject:
   m_ObjectHideFlags: 0
@@ -10954,102 +10931,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: PlungeAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Mouse>/rightButton
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 9b0a8156-6f14-49cd-8edf-2df081daaeec
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[1].m_Id
-      value: d800163f-873f-4112-9575-0d92523b4cb1
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[2].m_Id
-      value: 725d1652-001c-4ddd-82d7-ce95c26638c1
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[3].m_Id
-      value: 725d1652-001c-4ddd-82d7-ce95c26638c1
+      value: a65b1452-3cf9-4d13-bdd3-f0e204e95789
       objectReference: {fileID: 0}
     - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[0].m_Name
-      value: One Modifier
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: OneModifier
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[1].m_Name
-      value: modifier
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[1].m_Path
-      value: <Keyboard>/shift
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[2].m_Name
-      value: binding
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[2].m_Path
-      value: <Mouse>/leftButton
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[3].m_Name
-      value: binding
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[3].m_Path
-      value: <Mouse>/leftButton
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: LightAttackAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Mouse>/leftButton
+      value: <Keyboard>/f
       objectReference: {fileID: 0}
     - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[0].m_Flags
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[1].m_Flags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[2].m_Flags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[3].m_Flags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[1].m_Action
-      value: Heavy Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[2].m_Action
-      value: Heavy Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: -6077155185772300257, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: HeavyAttackAction.m_SingletonActionBindings.Array.data[3].m_Action
-      value: Heavy Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 2539036738423814225, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: regenRate
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2539036738423814225, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: maxStamina
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 3016805684016138787, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
@@ -11096,33 +10993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: jumpCooldown
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: rollStaminaCost
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: JumpAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Keyboard>/w
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      propertyPath: RollAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Keyboard>/space
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3016805684016138787, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3064415909608767545, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1700613343}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 337145307}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
 --- !u!1 &1384583851
 GameObject:
@@ -11903,75 +11777,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.9999123, y: 2.5295358}
   m_EdgeRadius: 0
---- !u!1 &1700613342
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1700613343}
-  - component: {fileID: 1700613344}
-  m_Layer: 9
-  m_Name: PlayerHurtbox
-  m_TagString: PlayerHurtbox
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1700613343
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700613342}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 141408729}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1700613344
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700613342}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.07958509, y: 0.006143173}
-  m_Size: {x: 0.5349222, y: 1.4810448}
-  m_Direction: 0
 --- !u!1 &1810732287
 GameObject:
   m_ObjectHideFlags: 0
