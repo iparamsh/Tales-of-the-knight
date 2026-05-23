@@ -27,7 +27,8 @@ public class BonfireController : MonoBehaviour
 
     private void OnRest()
     {
-        // Restore player health and FP
+        RespawnManager.SetBonfirePosition(transform.position);
+
         if (playerStats != null)
         {
             playerStats.SetHealth(playerStats.MaxHealth);
@@ -35,7 +36,6 @@ public class BonfireController : MonoBehaviour
         }
 
         Debug.Log("Player rested at bonfire");
-        // TODO: trigger rest animation/UI
     }
 
     private void OnExit()

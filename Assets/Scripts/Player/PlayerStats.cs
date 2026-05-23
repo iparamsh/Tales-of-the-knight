@@ -15,6 +15,9 @@ public class PlayerStats : MonoBehaviour
     public event Action<float, float> OnHealthChanged;
     public event Action<float, float> OnFPChanged;
     public event Action<float, float> OnStaminaChanged;
+    public event Action OnDeath;
+
+    public bool IsDead { get; private set; }
 
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth;
@@ -34,6 +37,19 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(value, 0f, maxHealth);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        if (currentHealth <= 0f && !IsDead)
+        {
+            IsDead = true;
+            OnDeath?.Invoke();
+        }
+    }
+
+    public void Revive()
+    {
+        IsDead = false;
+        SetHealth(maxHealth);
+        SetFP(maxFP);
+        SetStamina(maxStamina);
     }
 
     public void ChangeHealth(float amount)

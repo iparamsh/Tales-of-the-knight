@@ -61,6 +61,9 @@ public class PlayerCombat : MonoBehaviour
         LightAttackAction.performed += OnLightAttack;
         HeavyAttackAction.performed += OnHeavyAttack;
         PlungeAction.performed += OnPlunge;
+
+        if (playerStats != null)
+            playerStats.OnDeath += OnPlayerDied;
     }
 
     void OnDestroy()
@@ -71,6 +74,34 @@ public class PlayerCombat : MonoBehaviour
         LightAttackAction.Disable();
         HeavyAttackAction.Disable();
         PlungeAction.Disable();
+
+        if (playerStats != null)
+            playerStats.OnDeath -= OnPlayerDied;
+    }
+
+    private void OnPlayerDied()
+    {
+        if (activeAttack != null)
+            StopCoroutine(activeAttack);
+
+        state = CombatState.None;
+        comboQueued = false;
+        cooldownTimer = 0f;
+
+        LightAttackAction.Disable();
+        HeavyAttackAction.Disable();
+        PlungeAction.Disable();
+    }
+
+    public void ReviveActions()
+    {
+        state = CombatState.None;
+        comboQueued = false;
+        cooldownTimer = 0f;
+
+        LightAttackAction.Enable();
+        HeavyAttackAction.Enable();
+        PlungeAction.Enable();
     }
 
     void Update()

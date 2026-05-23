@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rollDuration = 0.6f;
     [SerializeField] private float idleDelay = 0.2f;
     [SerializeField] private float rollCooldown = 10f;
+    [SerializeField] private float deathAnimationDuration = 1.5f;
+    [SerializeField] private float respawnDelay = 0.5f;
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -66,6 +68,9 @@ public class PlayerController : MonoBehaviour
         JumpAction.performed += OnJump;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (playerStats != null)
+            playerStats.OnDeath += OnPlayerDied;
     }
 
     void OnDestroy()
@@ -73,11 +78,17 @@ public class PlayerController : MonoBehaviour
         RollAction.performed -= OnRoll;
         JumpAction.performed -= OnJump;
         SprintAction.Disable();
+
+        if (playerStats != null)
+            playerStats.OnDeath -= OnPlayerDied;
     }
 
     void Update()
     {
         if (PauseStateManager.IsPaused)
+            return;
+
+        if (playerStats != null && playerStats.IsDead)
             return;
 
         if (rollCooldownTimer > 0) rollCooldownTimer -= Time.deltaTime;
@@ -88,6 +99,41 @@ public class PlayerController : MonoBehaviour
         HandleMovement(move);
         HandleAnimation(move);
         HandleFacing(move);
+    }
+
+    private void OnPlayerDied()
+    {
+        StartCoroutine(DieCoroutine());
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        rb.linearVelocity = Vector2.zero;
+        MoveAction.Disable();
+        RollAction.Disable();
+        JumpAction.Disable();
+        SprintAction.Disable();
+
+        animator.SetBool("isMoving", false);
+        animator.SetTrigger("Death");
+
+        yield return new WaitForSeconds(deathAnimationDuration + respawnDelay);
+
+        RespawnManager.Respawn(this);
+    }
+
+    public void Revive()
+    {
+        MoveAction.Enable();
+        RollAction.Enable();
+        JumpAction.Enable();
+        SprintAction.Enable();
+
+        GetComponent<PlayerCombat>()?.ReviveActions();
+
+        playerStats.Revive();
+
+        animator.SetBool("isMoving", false);
     }
 
     private void OnRoll(InputAction.CallbackContext ctx)
@@ -109,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext ctx)
     {
-        if (PauseStateManager.IsPaused)
+        if (PauseStateManager.IsPaused || (playerStats != null && playerStats.IsDead))
             return;
 
         if (isRolling || jumpCooldownTimer > 0) return;
