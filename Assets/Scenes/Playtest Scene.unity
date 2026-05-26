@@ -10993,6 +10993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6460245619278874843, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: healApplyDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11280,6 +11284,51 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.7537384, y: 4.9120355}
   m_EdgeRadius: 0
+--- !u!1 &1564827245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564827247}
+  - component: {fileID: 1564827246}
+  m_Layer: 0
+  m_Name: PauseMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1564827246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564827245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7a1c9e2d3f4a5b8c7d6e1f2a3b4c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenuUI
+  uiDocument: {fileID: 1384583853}
+--- !u!4 &1564827247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564827245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.634, y: 6.93968, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1585006200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11332,6 +11381,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6555225296661144438, guid: cbdcf9bc13b461545998d31061c8b039, type: 3}
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 2070933018}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11414,12 +11467,48 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: attack1Damage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
       propertyPath: bonfirePrefab
       value: 
       objectReference: {fileID: 116450859087038548, guid: cbdcf9bc13b461545998d31061c8b039, type: 3}
     - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: attack2aDamage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: attack2bDamage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: attack3aDamage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: attack3bDamage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: attack3cDamage
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: attack3dDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
       propertyPath: bossNamePhaseTwo
       value: The Beast Within
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: dashAttackDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: jumpAttackDamage
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
       propertyPath: bonfireSpawnPoint
@@ -11432,6 +11521,14 @@ PrefabInstance:
     - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
       propertyPath: jumpAttackDuration
       value: 0.714
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: teleportReappearADamage
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
+      propertyPath: teleportReappearBDamage
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2896078446059285829, guid: 0fd47e23b1d37404b8a10684670e43cd, type: 3}
       propertyPath: transitionCameraLockDuration
@@ -12225,7 +12322,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2070933019
 MonoBehaviour:
@@ -25536,3 +25633,4 @@ SceneRoots:
   - {fileID: 675284347}
   - {fileID: 2000990385}
   - {fileID: 564756060}
+  - {fileID: 1564827247}

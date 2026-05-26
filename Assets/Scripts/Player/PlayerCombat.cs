@@ -52,6 +52,7 @@ public class PlayerCombat : MonoBehaviour
     private PlayerController playerController;
     private StaminaSystem staminaSystem;
     private PlayerStats playerStats;
+    private float inputBlockTimer = 0f;
 
     void Start()
     {
@@ -116,6 +117,9 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
+        if (inputBlockTimer > 0f)
+            inputBlockTimer -= Time.unscaledDeltaTime;
+
         if (cooldownTimer > 0f)
             cooldownTimer -= Time.deltaTime;
     }
@@ -126,12 +130,14 @@ public class PlayerCombat : MonoBehaviour
 
     void OnLightAttack(InputAction.CallbackContext ctx)
     {
+        Debug.Log("OnLightAttack fired — inputBlockTimer: " + inputBlockTimer + " enabled: " + enabled);
         if (state == CombatState.LightAttack1 || state == CombatState.LightAttack2 || state == CombatState.LightAttack3)
         {
             comboQueued = true;
             return;
         }
 
+        if (inputBlockTimer > 0f) return;
         if (state != CombatState.None || cooldownTimer > 0f) return;
         if (staminaSystem == null || !staminaSystem.TryLightAttack()) return;
 
@@ -377,5 +383,10 @@ public class PlayerCombat : MonoBehaviour
         }
         Debug.LogWarning($"[PlayerCombat] Animation clip not found: {clipName}");
         return 0.5f;
+    }
+    
+    public void BlockInputBriefly(float duration = 0.2f)
+    {
+        inputBlockTimer = duration;
     }
 }

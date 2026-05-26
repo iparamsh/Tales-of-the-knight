@@ -199,9 +199,9 @@ public class BossController : Enemy
                 if (distanceToPlayer <= aggroRange)
                     BossEntrance();
             }
-            return;
+            return; 
         }
-
+ 
         // TEMP TESTING — remove before final build
         //TakeDamage(10f * Time.deltaTime, 0f);
         if (Keyboard.current.digit1Key.wasPressedThisFrame)

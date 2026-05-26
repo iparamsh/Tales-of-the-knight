@@ -12,7 +12,6 @@ public class GameEventManager : MonoBehaviour
 
     private VisualElement playerHUD;
     private VisualElement bossHUD;
-    private VisualElement starContainer;
     private VisualElement vignetteOverlay;
 
     void Awake()
@@ -33,7 +32,6 @@ public class GameEventManager : MonoBehaviour
         // Adjust these names to match your actual UI element names
         playerHUD = root.Q<VisualElement>("PlayerHUD");
         bossHUD = root.Q<VisualElement>("BossHUD");
-        starContainer = root.Q<VisualElement>("StarContainer");
         vignetteOverlay = root.Q<VisualElement>("VignetteOverlay");
         if (vignetteOverlay != null)
             vignetteOverlay.style.display = DisplayStyle.None;
@@ -81,10 +79,6 @@ public class GameEventManager : MonoBehaviour
 
         if (playerHUD != null) playerHUD.style.opacity = targetOpacity;
         if (bossHUD != null) bossHUD.style.opacity = targetOpacity;
-
-        // Use display none/flex for star since opacity won't override inline style
-        if (starContainer != null)
-            starContainer.style.display = hiding ? DisplayStyle.None : DisplayStyle.Flex;
     }
 
     public void PulseVignette(int pulseCount = 2, float pulseDuration = 0.3f)

@@ -24,40 +24,52 @@ public class VictoryScreen : MonoBehaviour
         }
     }
 
-    public void Show()
+    public void Show(string message = "Shadow Warrior Defeated")
     {
         if (isShowing) return;
         isShowing = true;
-        StartCoroutine(ShowSequence());
+        StartCoroutine(ShowSequence(message));
     }
 
-    IEnumerator ShowSequence()
+    IEnumerator ShowSequence(string message)
     {
-        // Make visible before fading in
-        if (victoryOverlay != null)
-            victoryOverlay.style.display = DisplayStyle.Flex;
+        // Set message text
+        Label victoryText = victoryOverlay?.Q<Label>("VictoryText");
+        if (victoryText != null)
+            victoryText.text = message;
 
-        // Fade in overlay
         yield return StartCoroutine(FadeOverlay(0f, 1f));
-
-        // Linger
         yield return new WaitForSeconds(lingerDuration);
-
-        // Fade out overlay
         yield return StartCoroutine(FadeOverlay(1f, 0f));
+
+        isShowing = false;
     }
 
     IEnumerator FadeOverlay(float from, float to)
     {
+        if (victoryOverlay == null) yield break;
+
+        victoryOverlay.style.display = DisplayStyle.Flex;
+        victoryOverlay.style.opacity = from;
+
         float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
-            if (victoryOverlay != null)
-                victoryOverlay.style.opacity = Mathf.Lerp(from, to, elapsed / fadeDuration);
+            victoryOverlay.style.opacity = Mathf.Lerp(from, to, elapsed / fadeDuration);
             yield return null;
         }
-        if (victoryOverlay != null)
-            victoryOverlay.style.opacity = to;
+
+        victoryOverlay.style.opacity = to;
+
+        if (to <= 0f)
+            victoryOverlay.style.display = DisplayStyle.None;
+    }
+
+    public System.Collections.IEnumerator ShowAndWait(string message = "Shadow Warrior Defeated")
+    {
+        if (isShowing) yield break;
+        isShowing = true;
+        yield return StartCoroutine(ShowSequence(message));
     }
 }

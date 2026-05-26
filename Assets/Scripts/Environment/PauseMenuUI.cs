@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -20,6 +21,7 @@ public class PauseMenuUI : MonoBehaviour
 
     private bool isOpen;
     private bool controlsVisible;
+    private PlayerCombat playerCombat;
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class PauseMenuUI : MonoBehaviour
         mainMenuPage = root.Q<VisualElement>("PauseMainPage");
         controlsPage = root.Q<VisualElement>("PauseControlsPage");
         interactionPromptUI = FindAnyObjectByType<InteractionPromptUI>();
+        playerCombat = FindAnyObjectByType<PlayerCombat>();
 
         continueButton = root.Q<Button>("ContinueButton");
         newGameButton = root.Q<Button>("NewGameButton");
@@ -102,6 +105,20 @@ public class PauseMenuUI : MonoBehaviour
         isOpen = true;
         controlsVisible = false;
         PauseStateManager.RequestPause(this);
+        if (playerCombat != null)
+        {
+            playerCombat.enabled = false;
+            playerCombat.LightAttackAction.Disable();
+            playerCombat.HeavyAttackAction.Disable();
+            playerCombat.PlungeAction.Disable();
+        }
+
+        Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
+        foreach (Interactable i in interactables)
+        {
+            i.HidePrompt();
+            i.enabled = false;
+        }
 
         if (pauseContainer != null)
             pauseContainer.style.display = DisplayStyle.Flex;
@@ -140,6 +157,12 @@ public class PauseMenuUI : MonoBehaviour
             controlsPage.style.display = DisplayStyle.None;
 
         PauseStateManager.ReleasePause(this);
+        if (playerCombat != null)
+        StartCoroutine(ReenableCombatDelayed());
+
+        Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
+        foreach (Interactable i in interactables)
+            i.enabled = true;
     }
 
     private void ShowMainMenu()
@@ -186,6 +209,26 @@ public class PauseMenuUI : MonoBehaviour
         RespawnManager.Reset();
         PauseStateManager.ClearAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator ReenableCombatDelayed()
+    {
+        yield return new WaitForSecondsRealtime(0.2f);
+        if (playerCombat != null)
+        {
+            // Disable and re-enable to flush buffered inputs
+            playerCombat.LightAttackAction.Disable();
+            playerCombat.HeavyAttackAction.Disable();
+            playerCombat.PlungeAction.Disable();
+
+            yield return new WaitForSecondsRealtime(0.05f);
+
+            playerCombat.LightAttackAction.Enable();
+            playerCombat.HeavyAttackAction.Enable();
+            playerCombat.PlungeAction.Enable();
+            playerCombat.enabled = true;
+            playerCombat.BlockInputBriefly(0.3f);
+        }
     }
 
     private void QuitGame()

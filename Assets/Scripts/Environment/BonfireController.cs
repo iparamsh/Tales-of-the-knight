@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class BonfireController : MonoBehaviour
 {
@@ -6,6 +8,11 @@ public class BonfireController : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerController playerController;
     private PauseMenuUI pauseMenuUI;
+    private StaminaSystem staminaSystem;
+
+    [Header("Rest Fade")]
+    public CanvasGroup fadePanel;
+    public float fadeDuration = 0.8f;
 
     void Start()
     {
@@ -13,9 +20,9 @@ public class BonfireController : MonoBehaviour
         playerStats = FindAnyObjectByType<PlayerStats>();
         playerController = FindAnyObjectByType<PlayerController>();
         pauseMenuUI = FindAnyObjectByType<PauseMenuUI>();
+        staminaSystem = FindAnyObjectByType<StaminaSystem>();
     }
 
-    // Called via Interactable onInteract event
     public void ShowBonfirePrompt()
     {
         if (promptUI == null)
@@ -30,21 +37,50 @@ public class BonfireController : MonoBehaviour
     private void OnRest()
     {
         RespawnManager.SetBonfirePosition(transform.position);
+        StartCoroutine(RestSequence());
+    }
 
+    IEnumerator RestSequence()
+    {
+        // Fade to black
+        if (fadePanel != null)
+        {
+            float elapsed = 0f;
+            while (elapsed < fadeDuration)
+            {
+                elapsed += Time.deltaTime;
+                fadePanel.alpha = Mathf.Lerp(0f, 1f, elapsed / fadeDuration);
+                yield return null;
+            }
+            fadePanel.alpha = 1f;
+        }
+
+        // Replenish all stats
         if (playerStats != null)
         {
             playerStats.SetHealth(playerStats.MaxHealth);
             playerStats.SetFP(playerStats.MaxFP);
         }
 
-        playerController?.RefillHeals();
+        if (staminaSystem != null)
+            staminaSystem.RefillStamina();
 
-        Debug.Log("Player rested at bonfire");
+        // Fade back in
+        if (fadePanel != null)
+        {
+            float elapsed = 0f;
+            while (elapsed < fadeDuration)
+            {
+                elapsed += Time.deltaTime;
+                fadePanel.alpha = Mathf.Lerp(1f, 0f, elapsed / fadeDuration);
+                yield return null;
+            }
+            fadePanel.alpha = 0f;
+        }
     }
 
     private void OnExit()
     {
-        Debug.Log("Player exited bonfire prompt");
         // Dialog closes, player continues
     }
 

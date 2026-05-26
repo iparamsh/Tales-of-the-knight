@@ -147,6 +147,12 @@ public class StaminaSystem : MonoBehaviour
         return ConsumeStamina(plungeAttackCost);
     }
 
+    public void RefillStamina()
+    {
+        CurrentStamina = maxStamina;
+        NotifyStaminaChanged();
+    }
+
     void NotifyStaminaChanged()
     {
         playerStats?.SetStamina(CurrentStamina);

@@ -18,6 +18,7 @@ public class InteractionPromptUI : MonoBehaviour
     private Action bonfireRestAction;
     private Action bonfireMoreAction;
     private Action bonfireExitAction;
+    private PlayerCombat playerCombat;
     public bool IsBonfireMenuOpen { get; private set; }
     public bool ConsumeEscapeThisFrame { get; private set; }
 
@@ -39,6 +40,7 @@ public class InteractionPromptUI : MonoBehaviour
 
         if (bonfireMenuContainer != null)
             bonfireMenuContainer.style.display = DisplayStyle.None;
+        playerCombat = FindAnyObjectByType<PlayerCombat>();
     }
 
     void OnDestroy()
@@ -84,7 +86,7 @@ public class InteractionPromptUI : MonoBehaviour
         // Create buttons for each option
         foreach (var (label, callback) in options)
         {
-            var button = new Button(() => 
+            var button = new Button(() =>
             {
                 callback?.Invoke();
                 HidePrompt();
@@ -124,6 +126,13 @@ public class InteractionPromptUI : MonoBehaviour
         IsBonfireMenuOpen = true;
         bonfireMenuContainer.style.display = DisplayStyle.Flex;
         PauseStateManager.RequestPause(this);
+        if (playerCombat != null)
+        {
+            playerCombat.LightAttackAction.Disable();
+            playerCombat.HeavyAttackAction.Disable();
+            playerCombat.PlungeAction.Disable();
+            playerCombat.enabled = false;
+        }
 
         if (bonfireRestButton != null)
         {
@@ -136,7 +145,7 @@ public class InteractionPromptUI : MonoBehaviour
     {
         if (promptContainer != null)
             promptContainer.style.display = DisplayStyle.None;
-        
+
         PauseStateManager.ReleasePause(this);
     }
 
@@ -175,6 +184,9 @@ public class InteractionPromptUI : MonoBehaviour
 
         if (releasePause)
             PauseStateManager.ReleasePause(this);
+
+        if (releasePause && playerCombat != null)
+            StartCoroutine(ReenableCombatDelayed());
     }
 
     private void BindUiReferences()
@@ -213,6 +225,23 @@ public class InteractionPromptUI : MonoBehaviour
         {
             bonfireExitButton = nextExitButton;
             bonfireExitButton.clicked += OnBonfireExitClicked;
+        }
+    }
+    
+    System.Collections.IEnumerator ReenableCombatDelayed()
+    {
+        yield return new WaitForSecondsRealtime(0.2f);
+        if (playerCombat != null)
+        {
+            playerCombat.LightAttackAction.Disable();
+            playerCombat.HeavyAttackAction.Disable();
+            playerCombat.PlungeAction.Disable();
+            yield return new WaitForSecondsRealtime(0.05f);
+            playerCombat.LightAttackAction.Enable();
+            playerCombat.HeavyAttackAction.Enable();
+            playerCombat.PlungeAction.Enable();
+            playerCombat.enabled = true;
+            playerCombat.BlockInputBriefly(0.3f);
         }
     }
 }

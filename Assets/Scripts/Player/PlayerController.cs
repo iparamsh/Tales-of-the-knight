@@ -141,8 +141,12 @@ public class PlayerController : MonoBehaviour
 
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         animator.SetBool("isMoving", false);
+
+        // Wait one frame for animator to be ready before triggering
+        yield return null;
         animator.SetTrigger("Heal");
 
+        // Wait for fourth key before applying health
         yield return new WaitForSeconds(healApplyDelay);
         playerStats?.ChangeHealth(healAmount);
 
@@ -180,7 +184,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isMoving", false);
         animator.SetTrigger("Death");
 
-        yield return new WaitForSeconds(deathAnimationDuration + respawnDelay);
+        yield return new WaitForSeconds(deathAnimationDuration);
+
+        // Show death screen
+        VictoryScreen victoryScreen = FindFirstObjectByType<VictoryScreen>();
+        if (victoryScreen != null)
+            yield return StartCoroutine(victoryScreen.ShowAndWait("You Died"));
+        else
+            yield return new WaitForSeconds(respawnDelay);
 
         RespawnManager.Respawn(this);
     }
