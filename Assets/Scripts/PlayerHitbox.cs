@@ -5,14 +5,43 @@ public class PlayerHitbox : MonoBehaviour
     public float damage = 20f;
     public float poiseDamage = 15f;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private BoxCollider2D boxCollider;
+
+    void Awake()
     {
-        if (!other.CompareTag("BossHurtbox")) return;
+        boxCollider = GetComponent<BoxCollider2D>();
+    }
 
-        BossController boss = other.GetComponentInParent<BossController>();
-        if (boss == null) return;
+    void OnEnable()
+    {
+        if (boxCollider == null)
+            boxCollider = GetComponent<BoxCollider2D>();
+    }
 
-        boss.TakeDamage(damage, poiseDamage);
-        Debug.Log("Player hit boss — attack: " + gameObject.name + " damage: " + damage + " poise: " + poiseDamage);
+    public bool CheckHitBoss()
+    {
+        if (boxCollider == null)
+            boxCollider = GetComponent<BoxCollider2D>();
+        if (boxCollider == null) return false;
+
+        Vector2 center = (Vector2)transform.TransformPoint(boxCollider.offset);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(center, boxCollider.size, 0f, LayerMask.GetMask("Hurtbox"));
+
+        Debug.Log("CheckHitBoss — hits found: " + hits.Length + " center: " + center + " size: " + boxCollider.size);
+        foreach (Collider2D hit in hits)
+            Debug.Log("  hit: " + hit.gameObject.name + " tag: " + hit.tag);
+
+        foreach (Collider2D hit in hits)
+        {
+            if (!hit.CompareTag("BossHurtbox")) continue;
+
+            BossController boss = hit.GetComponentInParent<BossController>();
+            if (boss == null) continue;
+
+            boss.TakeDamage(damage, poiseDamage);
+            return true;
+        }
+
+        return false;
     }
 }

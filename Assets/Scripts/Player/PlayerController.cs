@@ -263,13 +263,19 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement(Vector2 move)
     {
-        if (isHealing)
+        bool isExhausted = staminaSystem != null && staminaSystem.IsExhausted;
+
+        PlayerCombat combat = GetComponent<PlayerCombat>();
+        bool isHeavyAttacking = combat != null && (
+            combat.GetState() == PlayerCombat.CombatState.HeavyAttack1 ||
+            combat.GetState() == PlayerCombat.CombatState.HeavyAttack2);
+
+        if (isHeavyAttacking)
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
             return;
         }
 
-        bool isExhausted = staminaSystem != null && staminaSystem.IsExhausted;
         bool isSprinting = !isExhausted
             && SprintAction != null
             && SprintAction.enabled

@@ -30,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
     // =============================================
     // Private state
     // =============================================
-    private enum CombatState
+    public enum CombatState
     {
         None,
         LightAttack1,
@@ -130,14 +130,16 @@ public class PlayerCombat : MonoBehaviour
 
     void OnLightAttack(InputAction.CallbackContext ctx)
     {
-        Debug.Log("OnLightAttack fired — inputBlockTimer: " + inputBlockTimer + " enabled: " + enabled);
+        // Don't fire light attack if shift is held — that's heavy attack
+        if (Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed) return;
+
+        if (inputBlockTimer > 0f) return;
         if (state == CombatState.LightAttack1 || state == CombatState.LightAttack2 || state == CombatState.LightAttack3)
         {
             comboQueued = true;
             return;
         }
 
-        if (inputBlockTimer > 0f) return;
         if (state != CombatState.None || cooldownTimer > 0f) return;
         if (staminaSystem == null || !staminaSystem.TryLightAttack()) return;
 
@@ -178,13 +180,32 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("LightAttack1");
 
-        float elapsed = 0f;
-        float duration = GetAnimationLength("LightAttack1");
+        GameObject hitboxObj = transform.Find("Hitbox_LightAttack1")?.gameObject;
+        PlayerHitbox ph = hitboxObj?.GetComponent<PlayerHitbox>();
 
-        while (elapsed < duration)
+        // Startup
+        yield return new WaitForSeconds(0.3f);
+
+        Debug.Log("LightAttack1 active window — ph: " + (ph != null ? "found" : "NULL") + " hitboxObj: " + (hitboxObj != null ? "found" : "NULL"));
+
+        // Active — check every frame while listening for combo
+        float activeElapsed = 0f;
+        bool hasHit = false;
+        while (activeElapsed < 0.2f)
         {
-            elapsed += Time.deltaTime;
+            if (!hasHit && ph != null)
+                hasHit = ph.CheckHitBoss();
             if (comboQueued) break;
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Recovery — still listen for combo
+        float recoveryElapsed = 0f;
+        while (recoveryElapsed < 0.1f)
+        {
+            if (comboQueued) break;
+            recoveryElapsed += Time.deltaTime;
             yield return null;
         }
 
@@ -195,10 +216,6 @@ public class PlayerCombat : MonoBehaviour
             yield break;
         }
 
-        // No combo queued — wait out remaining animation then cooldown
-        if (elapsed < duration)
-            yield return new WaitForSeconds(duration - elapsed);
-
         EnterCooldown(lightShortCooldown);
     }
 
@@ -208,13 +225,30 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("LightAttack2");
 
-        float elapsed = 0f;
-        float duration = GetAnimationLength("LightAttack2");
+        GameObject hitboxObj = transform.Find("Hitbox_LightAttack2")?.gameObject;
+        PlayerHitbox ph = hitboxObj?.GetComponent<PlayerHitbox>();
 
-        while (elapsed < duration)
+        // Startup
+        yield return new WaitForSeconds(0.1f);
+
+        // Active
+        float activeElapsed = 0f;
+        bool hasHit = false;
+        while (activeElapsed < 0.2f)
         {
-            elapsed += Time.deltaTime;
+            if (!hasHit && ph != null)
+                hasHit = ph.CheckHitBoss();
             if (comboQueued) break;
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Recovery
+        float recoveryElapsed = 0f;
+        while (recoveryElapsed < 0.1f)
+        {
+            if (comboQueued) break;
+            recoveryElapsed += Time.deltaTime;
             yield return null;
         }
 
@@ -225,9 +259,6 @@ public class PlayerCombat : MonoBehaviour
             yield break;
         }
 
-        if (elapsed < duration)
-            yield return new WaitForSeconds(duration - elapsed);
-
         EnterCooldown(lightShortCooldown);
     }
 
@@ -237,13 +268,30 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("LightAttack3");
 
-        float elapsed = 0f;
-        float duration = GetAnimationLength("LightAttack3");
+        GameObject hitboxObj = transform.Find("Hitbox_LightAttack3")?.gameObject;
+        PlayerHitbox ph = hitboxObj?.GetComponent<PlayerHitbox>();
 
-        while (elapsed < duration)
+        // Startup
+        yield return new WaitForSeconds(0.1f);
+
+        // Active
+        float activeElapsed = 0f;
+        bool hasHit = false;
+        while (activeElapsed < 0.3f)
         {
-            elapsed += Time.deltaTime;
+            if (!hasHit && ph != null)
+                hasHit = ph.CheckHitBoss();
             if (comboQueued) break;
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Recovery
+        float recoveryElapsed = 0f;
+        while (recoveryElapsed < 0.1f)
+        {
+            if (comboQueued) break;
+            recoveryElapsed += Time.deltaTime;
             yield return null;
         }
 
@@ -254,9 +302,6 @@ public class PlayerCombat : MonoBehaviour
             yield break;
         }
 
-        if (elapsed < duration)
-            yield return new WaitForSeconds(duration - elapsed);
-
         EnterCooldown(lightShortCooldown);
     }
 
@@ -266,7 +311,25 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("LightAttack4");
 
-        yield return new WaitForSeconds(GetAnimationLength("LightAttack4"));
+        GameObject hitboxObj = transform.Find("Hitbox_LightAttack4")?.gameObject;
+        PlayerHitbox ph = hitboxObj?.GetComponent<PlayerHitbox>();
+
+        // Startup
+        yield return new WaitForSeconds(0.2f);
+
+        // Active
+        float activeElapsed = 0f;
+        bool hasHit = false;
+        while (activeElapsed < 0.3f)
+        {
+            if (!hasHit && ph != null)
+                hasHit = ph.CheckHitBoss();
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Recovery
+        yield return new WaitForSeconds(0.1f);
 
         EnterCooldown(lightFullComboCooldown);
     }
@@ -281,17 +344,61 @@ public class PlayerCombat : MonoBehaviour
         comboQueued = false;
         animator.SetTrigger("HeavyAttack1");
 
-        yield return new WaitForSeconds(GetAnimationLength("HeavyAttack1"));
+        GameObject hitboxObj1a = transform.Find("Hitbox_HeavyAttack1a")?.gameObject;
+        PlayerHitbox ph1a = hitboxObj1a?.GetComponent<PlayerHitbox>();
+        GameObject hitboxObj1b = transform.Find("Hitbox_HeavyAttack1b")?.gameObject;
+        PlayerHitbox ph1b = hitboxObj1b?.GetComponent<PlayerHitbox>();
+
+        // First hit — no startup, fires immediately
+        float activeElapsed = 0f;
+        bool hasHit1a = false;
+        while (activeElapsed < 0.25f)
+        {
+            if (!hasHit1a && ph1a != null)
+                hasHit1a = ph1a.CheckHitBoss();
+            if (comboQueued) break;
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Gap
+        float gapElapsed = 0f;
+        while (gapElapsed < 0.25f)
+        {
+            if (comboQueued) break;
+            gapElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Second hit
+        activeElapsed = 0f;
+        bool hasHit1b = false;
+        while (activeElapsed < 0.25f)
+        {
+            if (!hasHit1b && ph1b != null)
+                hasHit1b = ph1b.CheckHitBoss();
+            if (comboQueued) break;
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Recovery
+        float recoveryElapsed = 0f;
+        while (recoveryElapsed < 0.125f)
+        {
+            if (comboQueued) break;
+            recoveryElapsed += Time.deltaTime;
+            yield return null;
+        }
 
         if (comboQueued && staminaSystem.TryHeavyAttack())
         {
             comboQueued = false;
             activeAttack = StartCoroutine(HeavyAttack2());
+            yield break;
         }
-        else
-        {
-            EnterCooldown(heavyShortCooldown);
-        }
+
+        EnterCooldown(heavyShortCooldown);
     }
 
     IEnumerator HeavyAttack2()
@@ -325,7 +432,25 @@ public class PlayerCombat : MonoBehaviour
         rb.linearVelocity = new Vector2(0f, -plungeSlamForce);
         animator.SetTrigger("Plunge");
 
-        yield return new WaitForSeconds(GetAnimationLength("PlungeAttack1"));
+        GameObject hitboxObj = transform.Find("Hitbox_Plunge")?.gameObject;
+        PlayerHitbox ph = hitboxObj?.GetComponent<PlayerHitbox>();
+
+        // Startup
+        yield return new WaitForSeconds(0.286f);
+
+        // Active
+        float activeElapsed = 0f;
+        bool hasHit = false;
+        while (activeElapsed < 0.429f)
+        {
+            if (!hasHit && ph != null)
+                hasHit = ph.CheckHitBoss();
+            activeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Recovery
+        yield return new WaitForSeconds(0.286f);
 
         playerController.IsPlunging = false;
         EnterCooldown(plungeCooldown);
@@ -384,9 +509,14 @@ public class PlayerCombat : MonoBehaviour
         Debug.LogWarning($"[PlayerCombat] Animation clip not found: {clipName}");
         return 0.5f;
     }
-    
+
     public void BlockInputBriefly(float duration = 0.2f)
     {
         inputBlockTimer = duration;
+    }
+    
+    public CombatState GetState()
+    {
+        return state;
     }
 }
