@@ -25,6 +25,23 @@ public class PauseMenuUI : MonoBehaviour
 
     void Start()
     {
+        if (MainMenuUI.IsMainMenuSceneActive)
+        {
+            if (uiDocument == null)
+                uiDocument = GetComponent<UIDocument>();
+
+            if (uiDocument != null)
+            {
+                var mainMenuRoot = uiDocument.rootVisualElement;
+                var inactivePauseContainer = mainMenuRoot.Q<VisualElement>("PauseMenuContainer");
+                if (inactivePauseContainer != null)
+                    inactivePauseContainer.style.display = DisplayStyle.None;
+            }
+
+            enabled = false;
+            return;
+        }
+
         if (uiDocument == null)
             uiDocument = GetComponent<UIDocument>();
 
@@ -70,6 +87,9 @@ public class PauseMenuUI : MonoBehaviour
 
     void Update()
     {
+        if (MainMenuUI.IsMainMenuSceneActive)
+            return;
+
         if (Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
             return;
 
@@ -113,7 +133,7 @@ public class PauseMenuUI : MonoBehaviour
             playerCombat.PlungeAction.Disable();
         }
 
-        Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
+        Interactable[] interactables = FindObjectsByType<Interactable>();
         foreach (Interactable i in interactables)
         {
             i.HidePrompt();
@@ -160,7 +180,7 @@ public class PauseMenuUI : MonoBehaviour
         if (playerCombat != null)
         StartCoroutine(ReenableCombatDelayed());
 
-        Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
+        Interactable[] interactables = FindObjectsByType<Interactable>();
         foreach (Interactable i in interactables)
             i.enabled = true;
     }
@@ -233,12 +253,8 @@ public class PauseMenuUI : MonoBehaviour
 
     private void QuitGame()
     {
+        RespawnManager.Reset();
         PauseStateManager.ClearAll();
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        SceneManager.LoadScene(MainMenuUI.MainMenuSceneName);
     }
 }

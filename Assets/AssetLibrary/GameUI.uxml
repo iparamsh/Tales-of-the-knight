@@ -170,5 +170,133 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:VisualElement name="MainMenuContainer" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: none; justify-content: center; align-items: center; background-color: rgb(0, 0, 0);">
+        <ui:VisualElement picking-mode="Ignore" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; opacity: 0.4;">
+            <ui:VisualElement style="position: absolute; left: 58px; bottom: 48px; width: 208px; height: 208px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=1162108370&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_87&quot;); -unity-background-image-tint-color: rgb(138, 148, 160); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; right: 58px; bottom: 48px; width: 208px; height: 208px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=-1455717765&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_88&quot;); -unity-background-image-tint-color: rgb(138, 148, 160); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; left: 18px; top: 120px; width: 120px; height: 120px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=6882303124984309148&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_12&quot;); -unity-background-image-tint-color: rgb(120, 130, 142); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; left: 112px; top: 68px; width: 92px; height: 92px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=8402069431753979681&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_9&quot;); -unity-background-image-tint-color: rgb(120, 130, 142); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; right: 18px; top: 120px; width: 120px; height: 120px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=6882303124984309148&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_12&quot;); -unity-background-image-tint-color: rgb(120, 130, 142); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; right: 112px; top: 68px; width: 92px; height: 92px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=1281440011619190713&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_0&quot;); -unity-background-image-tint-color: rgb(120, 130, 142); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; left: 50%; bottom: 24px; margin-left: -288px; width: 96px; height: 96px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=6882303124984309148&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_12&quot;); -unity-background-image-tint-color: rgb(150, 160, 170); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; left: 50%; bottom: 24px; margin-left: -192px; width: 96px; height: 96px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=8402069431753979681&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_9&quot;); -unity-background-image-tint-color: rgb(150, 160, 170); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; left: 50%; bottom: 24px; margin-left: -96px; width: 96px; height: 96px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=1281440011619190713&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_0&quot;); -unity-background-image-tint-color: rgb(150, 160, 170); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; left: 50%; bottom: 24px; width: 96px; height: 96px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=6882303124984309148&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_12&quot;); -unity-background-image-tint-color: rgb(150, 160, 170); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; left: 50%; bottom: 24px; margin-left: 96px; width: 96px; height: 96px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=8402069431753979681&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_9&quot;); -unity-background-image-tint-color: rgb(150, 160, 170); background-size: contain; background-repeat: no-repeat;"/>
+            <ui:VisualElement style="position: absolute; left: 50%; bottom: 24px; margin-left: 192px; width: 96px; height: 96px; background-image: url(&quot;project://database/Assets/AssetLibrary/Art%20%28Level%29/Dungeon%20Tileset/Dungeon%20Tile%20Set.png?fileID=1281440011619190713&amp;guid=4474534478c013d4fa88177a104efa62&amp;type=3#Dungeon Tile Set_0&quot;); -unity-background-image-tint-color: rgb(150, 160, 170); background-size: contain; background-repeat: no-repeat;"/>
+        </ui:VisualElement>
+        <ui:VisualElement picking-mode="Ignore" style="position: absolute; width: 260px; height: 260px; left: 50%; top: 50%; margin-left: -210px; margin-top: -70px; background-color: rgba(198, 96, 28, 0.12); border-top-left-radius: 130px; border-top-right-radius: 130px; border-bottom-left-radius: 130px; border-bottom-right-radius: 130px;"/>
+        <ui:VisualElement picking-mode="Ignore" style="position: absolute; width: 190px; height: 190px; left: 50%; top: 50%; margin-left: -40px; margin-top: -130px; background-color: rgba(255, 158, 64, 0.09); border-top-left-radius: 95px; border-top-right-radius: 95px; border-bottom-left-radius: 95px; border-bottom-right-radius: 95px;"/>
+        <ui:VisualElement picking-mode="Ignore" style="position: absolute; width: 150px; height: 150px; left: 50%; top: 50%; margin-left: -150px; margin-top: 30px; background-color: rgba(120, 22, 8, 0.12); border-top-left-radius: 75px; border-top-right-radius: 75px; border-bottom-left-radius: 75px; border-bottom-right-radius: 75px;"/>
+        <ui:VisualElement style="width: 860px; max-width: 88%; min-height: 420px; flex-direction: row; justify-content: space-between; align-items: center;">
+            <ui:VisualElement name="MainMenuPage" style="flex-grow: 1; flex-direction: row; justify-content: space-between; align-items: center; gap: 32px;">
+                <ui:VisualElement style="flex-grow: 1; padding-left: 8px; padding-right: 8px;">
+                    <ui:Label text="TALES OF THE" style="font-size: 32px; color: rgb(191, 212, 142); -unity-font: resource(&quot;Assets/AssetLibrary/webfontkit-BoldPixels/BoldPixels.otf&quot;); letter-spacing: 2px; margin-bottom: 12px;"/>
+                    <ui:Label text="KNIGHT" style="font-size: 96px; color: rgb(243, 239, 230); -unity-font: resource(&quot;Assets/AssetLibrary/webfontkit-BoldPixels/BoldPixels.otf&quot;); letter-spacing: 3px; margin-bottom: 14px;"/>
+                    <ui:VisualElement style="width: 240px; height: 8px; background-image: url(&quot;project://database/Assets/AssetLibrary/kenney_fantasy-ui-borders/PNG/Default/Divider%20Fade/divider-fade-000.png?fileID=-9083702545596497026&amp;guid=fdfc8a39a0ea74a44aab93562188bcda&amp;type=3#divider-fade-000_0&quot;); background-size: 100% 100%;"/>
+                </ui:VisualElement>
+                <ui:VisualElement style="width: 300px; min-height: 320px; background-image: url(&quot;project://database/Assets/AssetLibrary/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png?fileID=8601233621574466027&amp;guid=dff001eca6bcf8341bc5e76ca0729968&amp;type=3#panel-000_0&quot;); -unity-background-image-tint-color: rgb(11, 19, 26); background-size: 100% 100%; padding-left: 28px; padding-right: 28px; padding-top: 28px; padding-bottom: 28px; justify-content: center; align-items: center;">
+                    <ui:Button name="MainMenuContinueButton" text="Continue" style="width: 210px; height: 46px; font-size: 18px; color: rgb(24, 28, 31); -unity-font-style: bold; background-color: rgb(240, 238, 232); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(165, 165, 165); border-right-color: rgb(165, 165, 165); border-top-color: rgb(235, 235, 235); border-bottom-color: rgb(122, 122, 122); margin-bottom: 14px;"/>
+                    <ui:Button name="MainMenuNewGameButton" text="New Game" style="width: 210px; height: 46px; font-size: 18px; color: rgb(24, 28, 31); -unity-font-style: bold; background-color: rgb(240, 238, 232); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(165, 165, 165); border-right-color: rgb(165, 165, 165); border-top-color: rgb(235, 235, 235); border-bottom-color: rgb(122, 122, 122); margin-bottom: 14px;"/>
+                    <ui:Button name="MainMenuControlsButton" text="Controls" style="width: 210px; height: 42px; font-size: 17px; color: rgb(32, 36, 40); -unity-font-style: bold; background-color: rgb(229, 227, 220); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(155, 155, 155); border-right-color: rgb(155, 155, 155); border-top-color: rgb(232, 232, 232); border-bottom-color: rgb(112, 112, 112);"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="MainMenuControlsPage" style="flex-grow: 1; display: none; flex-direction: column;">
+                <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                    <ui:Label text="CONTROLS" style="font-size: 46px; color: rgb(243, 239, 230); -unity-font: resource(&quot;Assets/AssetLibrary/webfontkit-BoldPixels/BoldPixels.otf&quot;); letter-spacing: 2px;"/>
+                    <ui:Button name="MainMenuBackButton" text="Back" style="width: 150px; height: 42px; font-size: 17px; color: rgb(32, 36, 40); -unity-font-style: bold; background-color: rgb(229, 227, 220); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(155, 155, 155); border-right-color: rgb(155, 155, 155); border-top-color: rgb(232, 232, 232); border-bottom-color: rgb(112, 112, 112);"/>
+                </ui:VisualElement>
+                <ui:VisualElement style="width: 200px; height: 8px; background-image: url(&quot;project://database/Assets/AssetLibrary/kenney_fantasy-ui-borders/PNG/Default/Divider%20Fade/divider-fade-000.png?fileID=-9083702545596497026&amp;guid=fdfc8a39a0ea74a44aab93562188bcda&amp;type=3#divider-fade-000_0&quot;); background-size: 100% 100%; margin-bottom: 18px;"/>
+                <ui:ScrollView style="flex-grow: 1;">
+                    <ui:VisualElement style="flex-direction: row; gap: 16px; padding-left: 6px; padding-right: 6px; padding-top: 6px; padding-bottom: 6px;">
+                        <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/AssetLibrary/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png?fileID=8601233621574466027&amp;guid=dff001eca6bcf8341bc5e76ca0729968&amp;type=3#panel-000_0&quot;); -unity-background-image-tint-color: rgb(14, 24, 31); background-size: 100% 100%; padding-left: 18px; padding-right: 18px; padding-top: 18px; padding-bottom: 18px; flex-direction: column; gap: 12px;">
+                            <ui:Label text="MOVEMENT" style="font-size: 22px; color: rgb(191, 212, 142); -unity-font: resource(&quot;Assets/AssetLibrary/webfontkit-BoldPixels/BoldPixels.otf&quot;);"/>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Move Forward" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_D_Key_Dark.png?fileID=-2443333021841878165&amp;guid=9bc47f36023fe2f4cacf78e8e0f61f80&amp;type=3#T_D_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Move Backward" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_A_Key_Dark.png?fileID=6753251105056486925&amp;guid=a84ea6200fc86b8418c95b5ecfc337fa&amp;type=3#T_A_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Sprint" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
+                                    <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Shift_Key_Dark.png?fileID=-2931137732156885081&amp;guid=298f43ca16fd82f44a0595d93003fc9e&amp;type=3#T_Shift_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                                    <ui:Label text="+ D/A" style="font-size: 16px; color: rgb(243, 239, 230);"/>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Jump" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_W_Key_Dark.png?fileID=-3877482933691649607&amp;guid=58997f3d3c230f8448f89da87ca90c5a&amp;type=3#T_W_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Dodge Roll" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 62px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Space_Key_Dark.png?fileID=-6135676536114731140&amp;guid=4948ef620cb0e614092988facbb077f9&amp;type=3#T_Space_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Climb Ladder (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
+                                    <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Shift_Key_Dark.png?fileID=-2931137732156885081&amp;guid=298f43ca16fd82f44a0595d93003fc9e&amp;type=3#T_Shift_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                                    <ui:Label text="+ W" style="font-size: 16px; color: rgb(243, 239, 230);"/>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Descend Ladder (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
+                                    <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Shift_Key_Dark.png?fileID=-2931137732156885081&amp;guid=298f43ca16fd82f44a0595d93003fc9e&amp;type=3#T_Shift_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                                    <ui:Label text="+ S" style="font-size: 16px; color: rgb(243, 239, 230);"/>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/AssetLibrary/kenney_fantasy-ui-borders/PNG/Default/Panel/panel-000.png?fileID=8601233621574466027&amp;guid=dff001eca6bcf8341bc5e76ca0729968&amp;type=3#panel-000_0&quot;); -unity-background-image-tint-color: rgb(14, 24, 31); background-size: 100% 100%; padding-left: 18px; padding-right: 18px; padding-top: 18px; padding-bottom: 18px; flex-direction: column; gap: 12px;">
+                            <ui:Label text="COMBAT / ACTIONS" style="font-size: 22px; color: rgb(191, 212, 142); -unity-font: resource(&quot;Assets/AssetLibrary/webfontkit-BoldPixels/BoldPixels.otf&quot;);"/>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Light Attack" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 42px; height: 42px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Mouse_Left_Key_Dark.png?fileID=-1654338909024501882&amp;guid=2193b46d2a8467143818792cc86fb412&amp;type=3#T_Mouse_Left_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Heavy Attack" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
+                                    <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Shift_Key_Dark.png?fileID=-2931137732156885081&amp;guid=298f43ca16fd82f44a0595d93003fc9e&amp;type=3#T_Shift_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                                    <ui:Label text="+" style="font-size: 16px; color: rgb(243, 239, 230);"/>
+                                    <ui:VisualElement style="width: 42px; height: 42px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Mouse_Left_Key_Dark.png?fileID=-1654338909024501882&amp;guid=2193b46d2a8467143818792cc86fb412&amp;type=3#T_Mouse_Left_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Special Attack" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 42px; height: 42px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Mouse_Right_Key_Dark.png?fileID=4037448115524051922&amp;guid=08fa691378ed9c3418b07360c07c2d89&amp;type=3#T_Mouse_Right_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Use Flask (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_R_Key_Dark.png?fileID=-932170199233082548&amp;guid=e19420d2b804e6149b578b0256e63e9f&amp;type=3#T_R_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <ui:Label text="Use Ultimate Art (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Q_Key_Dark.png?fileID=-2273412858181002312&amp;guid=8d6c4a6621cfecb4cac4623b2e8a45d0&amp;type=3#T_Q_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:Label text="GAME" style="font-size: 22px; color: rgb(191, 212, 142); -unity-font: resource(&quot;Assets/AssetLibrary/webfontkit-BoldPixels/BoldPixels.otf&quot;); margin-top: 8px;"/>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Open Menu" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Esc_Key_Dark.png?fileID=-539417003148367246&amp;guid=b9b17cda418f854438c7e99f67e84056&amp;type=3#T_Esc_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Interact" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_E_Key_Dark.png?fileID=-2312244997151563847&amp;guid=6f2d7d85e92cbf240b99623742cc3890&amp;type=3#T_E_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:Label text="Toggle between HP/FP Flask" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
+                                    <ui:VisualElement style="width: 42px; height: 42px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Mouse_Scroll_Up_Key_Dark_Key_Dark.png?fileID=-2793381870913236042&amp;guid=376acdf1cc4301a4d97ae68414f5e5f8&amp;type=3#T_Mouse_Scroll_Up_Key_Dark_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                                    <ui:Label text="/" style="font-size: 16px; color: rgb(243, 239, 230);"/>
+                                    <ui:VisualElement style="width: 42px; height: 42px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Mouse_Scroll_Down_Key_Dark_Key_Dark.png?fileID=-9207383460074415674&amp;guid=85158ff2a61bae146913c5ad9ecfff2f&amp;type=3#T_Mouse_Scroll_Down_Key_Dark_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
     <ui:VisualElement name="VignetteOverlay" picking-mode="Ignore" style="flex-grow: 1; position: absolute; top: 0; right: 0; bottom: 0; opacity: 1; display: none; background-color: rgb(0, 0, 0); width: 100%; height: 100%;"/>
 </ui:UXML>

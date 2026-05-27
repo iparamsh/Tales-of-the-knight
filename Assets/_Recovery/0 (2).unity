@@ -8425,7 +8425,6 @@ GameObject:
   - component: {fileID: 1224899271}
   - component: {fileID: 1224899273}
   - component: {fileID: 1224899274}
-  - component: {fileID: 1224899275}
   m_Layer: 5
   m_Name: InteractionPromptContainer
   m_TagString: Untagged
@@ -8496,19 +8495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7a1c9e2d3f4a5b8c7d6e1f2a3b4c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuUI
-  uiDocument: {fileID: 0}
---- !u!114 &1224899275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224899270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c65e6b6a4954dd5b88737c159a7f4c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
   uiDocument: {fileID: 0}
 --- !u!1 &1293533335
 GameObject:
@@ -8680,6 +8666,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isLocked: 0
 --- !u!114 &1293533340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8692,6 +8679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec28f799b6e94844bc40cbff4286735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BonfireController
+  fadePanel: {fileID: 0}
+  fadeDuration: 0.8
 --- !u!1 &1381641385
 GameObject:
   m_ObjectHideFlags: 0
@@ -23255,6 +23244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 465433252}
+  overridden: 0
   smoothSpeed: 5
   offset: {x: 0, y: 5}
   minX: -41
@@ -23328,6 +23318,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isLocked: 0
 --- !u!58 &1752112706
 CircleCollider2D:
   m_ObjectHideFlags: 0
