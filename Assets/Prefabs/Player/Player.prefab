@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 2539036738423814225}
   - component: {fileID: -6077155185772300257}
   - component: {fileID: 3060488145888976387}
+  - component: {fileID: -3504194967872990717}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -899,6 +900,18 @@ MonoBehaviour:
   currentFP: 90
   maxStamina: 100
   currentStamina: 100
+--- !u!114 &-3504194967872990717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005343293287472138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5adec14683c4c4694e5453167fad3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUDOverlay
 --- !u!1 &5156086318480588197
 GameObject:
   m_ObjectHideFlags: 0
