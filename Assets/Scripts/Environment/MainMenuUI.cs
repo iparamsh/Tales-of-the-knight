@@ -5,8 +5,9 @@ using UnityEngine.UIElements;
 
 public class MainMenuUI : MonoBehaviour
 {
-    public const string MainMenuSceneName = "UI Scene";
     public const string GameplaySceneName = "Playtest Scene";
+
+    private static bool skipBootMenuOnce;
 
     [SerializeField] private UIDocument uiDocument;
 
@@ -20,8 +21,15 @@ public class MainMenuUI : MonoBehaviour
     private Button backButton;
 
     private bool controlsVisible;
+    private PlayerController playerController;
+    private PlayerCombat playerCombat;
 
-    public static bool IsMainMenuSceneActive => SceneManager.GetActiveScene().name == MainMenuSceneName;
+    public static bool IsMainMenuOpen { get; private set; }
+
+    public static void SkipBootMenuOnce()
+    {
+        skipBootMenuOnce = true;
+    }
 
     void Start()
     {
@@ -35,11 +43,16 @@ public class MainMenuUI : MonoBehaviour
         }
 
         BindUiReferences();
+        playerController = FindAnyObjectByType<PlayerController>();
+        playerCombat = FindAnyObjectByType<PlayerCombat>();
 
-        if (!IsMainMenuSceneActive)
+        if (skipBootMenuOnce)
         {
+            skipBootMenuOnce = false;
+            IsMainMenuOpen = false;
+            controlsVisible = false;
+            SetGameplayEnabled(true);
             HideAllMenuLayers();
-            enabled = false;
             return;
         }
 
@@ -66,10 +79,10 @@ public class MainMenuUI : MonoBehaviour
 
     void Update()
     {
-        if (!IsMainMenuSceneActive || Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
             return;
 
-        if (controlsVisible)
+        if (IsMainMenuOpen && controlsVisible)
             ShowTitleScreen();
     }
 
@@ -129,6 +142,15 @@ public class MainMenuUI : MonoBehaviour
     private void ShowTitleScreen()
     {
         controlsVisible = false;
+        IsMainMenuOpen = true;
+        SetGameplayEnabled(false);
+
+        Interactable[] interactables = FindObjectsByType<Interactable>();
+        foreach (Interactable i in interactables)
+        {
+            i.HidePrompt();
+            i.enabled = false;
+        }
 
         if (mainMenuContainer != null)
             mainMenuContainer.style.display = DisplayStyle.Flex;
@@ -148,6 +170,8 @@ public class MainMenuUI : MonoBehaviour
     private void ShowControls()
     {
         controlsVisible = true;
+        IsMainMenuOpen = true;
+        SetGameplayEnabled(false);
 
         if (mainMenuContainer != null)
             mainMenuContainer.style.display = DisplayStyle.Flex;
@@ -164,14 +188,40 @@ public class MainMenuUI : MonoBehaviour
 
     private void ContinueGame()
     {
+        SkipBootMenuOnce();
         PauseStateManager.ClearAll();
         SceneManager.LoadScene(GameplaySceneName);
     }
 
     private void StartNewGame()
     {
+        SkipBootMenuOnce();
         RespawnManager.Reset();
         PauseStateManager.ClearAll();
         SceneManager.LoadScene(GameplaySceneName);
+    }
+
+    private void SetGameplayEnabled(bool enabledState)
+    {
+        if (playerController != null)
+            playerController.enabled = enabledState;
+
+        if (playerCombat != null)
+        {
+            playerCombat.enabled = enabledState;
+
+            if (enabledState)
+            {
+                playerCombat.LightAttackAction.Enable();
+                playerCombat.HeavyAttackAction.Enable();
+                playerCombat.PlungeAction.Enable();
+            }
+            else
+            {
+                playerCombat.LightAttackAction.Disable();
+                playerCombat.HeavyAttackAction.Disable();
+                playerCombat.PlungeAction.Disable();
+            }
+        }
     }
 }

@@ -25,23 +25,6 @@ public class PauseMenuUI : MonoBehaviour
 
     void Start()
     {
-        if (MainMenuUI.IsMainMenuSceneActive)
-        {
-            if (uiDocument == null)
-                uiDocument = GetComponent<UIDocument>();
-
-            if (uiDocument != null)
-            {
-                var mainMenuRoot = uiDocument.rootVisualElement;
-                var inactivePauseContainer = mainMenuRoot.Q<VisualElement>("PauseMenuContainer");
-                if (inactivePauseContainer != null)
-                    inactivePauseContainer.style.display = DisplayStyle.None;
-            }
-
-            enabled = false;
-            return;
-        }
-
         if (uiDocument == null)
             uiDocument = GetComponent<UIDocument>();
 
@@ -87,7 +70,7 @@ public class PauseMenuUI : MonoBehaviour
 
     void Update()
     {
-        if (MainMenuUI.IsMainMenuSceneActive)
+        if (MainMenuUI.IsMainMenuOpen)
             return;
 
         if (Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -226,9 +209,10 @@ public class PauseMenuUI : MonoBehaviour
 
     private void RestartGame()
     {
+        MainMenuUI.SkipBootMenuOnce();
         RespawnManager.Reset();
         PauseStateManager.ClearAll();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(MainMenuUI.GameplaySceneName);
     }
 
     IEnumerator ReenableCombatDelayed()
@@ -255,6 +239,6 @@ public class PauseMenuUI : MonoBehaviour
     {
         RespawnManager.Reset();
         PauseStateManager.ClearAll();
-        SceneManager.LoadScene(MainMenuUI.MainMenuSceneName);
+        SceneManager.LoadScene(MainMenuUI.GameplaySceneName);
     }
 }
