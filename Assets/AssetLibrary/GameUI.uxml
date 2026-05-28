@@ -121,18 +121,18 @@
                                 <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_W_Key_Dark.png?fileID=-3877482933691649607&amp;guid=58997f3d3c230f8448f89da87ca90c5a&amp;type=3#T_W_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Dodge Roll" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Roll / Detach(ladder)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="width: 62px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Space_Key_Dark.png?fileID=-6135676536114731140&amp;guid=4948ef620cb0e614092988facbb077f9&amp;type=3#T_Space_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Climb Ladder (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Climb Ladder" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
                                     <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Shift_Key_Dark.png?fileID=-2931137732156885081&amp;guid=298f43ca16fd82f44a0595d93003fc9e&amp;type=3#T_Shift_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                                     <ui:Label text="+ W" style="font-size: 16px; color: rgb(243, 239, 230);"/>
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Descend Ladder (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Descend Ladder" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
                                     <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Shift_Key_Dark.png?fileID=-2931137732156885081&amp;guid=298f43ca16fd82f44a0595d93003fc9e&amp;type=3#T_Shift_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                                     <ui:Label text="+ S" style="font-size: 16px; color: rgb(243, 239, 230);"/>
@@ -158,11 +158,7 @@
                                 <ui:VisualElement style="width: 42px; height: 42px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Mouse_Right_Key_Dark.png?fileID=4037448115524051922&amp;guid=08fa691378ed9c3418b07360c07c2d89&amp;type=3#T_Mouse_Right_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Use Flask (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
-                                <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_R_Key_Dark.png?fileID=-932170199233082548&amp;guid=e19420d2b804e6149b578b0256e63e9f&amp;type=3#T_R_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
-                            </ui:VisualElement>
-                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                <ui:Label text="Use Ultimate Art (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Use Healing" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Q_Key_Dark.png?fileID=-2273412858181002312&amp;guid=8d6c4a6621cfecb4cac4623b2e8a45d0&amp;type=3#T_Q_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:Label text="GAME" style="font-size: 22px; color: rgb(191, 212, 142); -unity-font: resource(&quot;Assets/AssetLibrary/webfontkit-BoldPixels/BoldPixels.otf&quot;); margin-top: 8px;"/>
@@ -175,7 +171,7 @@
                                 <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_E_Key_Dark.png?fileID=-2312244997151563847&amp;guid=6f2d7d85e92cbf240b99623742cc3890&amp;type=3#T_E_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Toggle between HP/FP Flask" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Toggle between HP/FP Item" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
                                     <ui:VisualElement style="width: 42px; height: 42px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Mouse_Scroll_Up_Key_Dark_Key_Dark.png?fileID=-2793381870913236042&amp;guid=376acdf1cc4301a4d97ae68414f5e5f8&amp;type=3#T_Mouse_Scroll_Up_Key_Dark_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                                     <ui:Label text="/" style="font-size: 16px; color: rgb(243, 239, 230);"/>
@@ -249,18 +245,18 @@
                                 <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_W_Key_Dark.png?fileID=-3877482933691649607&amp;guid=58997f3d3c230f8448f89da87ca90c5a&amp;type=3#T_W_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Dodge Roll" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Roll / Detach(ladder)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="width: 62px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Space_Key_Dark.png?fileID=-6135676536114731140&amp;guid=4948ef620cb0e614092988facbb077f9&amp;type=3#T_Space_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Climb Ladder (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Climb Ladder" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
                                     <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Shift_Key_Dark.png?fileID=-2931137732156885081&amp;guid=298f43ca16fd82f44a0595d93003fc9e&amp;type=3#T_Shift_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                                     <ui:Label text="+ W" style="font-size: 16px; color: rgb(243, 239, 230);"/>
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Descend Ladder (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Descend Ladder" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="flex-direction: row; align-items: center; gap: 6px;">
                                     <ui:VisualElement style="width: 54px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Shift_Key_Dark.png?fileID=-2931137732156885081&amp;guid=298f43ca16fd82f44a0595d93003fc9e&amp;type=3#T_Shift_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                                     <ui:Label text="+ S" style="font-size: 16px; color: rgb(243, 239, 230);"/>
@@ -286,11 +282,7 @@
                                 <ui:VisualElement style="width: 42px; height: 42px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Mouse_Right_Key_Dark.png?fileID=4037448115524051922&amp;guid=08fa691378ed9c3418b07360c07c2d89&amp;type=3#T_Mouse_Right_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center;">
-                                <ui:Label text="Use Flask (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
-                                <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_R_Key_Dark.png?fileID=-932170199233082548&amp;guid=e19420d2b804e6149b578b0256e63e9f&amp;type=3#T_R_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
-                            </ui:VisualElement>
-                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                <ui:Label text="Use Ultimate Art (future)" style="font-size: 18px; color: rgb(243, 239, 230);"/>
+                                <ui:Label text="Use Healing" style="font-size: 18px; color: rgb(243, 239, 230);"/>
                                 <ui:VisualElement style="width: 38px; height: 38px; background-image: url(&quot;project://database/Assets/AssetLibrary/Input%20Prompts/Source/Keyboard_Mouse/Dark/T_Q_Key_Dark.png?fileID=-2273412858181002312&amp;guid=8d6c4a6621cfecb4cac4623b2e8a45d0&amp;type=3#T_Q_Key_Dark_0&quot;); background-size: contain; background-repeat: no-repeat;"/>
                             </ui:VisualElement>
                             <ui:Label text="GAME" style="font-size: 22px; color: rgb(191, 212, 142); -unity-font: resource(&quot;Assets/AssetLibrary/webfontkit-BoldPixels/BoldPixels.otf&quot;); margin-top: 8px;"/>

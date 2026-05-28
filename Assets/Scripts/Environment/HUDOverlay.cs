@@ -71,9 +71,9 @@ public class HUDOverlay : MonoBehaviour
         {
             sb.AppendLine("Move:          " + Binding(playerController.MoveAction));
             sb.AppendLine("Jump:          " + Binding(playerController.JumpAction));
-            sb.AppendLine("Roll:          " + Binding(playerController.RollAction));
+            sb.AppendLine("Roll/Dismount from Ladder:          " + Binding(playerController.RollAction));
             sb.AppendLine("Sprint:        " + Binding(playerController.SprintAction));
-            sb.AppendLine("Heal:          " + Binding(playerController.HealAction));
+            sb.AppendLine("Heal/Restore FP:          " + Binding(playerController.HealAction));
         }
 
         if (playerCombat != null)
