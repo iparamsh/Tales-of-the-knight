@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactRange: 2
-  promptText: Press E to rest
+  promptText: to rest
   interactPromptUI: {fileID: 0}
   onInteract:
     m_PersistentCalls:
@@ -161,6 +161,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isLocked: 0
 --- !u!114 &6555225296661144438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec28f799b6e94844bc40cbff4286735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BonfireController
+  fadePanel: {fileID: 0}
+  fadeDuration: 0.8
+  isDefaultBonfire: 1
 --- !u!1 &8271847563003472094
 GameObject:
   m_ObjectHideFlags: 0

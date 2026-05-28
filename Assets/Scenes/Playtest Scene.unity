@@ -38724,7 +38724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365942421422637670, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: damage
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 942493609731282250, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: m_Material
@@ -38813,6 +38813,10 @@ PrefabInstance:
     - target: {fileID: 4609100813334067573, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: damage
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4632029262529180749, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: damage
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5005343293287472138, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: m_Name
@@ -38926,13 +38930,49 @@ PrefabInstance:
       propertyPath: ScrollAction.m_SingletonActionBindings.Array.data[0].m_Action
       value: Scroll
       objectReference: {fileID: 0}
+    - target: {fileID: 6553780131660582067, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.93996394
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553780131660582067, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.332144
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553780131660582067, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.48023993
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553780131660582067, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.007290274
+      objectReference: {fileID: 0}
     - target: {fileID: 6837277672560844026, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: damage
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7481702876670744534, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
       propertyPath: damage
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292879642584208167, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: damage
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942860029991337416, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8623474
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942860029991337416, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3423836
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942860029991337416, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.4964696
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942860029991337416, guid: 181227475fe0b48de945d941085d2b3e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.014646322
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41540,14 +41580,6 @@ PrefabInstance:
       propertyPath: fadePanel
       value: 
       objectReference: {fileID: 2070933018}
-    - target: {fileID: 6555225296661144438, guid: cbdcf9bc13b461545998d31061c8b039, type: 3}
-      propertyPath: isDefaultBonfire
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6959603060621075881, guid: cbdcf9bc13b461545998d31061c8b039, type: 3}
-      propertyPath: promptText
-      value: to rest
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
