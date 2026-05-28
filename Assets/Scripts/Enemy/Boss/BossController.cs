@@ -195,11 +195,24 @@ public class BossController : Enemy
         {
             if (player != null)
             {
-                float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-                if (distanceToPlayer <= aggroRange)
-                    BossEntrance();
+                // Only aggro if player is in boss arena room
+                Room bossRoom = null;
+                Room[] rooms = FindObjectsByType<Room>(FindObjectsSortMode.None);
+                foreach (Room room in rooms)
+                    if (room.gameObject.name == "BossArena") { bossRoom = room; break; }
+
+                bool playerInArena = bossRoom != null &&
+                    player.position.x >= bossRoom.minX && player.position.x <= bossRoom.maxX &&
+                    player.position.y >= bossRoom.minY && player.position.y <= bossRoom.maxY;
+
+                if (playerInArena)
+                {
+                    float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+                    if (distanceToPlayer <= aggroRange)
+                        BossEntrance();
+                }
             }
-            return; 
+            return;
         }
  
         // TEMP TESTING — remove before final build
@@ -1694,6 +1707,59 @@ public class BossController : Enemy
         return false;
     }
 
+    public void ResetBoss()
+    {
+        // Reset health
+        SetHealth(GetMaxHealth());
+        OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());
+
+        // Reset phase flags
+        phaseTwoUnlocked = false;
+        phase30Triggered = false;
+        phase15Triggered = false;
+        IsPhaseTwo = false;
+        isBeastForm = false;
+        isTransitioning = false;
+        isDead = false;
+        moveCounter = 0;
+
+        // Reset animator
+        animator.speed = 1f;
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isRunning", false);
+        animator.SetBool("isBeastRunning", false);
+        animator.SetBool("isDying", false);
+        animator.Play("Idle");
+
+        // Reset state
+        StopAllCoroutines();
+        currentState = BossState.Dormant;
+        spriteRenderer.enabled = false;
+        spriteRenderer.color = Color.white;
+
+        // Hide health bar
+        BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
+        healthBar?.HideHealthBar();
+
+        // Re-lock boss arena door
+        DoorController[] doors = FindObjectsByType<DoorController>(FindObjectsSortMode.None);
+        foreach (DoorController door in doors)
+        {
+            if (door.isBossDoor)
+            {
+                door.ResetDoor();
+                RoomDoor roomDoor = door.GetComponent<RoomDoor>();
+                if (roomDoor != null)
+                    roomDoor.ResetToRoomA();
+                break;
+            }
+        }
+
+        // Re-enable camera follow in case it was overridden
+        CameraFollow cam = Camera.main?.GetComponent<CameraFollow>();
+        if (cam != null) cam.overridden = false;
+    }
+
     // =============================================
     // Entrance
     // =============================================
@@ -1713,6 +1779,18 @@ public class BossController : Enemy
         yield return null;
         spriteRenderer.enabled = true;
 
+        // Lock boss door when fight begins
+        DoorController[] doors = FindObjectsByType<DoorController>(FindObjectsSortMode.None);
+        foreach (DoorController door in doors)
+        {
+            if (door.isBossDoor)
+            {
+                door.LockDoor();
+                break;
+            }
+        }
+
+        Debug.Log("EntranceSequence — showing health bar, health: " + GetHealth() + " max: " + GetMaxHealth());
         BossHealthBar healthBar = FindFirstObjectByType<BossHealthBar>();
         healthBar?.ShowHealthBar();
         OnHealthChanged?.Invoke(GetHealth(), GetMaxHealth());

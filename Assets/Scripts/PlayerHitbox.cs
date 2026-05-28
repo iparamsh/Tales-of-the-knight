@@ -27,19 +27,25 @@ public class PlayerHitbox : MonoBehaviour
         Vector2 center = (Vector2)transform.TransformPoint(boxCollider.offset);
         Collider2D[] hits = Physics2D.OverlapBoxAll(center, boxCollider.size, 0f, LayerMask.GetMask("Hurtbox"));
 
-        Debug.Log("CheckHitBoss — hits found: " + hits.Length + " center: " + center + " size: " + boxCollider.size);
-        foreach (Collider2D hit in hits)
-            Debug.Log("  hit: " + hit.gameObject.name + " tag: " + hit.tag);
-
         foreach (Collider2D hit in hits)
         {
+            Debug.Log("CheckHitBoss hit: " + hit.gameObject.name + " tag: " + hit.tag + " parent: " + hit.transform.parent?.name);
             if (!hit.CompareTag("BossHurtbox")) continue;
-
+            // Try BossController first
             BossController boss = hit.GetComponentInParent<BossController>();
-            if (boss == null) continue;
+            if (boss != null)
+            {
+                boss.TakeDamage(damage, poiseDamage);
+                return true;
+            }
 
-            boss.TakeDamage(damage, poiseDamage);
-            return true;
+            // Try ShadowCloneEnemy
+            ShadowCloneEnemy clone = hit.GetComponentInParent<ShadowCloneEnemy>();
+            if (clone != null)
+            {
+                clone.TakeDamage(damage, poiseDamage);
+                return true;
+            }
         }
 
         return false;

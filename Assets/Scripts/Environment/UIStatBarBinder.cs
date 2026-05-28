@@ -9,6 +9,11 @@ public class UIStatBarBinder : MonoBehaviour
 
     private VisualElement healthBar, fpBar, staminaBar;
     private VisualElement healthBg, fpBg, staminaBg;
+    private Label healCountLabel;
+    private Label fpFlaskCountLabel;
+    private VisualElement fpFlaskRow;
+    private VisualElement flaskSelector;
+    private PlayerController playerController;
 
     private float healthFillTarget, fpFillTarget, staminaFillTarget;
     private float currentHealthFill, currentFpFill, currentStaminaFill;
@@ -44,6 +49,18 @@ public class UIStatBarBinder : MonoBehaviour
         healthBar = root.Q<VisualElement>("Health");
         fpBar = root.Q<VisualElement>("Fp");
         staminaBar = root.Q<VisualElement>("Stamina");
+        healCountLabel = root.Q<Label>("HealCount");
+        healCountLabel = root.Q<Label>("HealCount");
+        fpFlaskCountLabel = root.Q<Label>("FpFlaskCount");
+        fpFlaskRow = root.Q<VisualElement>("FpFlaskRow");
+        flaskSelector = root.Q<VisualElement>("FlaskSelector");
+        if (flaskSelector != null)
+        {
+            flaskSelector.style.position = Position.Absolute;
+            flaskSelector.style.left = 10f;
+            flaskSelector.style.bottom = 60f;
+        }
+        playerController = FindFirstObjectByType<PlayerController>();
 
         healthBg = root.Q<VisualElement>("HealthBackground");
         fpBg = root.Q<VisualElement>("FpBackground");
@@ -208,6 +225,29 @@ public class UIStatBarBinder : MonoBehaviour
             float t = Mathf.Clamp01(staminaAnimTimer / animationDuration);
             currentStaminaFill = Mathf.Lerp(currentStaminaFill, staminaFillTarget, t);
             SetStaminaFill(currentStaminaFill);
+        }
+        // Update heal count
+        if (playerController != null)
+        {
+            // Heal count
+            if (healCountLabel != null)
+                healCountLabel.text = "x " + playerController.CurrentHeals;
+
+            // FP flask count — show row only if player has FP flasks
+            if (fpFlaskRow != null)
+                fpFlaskRow.style.display = playerController.MaxFpFlasks > 0 ? DisplayStyle.Flex : DisplayStyle.None;
+            if (fpFlaskCountLabel != null)
+                fpFlaskCountLabel.text = "x " + playerController.CurrentFpFlasks;
+
+            // Move selector to indicate selected flask
+            if (flaskSelector != null)
+            {
+                VisualElement healRow = flaskSelector.parent?.Q<VisualElement>("HealFlaskRow");
+                VisualElement fpRow = flaskSelector.parent?.Q<VisualElement>("FpFlaskRow");
+                VisualElement selectedRow = playerController.HealSelected ? healRow : fpRow;
+                if (selectedRow != null)
+                    flaskSelector.style.top = selectedRow.layout.y;
+            }
         }
     }
 

@@ -10,38 +10,40 @@ public class Interactable : MonoBehaviour
     public string promptText = "Press E to interact";
 
     [Header("UI hooks - assign in inspector")]
-    // Your UI partner drags their prompt GameObject here
     public GameObject interactPromptUI;
 
     [Header("On Interact Event")]
-    // Your UI partner or whoever can hook functions into this via inspector
     public UnityEvent onInteract;
     public bool isLocked = false;
 
     private bool playerInRange = false;
     private VisualElement hintElement;
+    private string originalPromptText;
+    private Label hintPrefix;
+    private Label hintSuffix;
 
     void Start()
     {
-        // Try to find the hint element from the UI document
+        originalPromptText = promptText;
+
         var uiDoc = FindAnyObjectByType<UIDocument>();
         if (uiDoc != null)
         {
             hintElement = uiDoc.rootVisualElement.Q<VisualElement>("InteractionHint");
+            hintPrefix = hintElement?.Q<Label>("HintPrefix");
+            hintSuffix = hintElement?.Q<Label>("HintSuffix");
         }
     }
 
     void Update()
     {
-        if (isLocked) 
+        if (isLocked)
         {
             HidePrompt();
             return;
         }
         if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
-        {
             onInteract?.Invoke();
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -60,18 +62,32 @@ public class Interactable : MonoBehaviour
         {
             playerInRange = false;
             HidePrompt();
+            // Reset to original prompt text on exit
+            promptText = originalPromptText;
         }
     }
 
-    // =============================================
-    // UI Methods
-    // =============================================
+    public void SetPromptText(string text)
+    {
+        promptText = text;
+        if (playerInRange)
+        {
+            if (hintPrefix != null)
+                hintPrefix.text = "";
+            if (hintSuffix != null)
+                hintSuffix.text = text;
+        }
+    }
 
     public void ShowPrompt()
     {
         if (hintElement != null)
         {
             hintElement.style.display = DisplayStyle.Flex;
+            if (hintPrefix != null)
+                hintPrefix.text = "";
+            if (hintSuffix != null)
+                hintSuffix.text = promptText;
         }
         else if (interactPromptUI != null)
         {
@@ -82,12 +98,8 @@ public class Interactable : MonoBehaviour
     public void HidePrompt()
     {
         if (hintElement != null)
-        {
             hintElement.style.display = DisplayStyle.None;
-        }
         else if (interactPromptUI != null)
-        {
             interactPromptUI.SetActive(false);
-        }
     }
 }

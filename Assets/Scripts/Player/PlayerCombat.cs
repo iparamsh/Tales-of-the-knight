@@ -133,6 +133,9 @@ public class PlayerCombat : MonoBehaviour
         // Don't fire light attack if shift is held — that's heavy attack
         if (Keyboard.current != null && Keyboard.current.leftShiftKey.isPressed) return;
 
+        PlayerController pc = GetComponent<PlayerController>();
+        if (pc != null && pc.IsOnLadder) return;
+
         if (inputBlockTimer > 0f) return;
         if (state == CombatState.LightAttack1 || state == CombatState.LightAttack2 || state == CombatState.LightAttack3)
         {
@@ -148,6 +151,9 @@ public class PlayerCombat : MonoBehaviour
 
     void OnHeavyAttack(InputAction.CallbackContext ctx)
     {
+        PlayerController pc = GetComponent<PlayerController>();
+        if (pc != null && pc.IsOnLadder) return;
+        
         // Queue combo while attack 1 is active
         if (state == CombatState.HeavyAttack1)
         {

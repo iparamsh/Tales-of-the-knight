@@ -6,10 +6,15 @@ public class DoorController : MonoBehaviour
     public Sprite closedSprite;
     public Sprite openSprite;
 
+    [Header("Key Requirement")]
+    public bool requiresKey = false;
+    public bool unlockFromLeftSide = true;
+
+    public bool isBossDoor = false;
     private SpriteRenderer spriteRenderer;
     private bool isOpen = false;
-    private InteractionPromptUI promptUI;
     private bool isLocked = false;
+    private InteractionPromptUI promptUI;
 
     void Start()
     {
@@ -17,15 +22,38 @@ public class DoorController : MonoBehaviour
         promptUI = FindAnyObjectByType<InteractionPromptUI>();
     }
 
-    // Hook this into the Interactable onInteract event via inspector
     public void ShowDoorPrompt()
     {
         if (promptUI == null)
             promptUI = FindAnyObjectByType<InteractionPromptUI>();
 
-        if (isOpen)
+        if (isOpen) return;
+
+        if (requiresKey)
         {
-            Debug.Log("Door already open");
+            bool correctSide = IsPlayerOnCorrectSide();
+            bool hasKey = PlayerInventory.Instance != null && PlayerInventory.Instance.HasDungeonKey;
+
+            if (!correctSide)
+            {
+                promptUI.ShowPrompt("This door is locked",
+                    ("Cancel", OnCancel)
+                );
+                return;
+            }
+
+            if (!hasKey)
+            {
+                promptUI.ShowPrompt("Requires Dungeon Master's Key",
+                    ("Cancel", OnCancel)
+                );
+                return;
+            }
+
+            promptUI.ShowPrompt("Unlock Door",
+                ("Unlock", UnlockWithKey),
+                ("Cancel", OnCancel)
+            );
             return;
         }
 
@@ -33,6 +61,23 @@ public class DoorController : MonoBehaviour
             ("Open", OpenDoor),
             ("Cancel", OnCancel)
         );
+    }
+
+    bool IsPlayerOnCorrectSide()
+    {
+        PlayerController player = FindFirstObjectByType<PlayerController>();
+        if (player == null) return false;
+
+        if (unlockFromLeftSide)
+            return player.transform.position.x < transform.position.x;
+        else
+            return player.transform.position.x > transform.position.x;
+    }
+
+    void UnlockWithKey()
+    {
+        PlayerInventory.Instance?.UseDungeonKey();
+        OpenDoor();
     }
 
     public void OpenDoor()
@@ -45,20 +90,13 @@ public class DoorController : MonoBehaviour
         BoxCollider2D blockingCollider = GetComponent<BoxCollider2D>();
         if (blockingCollider != null)
             blockingCollider.enabled = false;
+
+        Interactable interactable = GetComponent<Interactable>();
+        if (interactable != null)
+            interactable.enabled = false;
     }
 
-    private void OnCancel()
-    {
-        Debug.Log("Player chose not to open door");
-        // Prompt closes, player continues
-    }
-
-    // Will be called after door opens - room transition goes here
-    // RoomTransition system to be added later
-    public void OnDoorOpened()
-    {
-        Debug.Log("Door opened - room transition placeholder");
-    }
+    private void OnCancel() { }
 
     public void LockDoor()
     {
@@ -70,9 +108,7 @@ public class DoorController : MonoBehaviour
 
         Interactable interactable = GetComponent<Interactable>();
         if (interactable != null)
-        {
             interactable.isLocked = true;
-        }
 
         RoomDoor roomDoor = GetComponent<RoomDoor>();
         if (roomDoor != null)
@@ -106,8 +142,32 @@ public class DoorController : MonoBehaviour
             roomDoor.Unlock();
     }
 
-    public bool IsOpen()
+    public void ResetDoor()
     {
-        return isOpen;
+        isLocked = false;
+        isOpen = false;
+
+        spriteRenderer.sprite = closedSprite;
+
+        BoxCollider2D blockingCollider = GetComponent<BoxCollider2D>();
+        if (blockingCollider != null)
+            blockingCollider.enabled = true;
+
+        Interactable interactable = GetComponent<Interactable>();
+        if (interactable != null)
+        {
+            interactable.isLocked = false;
+            interactable.enabled = true;
+            interactable.HidePrompt();
+        }
+
+        RoomDoor roomDoor = GetComponent<RoomDoor>();
+        if (roomDoor != null)
+        {
+            roomDoor.Unlock();
+            roomDoor.ResetToRoomA();
+        }
     }
+
+    public bool IsOpen() { return isOpen; }
 }

@@ -175,4 +175,11 @@ public class BossHealthBar : MonoBehaviour
         if (bossHUD != null)
             bossHUD.style.opacity = 1f;
     }
+
+    public void HideHealthBar()
+    {
+        isVisible = false;
+        if (bossHUD != null)
+            bossHUD.style.opacity = 0f;
+    }
 }

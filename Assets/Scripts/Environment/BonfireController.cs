@@ -14,6 +14,9 @@ public class BonfireController : MonoBehaviour
     public CanvasGroup fadePanel;
     public float fadeDuration = 0.8f;
 
+    [Header("Spawn Settings")]
+    public bool isDefaultBonfire = false;
+
     void Start()
     {
         promptUI = FindAnyObjectByType<InteractionPromptUI>();
@@ -21,6 +24,9 @@ public class BonfireController : MonoBehaviour
         playerController = FindAnyObjectByType<PlayerController>();
         pauseMenuUI = FindAnyObjectByType<PauseMenuUI>();
         staminaSystem = FindAnyObjectByType<StaminaSystem>();
+
+        if (isDefaultBonfire)
+            RespawnManager.SetBonfirePosition(transform.position);
     }
 
     public void ShowBonfirePrompt()
@@ -62,8 +68,13 @@ public class BonfireController : MonoBehaviour
             playerStats.SetFP(playerStats.MaxFP);
         }
 
+        BossController boss = GameObject.FindFirstObjectByType<BossController>();
+        boss?.ResetBoss();
+
         if (staminaSystem != null)
             staminaSystem.RefillStamina();
+
+        playerController?.RefillFpFlasks();
 
         // Fade back in
         if (fadePanel != null)

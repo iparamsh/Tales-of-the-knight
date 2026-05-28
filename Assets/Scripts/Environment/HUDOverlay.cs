@@ -45,21 +45,7 @@ public class HUDOverlay : MonoBehaviour
             controlsShadowStyle.normal.textColor = new Color(0f, 0f, 0f, 0.2f);
             controlsShadowStyle.hover.textColor = new Color(0f, 0f, 0f, 0.2f);
         }
-
-        DrawHeals();
         DrawControls();
-    }
-
-    void DrawHeals()
-    {
-        if (playerController == null) return;
-
-        string text = $"Heals: {playerController.CurrentHeals} / {playerController.MaxHeals}";
-        float x = 20f;
-        float y = Screen.height - 60f;
-
-        GUI.Label(new Rect(x + 1, y + 1, 200, 30), text, shadowStyle);
-        GUI.Label(new Rect(x, y, 200, 30), text, textStyle);
     }
 
     void DrawControls()

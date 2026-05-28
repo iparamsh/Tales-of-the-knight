@@ -173,6 +173,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isLocked: 0
 --- !u!114 &8169410322712155429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
   closedSprite: {fileID: 1162108370, guid: 4474534478c013d4fa88177a104efa62, type: 3}
   openSprite: {fileID: -1455717765, guid: 4474534478c013d4fa88177a104efa62, type: 3}
+  requiresKey: 0
+  unlockFromLeftSide: 1
+  isBossDoor: 0
 --- !u!61 &4234477820021263813
 BoxCollider2D:
   m_ObjectHideFlags: 0

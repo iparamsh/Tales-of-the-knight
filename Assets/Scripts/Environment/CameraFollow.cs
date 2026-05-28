@@ -21,6 +21,20 @@ public class CameraFollow : MonoBehaviour
         cam = GetComponent<Camera>();
     }
 
+    [Header("Spawn Settings")]
+    public bool isDefaultBonfire = false;
+
+    void Start()
+    {
+        if (target != null)
+        {
+            Vector3 desiredPos = target.position + new Vector3(offset.x, offset.y, 0f);
+            float clampedX = Mathf.Clamp(desiredPos.x, minX, maxX);
+            float clampedY = Mathf.Clamp(desiredPos.y, minY, maxY);
+            transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+        }
+    }
+
     void FixedUpdate()
     {
         if (target == null) return;
