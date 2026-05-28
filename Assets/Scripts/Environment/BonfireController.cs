@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class BonfireController : MonoBehaviour
@@ -92,7 +93,9 @@ public class BonfireController : MonoBehaviour
 
     private void OnExit()
     {
-        // Dialog closes, player continues
+        RespawnManager.Reset();
+        PauseStateManager.ClearAll();
+        SceneManager.LoadScene(MainMenuUI.GameplaySceneName);
     }
 
     private void OpenMoreMenu()

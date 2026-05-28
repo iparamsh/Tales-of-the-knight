@@ -14,8 +14,8 @@ public class HUDOverlay : MonoBehaviour
 
     void Start()
     {
-        playerController = FindFirstObjectByType<PlayerController>();
-        playerCombat = FindFirstObjectByType<PlayerCombat>();
+        playerController = FindAnyObjectByType<PlayerController>();
+        playerCombat = FindAnyObjectByType<PlayerCombat>();
     }
 
     void OnGUI()

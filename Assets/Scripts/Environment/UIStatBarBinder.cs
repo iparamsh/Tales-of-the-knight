@@ -100,7 +100,7 @@ public class UIStatBarBinder : MonoBehaviour
         if (isBound) return;
 
         if (playerStats == null)
-            playerStats = FindFirstObjectByType<PlayerStats>();
+            playerStats = FindAnyObjectByType<PlayerStats>();
 
         if (playerStats == null) return;
 

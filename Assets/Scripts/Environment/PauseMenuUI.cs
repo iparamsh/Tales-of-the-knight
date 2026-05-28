@@ -70,6 +70,9 @@ public class PauseMenuUI : MonoBehaviour
 
     void Update()
     {
+        if (MainMenuUI.IsMainMenuOpen)
+            return;
+
         if (Keyboard.current == null || !Keyboard.current.escapeKey.wasPressedThisFrame)
             return;
 
@@ -113,7 +116,7 @@ public class PauseMenuUI : MonoBehaviour
             playerCombat.PlungeAction.Disable();
         }
 
-        Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
+        Interactable[] interactables = FindObjectsByType<Interactable>();
         foreach (Interactable i in interactables)
         {
             i.HidePrompt();
@@ -160,7 +163,7 @@ public class PauseMenuUI : MonoBehaviour
         if (playerCombat != null)
         StartCoroutine(ReenableCombatDelayed());
 
-        Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
+        Interactable[] interactables = FindObjectsByType<Interactable>();
         foreach (Interactable i in interactables)
             i.enabled = true;
     }
@@ -206,9 +209,10 @@ public class PauseMenuUI : MonoBehaviour
 
     private void RestartGame()
     {
+        MainMenuUI.SkipBootMenuOnce();
         RespawnManager.Reset();
         PauseStateManager.ClearAll();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(MainMenuUI.GameplaySceneName);
     }
 
     IEnumerator ReenableCombatDelayed()
@@ -233,12 +237,8 @@ public class PauseMenuUI : MonoBehaviour
 
     private void QuitGame()
     {
+        RespawnManager.Reset();
         PauseStateManager.ClearAll();
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        SceneManager.LoadScene(MainMenuUI.GameplaySceneName);
     }
 }

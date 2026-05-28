@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class PauseStateManager
 {
-    private static readonly HashSet<int> pauseSources = new HashSet<int>();
+    private static readonly HashSet<Object> pauseSources = new HashSet<Object>();
 
     public static bool IsPaused => pauseSources.Count > 0;
 
@@ -18,7 +18,7 @@ public static class PauseStateManager
     {
         if (source == null) return;
 
-        if (pauseSources.Add(source.GetInstanceID()))
+        if (pauseSources.Add(source))
             ApplyPauseState();
     }
 
@@ -26,7 +26,7 @@ public static class PauseStateManager
     {
         if (source == null) return;
 
-        if (pauseSources.Remove(source.GetInstanceID()))
+        if (pauseSources.Remove(source))
             ApplyPauseState();
     }
 
